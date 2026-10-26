@@ -3,75 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>스마트팩토리 제어 엔지니어 포트폴리오</title>
+  <title>스마트팩토리 제어 엔지니어 김성훈 포트폴리오</title>
   <style>
     :root {
       --primary: #1e3a8a;
       --accent: #2563eb;
-      --bg: #f8fafc;
+      --bg: #f1f5f9;
       --card: #ffffff;
       --text: #1e293b;
       --muted: #64748b;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-    
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 20px; }
+
+    /* 상단 네비게이션 바 */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(15, 23, 42, 0.95); color: white;
+      padding: 12px 24px; border-radius: 12px; margin-bottom: 20px;
+      position: sticky; top: 10px; z-index: 100; backdrop-filter: blur(8px);
+    }
+    nav .logo { font-weight: 700; font-size: 1.05rem; color: #60a5fa; }
+    nav .nav-links { display: flex; gap: 16px; }
+    nav .nav-links a { color: #e2e8f0; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    nav .nav-links a:hover { color: #60a5fa; }
+
     /* 1. 상단 히어로 섹션 */
     header {
       background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      border-radius: 16px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      color: white; padding: 55px 24px; text-align: center;
+      border-radius: 16px; margin-bottom: 32px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     }
-    header h1 { font-size: 2.2rem; margin-bottom: 12px; }
+    header h1 { font-size: 2.2rem; margin-bottom: 12px; line-height: 1.3; }
     header h1 span { color: #60a5fa; }
-    header p { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 20px; }
+    header p { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 22px; }
     .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
     .tag { background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
 
     /* 섹션 공통 */
-    section { margin-bottom: 40px; }
-    h2 { font-size: 1.5rem; margin-bottom: 16px; color: #0f172a; border-left: 5px solid var(--accent); padding-left: 12px; }
+    section { margin-bottom: 40px; scroll-margin-top: 70px; }
+    h2 { font-size: 1.5rem; margin-bottom: 18px; color: #0f172a; border-left: 5px solid var(--accent); padding-left: 12px; }
 
     /* 2. 핵심 역량 3단 카드 */
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-    .card { background: var(--card); padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-    .card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--primary); }
-    .card p { font-size: 0.95rem; color: var(--muted); }
+    .card { background: var(--card); padding: 22px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+    .card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); }
+    .card p { font-size: 0.92rem; color: var(--muted); }
 
-    /* 3. 프로젝트 섹션 */
-    .project-box { background: var(--card); padding: 28px; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 24px; border: 1px solid #e2e8f0; }
-    .project-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 16px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
+    /* 3. 프로젝트 박스 */
+    .project-box { background: var(--card); padding: 28px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 28px; border: 1px solid #e2e8f0; }
+    .project-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
     .project-header h3 { font-size: 1.35rem; color: #0f172a; }
-    .project-header span { font-size: 0.9rem; color: var(--muted); font-weight: 600; }
-    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; align-items: start; }
+    .project-header span { font-size: 0.88rem; color: var(--accent); font-weight: 600; background: #eff6ff; padding: 4px 10px; border-radius: 6px; }
     
-    /* 미디어 영역 (영상/이미지 자리) */
-    .media-box { background: #0f172a; color: white; border-radius: 10px; overflow: hidden; text-align: center; }
-    .media-box video, .media-box img { width: 100%; display: block; }
-    .media-placeholder { padding: 40px 20px; font-size: 0.9rem; color: #94a3b8; }
+    .asrs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; align-items: start; }
 
-    /* 트러블슈팅 박스 */
-    .ts-box { background: #f8fafc; border-left: 4px solid #3b82f6; padding: 16px; border-radius: 8px; margin-top: 12px; }
-    .ts-box h4 { font-size: 1rem; color: #1e3a8a; margin-bottom: 6px; }
-    .ts-box ul { padding-left: 18px; font-size: 0.9rem; color: #334155; }
-    .ts-box li { margin-bottom: 6px; }
+    /* 비디오 영역 */
+    .video-container { background: #0f172a; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .video-container video { width: 100%; display: block; max-height: 360px; }
+    .video-caption { background: #1e293b; color: #e2e8f0; padding: 10px 14px; font-size: 0.88rem; text-align: center; }
 
-    /* 하단 연락처 */
+    /* 트러블슈팅 카드 */
+    .ts-list { display: flex; flex-direction: column; gap: 12px; }
+    .ts-item { background: #f8fafc; border-left: 4px solid var(--accent); padding: 14px 16px; border-radius: 8px; border-top: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+    .ts-item h4 { font-size: 0.98rem; color: var(--primary); margin-bottom: 6px; }
+    .ts-item p { font-size: 0.88rem; color: #334155; }
+
+    /* IoT 다중 사진 갤러리 (클릭 시 확대) */
+    .iot-summary { background: #f8fafc; padding: 16px 20px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .iot-summary ul { padding-left: 20px; font-size: 0.92rem; color: #334155; }
+    .iot-summary li { margin-bottom: 6px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .gallery-item { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+    .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .gallery-item img { width: 100%; height: 180px; object-fit: cover; display: block; background: #0f172a; }
+    .gallery-caption { padding: 10px 12px; font-size: 0.85rem; font-weight: 600; color: #334155; text-align: center; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+
+    /* 이미지 확대 모달 */
+    .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 20px; }
+    .modal img { max-width: 95%; max-height: 90vh; border-radius: 8px; }
+    .modal-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2rem; font-weight: bold; cursor: pointer; }
+
+    /* 하단 푸터 */
     footer { background: #0f172a; color: white; padding: 35px 20px; border-radius: 14px; text-align: center; }
-    footer p { color: #94a3b8; margin-top: 8px; font-size: 0.95rem; }
+    footer p { color: #cbd5e1; margin-top: 8px; font-size: 0.95rem; }
+    footer a { color: #60a5fa; text-decoration: none; }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <!-- 1. 상단 히어로 섹션 -->
+    <!-- 상단 고정 메뉴 (#앵커 이동 지원) -->
+    <nav>
+      <div class="logo">SUNGHUN PORTFOLIO</div>
+      <div class="nav-links">
+        <a href="#competencies">핵심역량</a>
+        <a href="#asrs">ASRS 프로젝트</a>
+        <a href="#iot">IoT 센서통합</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- 1. 히어로 섹션 -->
     <header>
-      <h1>현장의 혈맥을 제어하는<br><span>스마트팩토리 엔지니어 [본인 이름]</span></h1>
+      <h1>현장의 혈맥을 제어하는<br><span>스마트팩토리 엔지니어 김성훈</span></h1>
       <p>PLC 모션 제어부터 HMI/SCADA 데이터 시각화, 현장 안전 인터락까지 구현합니다.</p>
       <div class="tags">
         <span class="tag">#MELSEC_PLC</span>
@@ -83,90 +120,112 @@
       </div>
     </header>
 
-    <!-- 2. 핵심 역량 요약 -->
+    <!-- 2. 핵심 직무 역량 -->
     <section id="competencies">
       <h2>핵심 직무 역량 (Core Competencies)</h2>
       <div class="grid-3">
         <div class="card">
-          <h3>⚙️ 1. 정밀 모션 및 시퀀스 제어</h3>
-          <p>미쓰비시(Q03UDVCPU, QD77MS4) 및 서보 앰프(MR-J4W2-22B) 기반 XY 2축 보간 제어, M코드 공압 연동 및 입출고 시퀀스 로직 설계</p>
+          <h3>⚙️ 정밀 모션 및 시퀀스 제어</h3>
+          <p>미쓰비시(Q03UDVCPU, QD77MS4) 및 서보 앰프(MR-J4W2-22B) 기반 XY 2축 직선보간 제어, M코드 공압 실린더 연동 및 입출고 시퀀스 설계</p>
         </div>
         <div class="card">
-          <h3>📊 2. IoT 센서 계측 및 모니터링</h3>
-          <p>MELSEC 및 Siemens PLC를 활용한 5대 물리량(온도·압력·유속·유량·전류) 수집, HMI/X-SCADA/Node-RED 시각화 및 MySQL DB 연동</p>
+          <h3>📊 IoT 센서 계측 및 모니터링</h3>
+          <p>MELSEC 및 Siemens PLC를 활용한 5대 물리량(온도·압력·유속·유량·전류) 수집, HMI/X-SCADA/Node-RED 실시간 시각화 및 MySQL 연동</p>
         </div>
         <div class="card">
-          <h3>🛠️ 3. 현장 중심 트러블슈팅</h3>
+          <h3>🛠️ 현장 중심 트러블슈팅</h3>
           <p>래더/HMI 강제 에러 주입을 통한 시그널타워(패트라이트) 알람 검증, 바코드 오입고 방지 및 공압 복구 안전 인터락 회로 구현</p>
         </div>
       </div>
     </section>
 
-    <!-- 3. 프로젝트 1: ASRS -->
-    <section id="projects">
-      <h2>주요 프로젝트 (Core Projects)</h2>
-      
+    <!-- 3. 프로젝트 1: ASRS 자동창고 -->
+    <section id="asrs">
+      <h2>주요 프로젝트 1 : 서보 기반 자동창고 입출고 시스템 (ASRS)</h2>
       <div class="project-box">
         <div class="project-header">
-          <h3>프로젝트 1 : 서보 기반 자동창고 입출고 시스템 (ASRS)</h3>
-          <span>MELSEC PLC · GX Works2 · QD77MS4 · LS HMI (XP-Builder)</span>
+          <h3>XY 2축 서보 직선보간 제어 및 바코드·공압 연동 입출고</h3>
+          <span>MELSEC Q03UDV · QD77MS4 · MR-J4W2-22B · LS HMI</span>
         </div>
-        
-        <div class="project-grid">
+
+        <div class="asrs-grid">
+          <!-- 왼쪽: 실제 구동 영상 -->
           <div>
-            <div class="media-box">
-              <!-- 나중에 영상 파일(asrs.mp4)을 올리면 바로 재생됩니다 -->
-              <video controls poster="">
+            <div class="video-container">
+              <video controls preload="metadata">
                 <source src="asrs.mp4" type="video/mp4">
+                브라우저가 비디오 태그를 지원하지 않습니다.
               </video>
-              <div class="media-placeholder">
-                🎥 <b>[ASRS 구동 및 에러 테스트 시연 영상]</b><br>
-                (깃허브에 <code>asrs.mp4</code> 파일을 업로드하면 이 자리에 영상이 재생됩니다)
-              </div>
+              <div class="video-caption">🎥 ASRS 자동창고 입출고 구동 및 에러 알람 시연 영상</div>
             </div>
-            <p style="font-size: 0.9rem; color: #475569; margin-top: 12px;">
-              • <b>주요 구현:</b> 바코드 품목 식별 → XY 2축 서보 직선보간 이동 → 공압 포크(로드리스/듀얼로드 실린더) 적재·인출 → HMI 좌표 티칭 및 강제 에러 주입 패트라이트 검증
-            </p>
+            <div class="iot-summary" style="margin-top: 14px; margin-bottom: 0;">
+              <ul>
+                <li><b>담당 역할:</b> XY 직선보간 좌표 티칭·백업, 창고 8-Bay 입출고 동작 및 서보·공압 포크(M코드) 연동 제어</li>
+                <li><b>강제 에러 주입 검증:</b> 래더 및 HMI(D20·D22)에서 강제로 에러 값을 주입하여 시그널타워(적·황·녹 패트라이트) 및 부저 알람 동작 완벽 검증</li>
+              </ul>
+            </div>
           </div>
 
-          <div>
-            <div class="ts-box">
-              <h4>🔧 핵심 트러블슈팅 및 예외 처리</h4>
-              <ul>
-                <li><b>미등록 바코드 오입고 방지:</b> 이전 바코드 데이터 잔류로 인한 오입고를 막기 위해 제품 검색 접점(M241~M248) 전체 불일치 시 판정 플래그(M305) 및 입고 차단 인터락 추가</li>
-                <li><b>출고 바코드 스캔 실패 시 무한 정지 개선:</b> 읽기 실패 및 불일치 시 서보를 즉시 정지시키는 대신 HMI 알람 팝업 후 재스캔 대기 및 원위치 복귀 로직 적용</li>
-                <li><b>공압 복구 시 자동 재개 방지 (안전 인터락):</b> 설비 상태를 '대기'와 '작업 중'으로 분리하여, 작업 중 공압 복구 시 작업자가 화면 확인 후 개별 재개 버튼을 눌러야만 가동되도록 개선</li>
-              </ul>
+          <!-- 오른쪽: 핵심 트러블슈팅 3종 -->
+          <div class="ts-list">
+            <div class="ts-item">
+              <h4>🔧 트러블슈팅 1 : 미등록 바코드 잔류로 인한 오입고 방지</h4>
+              <p><b>문제:</b> 미등록 바코드 스캔 시 PLC 내부에 이전 정상 제품의 바코드 정보가 갱신되지 않고 남아 이전 제품 위치로 오입고되는 현상 발생<br>
+              <b>해결:</b> 등록 제품 검색 접점(M241~M248) 전체 불일치 시 미등록 판정 플래그(M305) 및 에러 코드(K11)를 출력하고 입고 기동을 차단하는 인터락 추가</p>
+            </div>
+
+            <div class="ts-item">
+              <h4>🔧 트러블슈팅 2 : 출고 바코드 에러 시 서보 무한 정지 개선</h4>
+              <p><b>문제:</b> 출고 스캔 실패("ERROR") 또는 품목 불일치 시 서보가 즉시 정지하여 PLC 리셋 전까지 연속 작업이 마비되는 문제<br>
+              <b>해결:</b> 서보를 멈추지 않고 HMI 알람 팝업(M320/M321) 후 재스캔 대기 상태로 전환하며, 오출고 시 이전 출구로 자동 복귀 후 재이동하는 복구 로직 구현</p>
+            </div>
+
+            <div class="ts-item">
+              <h4>🔧 트러블슈팅 3 : 공압 복구 시 예기치 않은 작업 자동 재개 방지</h4>
+              <p><b>문제:</b> 압력 저하 후 수동 밸브 개방 및 공압 복구 버튼 입력 시 중단된 작업이 즉시 자동 재개되어 작업자 안전사고 위험 발생<br>
+              <b>해결:</b> 설비 상태를 '대기'와 '작업 중'으로 분리하여, 작업 중 복구 시에는 작업자가 HMI에서 중단 상태를 확인한 후 개별 재개 버튼을 눌러야만 재가동되도록 안전 인터락 강화</p>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- 4. 프로젝트 2: IoT 센서 통합 -->
+    <!-- 4. 프로젝트 2: IoT 센서 통합 (다중 사진 갤러리) -->
+    <section id="iot">
+      <h2>주요 프로젝트 2 : IoT 기반 필드 센서 계측 및 제어 시스템</h2>
       <div class="project-box">
         <div class="project-header">
-          <h3>프로젝트 2 : IoT 기반 필드 센서 계측 및 제어 시스템</h3>
+          <h3>다중 센서(온도·압력·유속·유량·전류) 수집·래더화 및 SCADA/DB 통합</h3>
           <span>MELSEC(Q64AD) · Siemens(S7-1200) · X-SCADA · MySQL · Node-RED</span>
         </div>
-        
-        <div class="project-grid">
-          <div class="media-box">
-            <img src="iot_dashboard.png" alt="HMI 및 SCADA 대시보드 화면" onerror="this.style.display='none'">
-            <div class="media-placeholder">
-              🖥️ <b>[HMI / X-SCADA 통합 대시보드 및 DB 연동 화면]</b><br>
-              (깃허브에 <code>iot_dashboard.png</code> 캡처 이미지를 올리면 여기에 표시됩니다)
-            </div>
-          </div>
 
-          <div>
-            <div class="ts-box">
-              <h4>📌 핵심 구현 내용</h4>
-              <ul>
-                <li><b>다중 센서 데이터 수집 및 스케일링:</b> 온도·압력·유속·전류(4~20mA/전압, Q64AD) 및 유량(펄스, S7-1200 고속카운터 HSC) 신호를 공학 단위로 환산 및 래더 로직화</li>
-                <li><b>물탱크 정량 주입 제어:</b> 유량·압력 데이터를 연동하여 목표 유량(SV) 도달 시 솔레노이드 밸브를 자동 차단하는 정량 제어 구현</li>
-                <li><b>실시간 모니터링 및 DB 이력 관리:</b> LS HMI 및 X-SCADA, Node-RED 대시보드로 실시간 트렌드를 시각화하고 5초 주기로 MySQL(iot_sensor 테이블)에 자동 기록</li>
-              </ul>
-            </div>
+        <div class="iot-summary">
+          <ul>
+            <li><b>다중 신호 계측 및 공학 단위 환산:</b> 4~20mA/전압 아날로그 입력(Q64AD)과 터빈 유량 펄스 입력(S7-1200 고속카운터 HSC)을 공학 단위로 스케일링하고 임계값 초과 및 센서 고장 판별 래더 구현</li>
+            <li><b>HMI 물탱크 정량 주입 제어:</b> 유량·압력 데이터를 연동하여 목표 유량(SV) 도달 시(D48 ≥ D38) 솔레노이드 밸브(Y10)를 자동 차단하는 응용 제어 구현</li>
+            <li><b>상위 모니터링 및 DB 이력 관리:</b> LS HMI, X-SCADA, Node-RED 대시보드로 실시간 트렌드를 시각화하고 5초 주기로 MySQL(iot_sensor 테이블)에 자동 저장·조회 구현</li>
+          </ul>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 10px;">💡 아래 이미지를 클릭하면 원본 크기로 크게 확대하여 보실 수 있습니다.</p>
+
+        <!-- 사진 갤러리 (업로드한 사진만 자동 표시됨) -->
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+            <img src="iot1.png" alt="실습 장비 전체 구성" onerror="this.parentElement.style.display='none'">
+            <div class="gallery-caption">1. PLC·센서 하드웨어 및 통합 전경</div>
+          </div>
+          <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+            <img src="iot2.png" alt="X-SCADA 및 MySQL 연동" onerror="this.parentElement.style.display='none'">
+            <div class="gallery-caption">2. X-SCADA 대시보드 및 DB 연동</div>
+          </div>
+          <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+            <img src="iot3.png" alt="LS HMI 정량주입기 및 센서 화면" onerror="this.parentElement.style.display='none'">
+            <div class="gallery-caption">3. LS HMI 모니터링 및 정량주입기</div>
+          </div>
+          <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+            <img src="iot4.png" alt="Node-RED 웹 대시보드 및 래더 로직" onerror="this.parentElement.style.display='none'">
+            <div class="gallery-caption">4. Node-RED 대시보드 및 제어 로직</div>
           </div>
         </div>
       </div>
@@ -175,10 +234,22 @@
     <!-- 5. 하단 연락처 -->
     <footer id="contact">
       <h3>Contact & Links</h3>
-      <p>📧 이메일: 본인이메일@naver.com &nbsp;|&nbsp; 📞 연락처: 010-XXXX-XXXX</p>
-      <p>💻 GitHub: https://github.com/rlatjdgns9441</p>
+      <p>글로벌 소통 역량(유럽 체류 경험 및 실전 영어 회화)과 탄탄한 제어 기본기로 현장에 즉시 기여하겠습니다.</p>
+      <p style="margin-top: 12px;">💻 GitHub Repository: <a href="https://github.com/rlatjdgns9441/Projecct" target="_blank">github.com/rlatjdgns9441/Projecct</a></p>
     </footer>
   </div>
 
+  <!-- 사진 클릭 확대 모달창 -->
+  <div id="imgModal" class="modal" onclick="this.style.display='none'">
+    <span class="modal-close">&times;</span>
+    <img id="modalImg" src="" alt="확대 이미지">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imgModal').style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
