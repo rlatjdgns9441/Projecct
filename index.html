@@ -15,7 +15,7 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: var(--bg); color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
-    .container { max-width: 1040px; margin: 0 auto; padding: 20px; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 20px; }
 
     nav {
       display: flex; justify-content: space-between; align-items: center;
@@ -53,19 +53,20 @@
     .project-header h3 { font-size: 1.35rem; color: #0f172a; }
     .project-header span { font-size: 0.88rem; color: var(--accent); font-weight: 600; background: #eff6ff; padding: 4px 10px; border-radius: 6px; }
     
-    .asrs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; align-items: start; }
+    /* 왼쪽 동영상 영역을 더 넓고 시원하게 배치 (1.25 : 1 비율) */
+    .asrs-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px; align-items: start; }
 
-    /* 5개 버튼에 최적화된 멀티 비디오 플레이어 스타일 */
-    .video-container { background: #0f172a; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .video-container video { width: 100%; display: block; max-height: 280px; }
+    /* 동영상 플레이어 크기 대폭 확대 */
+    .video-container { background: #000000; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+    .video-container video { width: 100%; height: auto; min-height: 320px; max-height: 480px; display: block; object-fit: contain; background: #000; }
     
     .video-chapters {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px;
-      background: #1e293b; padding: 8px;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;
+      background: #1e293b; padding: 10px;
     }
     .chapter-btn {
-      background: #334155; color: #e2e8f0; border: none; padding: 8px 2px;
-      font-size: 0.72rem; font-weight: 600; border-radius: 6px; cursor: pointer;
+      background: #334155; color: #e2e8f0; border: none; padding: 10px 4px;
+      font-size: 0.8rem; font-weight: 600; border-radius: 6px; cursor: pointer;
       transition: background 0.2s, color 0.2s; text-align: center;
     }
     .chapter-btn:hover { background: var(--accent); color: white; }
@@ -79,7 +80,8 @@
 
     .iot-summary { background: #f8fafc; padding: 16px 20px; border-radius: 10px; margin-top: 14px; border: 1px solid #e2e8f0; }
     .iot-summary ul { padding-left: 20px; font-size: 0.92rem; color: #334155; }
-    .iot-summary li { margin-bottom: 6px; }
+    .iot-summary li { margin-bottom: 8px; }
+    .iot-summary li:last-child { margin-bottom: 0; }
 
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
     .gallery-item { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
@@ -95,7 +97,8 @@
     footer p { color: #cbd5e1; margin-top: 8px; font-size: 0.95rem; }
     footer a { color: #60a5fa; text-decoration: none; }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
+      .asrs-grid { grid-template-columns: 1fr; }
       .video-chapters { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
@@ -155,12 +158,12 @@
         <div class="asrs-grid">
           <div>
             <div class="video-container">
-              <video id="asrsVideo" controls playsinline preload="metadata">
-                <source id="videoSource" src="asrs_total.mp4" type="video/mp4">
+              <!-- 기본 영상을 현재 깃허브에 올라와 있는 asrs.mp4로 연결해 바로 재생되도록 설정 -->
+              <video id="asrsVideo" src="asrs.mp4" controls playsinline preload="metadata">
                 브라우저가 비디오 태그를 지원하지 않습니다.
               </video>
               <div class="video-chapters">
-                <button class="chapter-btn active" onclick="switchVideo('asrs_total.mp4', this)">1. 전체 시연</button>
+                <button class="chapter-btn active" onclick="switchVideo('asrs.mp4', this)">1. 전체 시연</button>
                 <button class="chapter-btn" onclick="switchVideo('asrs_signal.mp4', this)">2. 시그널타워</button>
                 <button class="chapter-btn" onclick="switchVideo('asrs_ts1.mp4', this)">3. TS 1</button>
                 <button class="chapter-btn" onclick="switchVideo('asrs_ts2.mp4', this)">4. TS 2</button>
@@ -168,10 +171,12 @@
               </div>
             </div>
 
+            <!-- 시그널타워 강제 에러 주입 검증 내용 복구 완료 -->
             <div class="iot-summary">
               <ul>
                 <li><b>담당 역할:</b> XY 직선보간 좌표 티칭·백업, 창고 8-Bay 입출고 동작 및 서보·공압 포크(M코드) 연동 제어</li>
-                <li><b>검증 내용:</b> 전체 입출고 시퀀스 구동 및 에러 발생 시 시스템 예외 처리에 대한 실물 작동 검증</li>
+                <li><b>강제 에러 주입 검증:</b> 래더 및 HMI(D20·D22)에서 강제로 에러 값을 주입하여 시그널타워(적·황·녹 패트라이트) 및 부저 알람 동작 완벽 검증</li>
+                <li><b>통합 시운전 검증:</b> 전체 입출고 시퀀스 구동 및 바코드·공압 에러 발생 시 시스템 예외 처리에 대한 실물 작동 검증</li>
               </ul>
             </div>
           </div>
@@ -180,7 +185,7 @@
             <div class="ts-item">
               <h4>🔧 트러블슈팅 1 : 바코드 불일치 및 오입고 방지 인터록</h4>
               <p><b>문제:</b> 스캔 데이터(D732)와 출고 목표(D140) 불일치 시 기존 시스템이 에러 처리 없이 동작을 종료하여 큐 정지 및 오입고 오인식 발생</p>
-              <p><b>해결:</b> 불일치(<>) 감지 시 경고등(Y16) 점등 및 입출고 동작 강제 차단, 현장 작업자가 리셋 버튼(M402) 입력 시에만 에러가 클리어되도록 예외 처리 로직 추가</p>
+              <p><b>해결:</b> 불일치(&lt;&gt;) 감지 시 경고등(Y16) 점등 및 입출고 동작 강제 차단, 현장 작업자가 리셋 버튼(M402) 입력 시에만 에러가 클리어되도록 예외 처리 로직 추가</p>
             </div>
 
             <div class="ts-item">
@@ -247,17 +252,19 @@
 
   <div id="imgModal" class="modal" onclick="this.style.display='none'">
     <span class="modal-close">&times;</span>
-    <img id="modalImg" src="" alt="확대인증">
+    <img id="modalImg" src="" alt="확대 이미지">
   </div>
 
   <script>
     function switchVideo(filename, btn) {
       const video = document.getElementById('asrsVideo');
-      const source = document.getElementById('videoSource');
       
-      source.src = filename;
+      // 비디오 태그에 직접 경로를 지정하여 안정적으로 로드 및 재생
+      video.src = filename;
       video.load();
-      video.play();
+      video.play().catch(err => {
+        console.log('영상 파일을 찾을 수 없거나 자동재생이 제한되었습니다:', filename);
+      });
 
       document.querySelectorAll('.chapter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
