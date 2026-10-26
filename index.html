@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스마트팩토리 제어 엔지니어 포트폴리오</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --accent: #2563eb;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+    
+    /* 1. 상단 히어로 섹션 */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    header h1 { font-size: 2.2rem; margin-bottom: 12px; }
+    header h1 span { color: #60a5fa; }
+    header p { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 20px; }
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .tag { background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+
+    /* 섹션 공통 */
+    section { margin-bottom: 40px; }
+    h2 { font-size: 1.5rem; margin-bottom: 16px; color: #0f172a; border-left: 5px solid var(--accent); padding-left: 12px; }
+
+    /* 2. 핵심 역량 3단 카드 */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .card { background: var(--card); padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+    .card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--primary); }
+    .card p { font-size: 0.95rem; color: var(--muted); }
+
+    /* 3. 프로젝트 섹션 */
+    .project-box { background: var(--card); padding: 28px; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 24px; border: 1px solid #e2e8f0; }
+    .project-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 16px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
+    .project-header h3 { font-size: 1.35rem; color: #0f172a; }
+    .project-header span { font-size: 0.9rem; color: var(--muted); font-weight: 600; }
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; align-items: start; }
+    
+    /* 미디어 영역 (영상/이미지 자리) */
+    .media-box { background: #0f172a; color: white; border-radius: 10px; overflow: hidden; text-align: center; }
+    .media-box video, .media-box img { width: 100%; display: block; }
+    .media-placeholder { padding: 40px 20px; font-size: 0.9rem; color: #94a3b8; }
+
+    /* 트러블슈팅 박스 */
+    .ts-box { background: #f8fafc; border-left: 4px solid #3b82f6; padding: 16px; border-radius: 8px; margin-top: 12px; }
+    .ts-box h4 { font-size: 1rem; color: #1e3a8a; margin-bottom: 6px; }
+    .ts-box ul { padding-left: 18px; font-size: 0.9rem; color: #334155; }
+    .ts-box li { margin-bottom: 6px; }
+
+    /* 하단 연락처 */
+    footer { background: #0f172a; color: white; padding: 35px 20px; border-radius: 14px; text-align: center; }
+    footer p { color: #94a3b8; margin-top: 8px; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- 1. 상단 히어로 섹션 -->
+    <header>
+      <h1>현장의 혈맥을 제어하는<br><span>스마트팩토리 엔지니어 [본인 이름]</span></h1>
+      <p>PLC 모션 제어부터 HMI/SCADA 데이터 시각화, 현장 안전 인터락까지 구현합니다.</p>
+      <div class="tags">
+        <span class="tag">#MELSEC_PLC</span>
+        <span class="tag">#Siemens_S7-1200</span>
+        <span class="tag">#Servo_Control</span>
+        <span class="tag">#HMI_SCADA</span>
+        <span class="tag">#MySQL_NodeRED</span>
+        <span class="tag">#전기기능사</span>
+      </div>
+    </header>
+
+    <!-- 2. 핵심 역량 요약 -->
+    <section id="competencies">
+      <h2>핵심 직무 역량 (Core Competencies)</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>⚙️ 1. 정밀 모션 및 시퀀스 제어</h3>
+          <p>미쓰비시(Q03UDVCPU, QD77MS4) 및 서보 앰프(MR-J4W2-22B) 기반 XY 2축 보간 제어, M코드 공압 연동 및 입출고 시퀀스 로직 설계</p>
+        </div>
+        <div class="card">
+          <h3>📊 2. IoT 센서 계측 및 모니터링</h3>
+          <p>MELSEC 및 Siemens PLC를 활용한 5대 물리량(온도·압력·유속·유량·전류) 수집, HMI/X-SCADA/Node-RED 시각화 및 MySQL DB 연동</p>
+        </div>
+        <div class="card">
+          <h3>🛠️ 3. 현장 중심 트러블슈팅</h3>
+          <p>래더/HMI 강제 에러 주입을 통한 시그널타워(패트라이트) 알람 검증, 바코드 오입고 방지 및 공압 복구 안전 인터락 회로 구현</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 프로젝트 1: ASRS -->
+    <section id="projects">
+      <h2>주요 프로젝트 (Core Projects)</h2>
+      
+      <div class="project-box">
+        <div class="project-header">
+          <h3>프로젝트 1 : 서보 기반 자동창고 입출고 시스템 (ASRS)</h3>
+          <span>MELSEC PLC · GX Works2 · QD77MS4 · LS HMI (XP-Builder)</span>
+        </div>
+        
+        <div class="project-grid">
+          <div>
+            <div class="media-box">
+              <!-- 나중에 영상 파일(asrs.mp4)을 올리면 바로 재생됩니다 -->
+              <video controls poster="">
+                <source src="asrs.mp4" type="video/mp4">
+              </video>
+              <div class="media-placeholder">
+                🎥 <b>[ASRS 구동 및 에러 테스트 시연 영상]</b><br>
+                (깃허브에 <code>asrs.mp4</code> 파일을 업로드하면 이 자리에 영상이 재생됩니다)
+              </div>
+            </div>
+            <p style="font-size: 0.9rem; color: #475569; margin-top: 12px;">
+              • <b>주요 구현:</b> 바코드 품목 식별 → XY 2축 서보 직선보간 이동 → 공압 포크(로드리스/듀얼로드 실린더) 적재·인출 → HMI 좌표 티칭 및 강제 에러 주입 패트라이트 검증
+            </p>
+          </div>
+
+          <div>
+            <div class="ts-box">
+              <h4>🔧 핵심 트러블슈팅 및 예외 처리</h4>
+              <ul>
+                <li><b>미등록 바코드 오입고 방지:</b> 이전 바코드 데이터 잔류로 인한 오입고를 막기 위해 제품 검색 접점(M241~M248) 전체 불일치 시 판정 플래그(M305) 및 입고 차단 인터락 추가</li>
+                <li><b>출고 바코드 스캔 실패 시 무한 정지 개선:</b> 읽기 실패 및 불일치 시 서보를 즉시 정지시키는 대신 HMI 알람 팝업 후 재스캔 대기 및 원위치 복귀 로직 적용</li>
+                <li><b>공압 복구 시 자동 재개 방지 (안전 인터락):</b> 설비 상태를 '대기'와 '작업 중'으로 분리하여, 작업 중 공압 복구 시 작업자가 화면 확인 후 개별 재개 버튼을 눌러야만 가동되도록 개선</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 프로젝트 2: IoT 센서 통합 -->
+      <div class="project-box">
+        <div class="project-header">
+          <h3>프로젝트 2 : IoT 기반 필드 센서 계측 및 제어 시스템</h3>
+          <span>MELSEC(Q64AD) · Siemens(S7-1200) · X-SCADA · MySQL · Node-RED</span>
+        </div>
+        
+        <div class="project-grid">
+          <div class="media-box">
+            <img src="iot_dashboard.png" alt="HMI 및 SCADA 대시보드 화면" onerror="this.style.display='none'">
+            <div class="media-placeholder">
+              🖥️ <b>[HMI / X-SCADA 통합 대시보드 및 DB 연동 화면]</b><br>
+              (깃허브에 <code>iot_dashboard.png</code> 캡처 이미지를 올리면 여기에 표시됩니다)
+            </div>
+          </div>
+
+          <div>
+            <div class="ts-box">
+              <h4>📌 핵심 구현 내용</h4>
+              <ul>
+                <li><b>다중 센서 데이터 수집 및 스케일링:</b> 온도·압력·유속·전류(4~20mA/전압, Q64AD) 및 유량(펄스, S7-1200 고속카운터 HSC) 신호를 공학 단위로 환산 및 래더 로직화</li>
+                <li><b>물탱크 정량 주입 제어:</b> 유량·압력 데이터를 연동하여 목표 유량(SV) 도달 시 솔레노이드 밸브를 자동 차단하는 정량 제어 구현</li>
+                <li><b>실시간 모니터링 및 DB 이력 관리:</b> LS HMI 및 X-SCADA, Node-RED 대시보드로 실시간 트렌드를 시각화하고 5초 주기로 MySQL(iot_sensor 테이블)에 자동 기록</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 하단 연락처 -->
+    <footer id="contact">
+      <h3>Contact & Links</h3>
+      <p>📧 이메일: 본인이메일@naver.com &nbsp;|&nbsp; 📞 연락처: 010-XXXX-XXXX</p>
+      <p>💻 GitHub: https://github.com/rlatjdgns9441</p>
+    </footer>
+  </div>
+
+</body>
+</html>
