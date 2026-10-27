@@ -1,274 +1,2029 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>스마트팩토리 제어 엔지니어 김성훈 포트폴리오</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>김성훈 포트폴리오 | 스마트팩토리 PLC·서보·IoT 제어 엔지니어</title>
   <style>
     :root {
-      --primary: #1e3a8a;
-      --accent: #2563eb;
-      --bg: #f1f5f9;
-      --card: #ffffff;
-      --text: #1e293b;
-      --muted: #64748b;
+      --bg-main: #0b1120;
+      --bg-card: #111827;
+      --bg-card-sub: #1e293b;
+      --border-color: #334155;
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #6366f1;
+      --accent-green: #22c55e;
+      --accent-amber: #f59e0b;
+      --accent-red: #ef4444;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
-    .container { max-width: 1120px; margin: 0 auto; padding: 20px; }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* 상단 스크롤 프로그레스 바 */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-indigo), var(--accent-green));
+      width: 0%;
+      z-index: 2000;
+      transition: width 0.1s ease;
+    }
+
+    /* 네비게이션 */
     nav {
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(15, 23, 42, 0.95); color: white;
-      padding: 12px 24px; border-radius: 12px; margin-bottom: 20px;
-      position: sticky; top: 10px; z-index: 100; backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 17, 32, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1240px;
+      margin: 0 auto;
     }
-    nav .logo { font-weight: 700; font-size: 1.05rem; color: #60a5fa; }
-    nav .nav-links { display: flex; gap: 16px; }
-    nav .nav-links a { color: #e2e8f0; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
-    nav .nav-links a:hover { color: #60a5fa; }
 
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 10px var(--accent-green);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-blue);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* 헤더 히어로 영역 */
     header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-      color: white; padding: 55px 24px; text-align: center;
-      border-radius: 16px; margin-bottom: 32px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      padding: 4.5rem 0 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.13), transparent 70%);
     }
-    header h1 { font-size: 2.1rem; margin-bottom: 12px; line-height: 1.3; }
-    header h1 span { color: #60a5fa; }
-    header p { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 22px; }
-    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-    .tag { background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
 
-    section { margin-bottom: 40px; scroll-margin-top: 70px; }
-    h2 { font-size: 1.5rem; margin-bottom: 18px; color: #0f172a; border-left: 5px solid var(--accent); padding-left: 12px; }
-
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-    .card { background: var(--card); padding: 22px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-    .card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); }
-    .card p { font-size: 0.92rem; color: var(--muted); }
-
-    .project-box { background: var(--card); padding: 28px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 28px; border: 1px solid #e2e8f0; }
-    .project-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
-    .project-header h3 { font-size: 1.35rem; color: #0f172a; }
-    .project-header span { font-size: 0.88rem; color: var(--accent); font-weight: 600; background: #eff6ff; padding: 4px 10px; border-radius: 6px; }
-    
-    .asrs-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px; align-items: start; }
-
-    .video-container { background: #000000; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
-    .video-container video { width: 100%; height: auto; min-height: 320px; max-height: 480px; display: block; object-fit: contain; background: #000; }
-    
-    .video-chapters {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;
-      background: #1e293b; padding: 10px;
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #4ade80;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
     }
-    .chapter-btn {
-      background: #334155; color: #e2e8f0; border: none; padding: 10px 4px;
-      font-size: 0.8rem; font-weight: 600; border-radius: 6px; cursor: pointer;
-      transition: background 0.2s, color 0.2s; text-align: center;
+
+    header h1 {
+      font-size: clamp(1.85rem, 4vw, 2.85rem);
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
     }
-    .chapter-btn:hover { background: var(--accent); color: white; }
-    .chapter-btn.active { background: var(--accent); color: white; }
 
-    .ts-list { display: flex; flex-direction: column; gap: 12px; }
-    .ts-item { background: #f8fafc; border-left: 4px solid var(--accent); padding: 14px 16px; border-radius: 8px; border: 1px solid #e2e8f0; }
-    .ts-item h4 { font-size: 0.95rem; color: var(--primary); margin-bottom: 6px; }
-    .ts-item p { font-size: 0.85rem; color: #334155; margin-bottom: 4px; }
-    .ts-item p b { color: #0f172a; }
+    header h1 span {
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-    .iot-summary { background: #f8fafc; padding: 16px 20px; border-radius: 10px; margin-top: 14px; border: 1px solid #e2e8f0; }
-    .iot-summary ul { padding-left: 20px; font-size: 0.92rem; color: #334155; }
-    .iot-summary li { margin-bottom: 8px; }
-    .iot-summary li:last-child { margin-bottom: 0; }
+    header p {
+      color: var(--text-sub);
+      font-size: 1.08rem;
+      max-width: 720px;
+      margin: 0 auto 1.6rem;
+    }
 
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-    .gallery-item { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
-    .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-    .gallery-item img { width: 100%; height: 180px; object-fit: cover; display: block; background: #0f172a; }
-    .gallery-caption { padding: 10px 12px; font-size: 0.85rem; font-weight: 600; color: #334155; text-align: center; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+    .tag-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 2rem;
+    }
 
-    .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 20px; }
-    .modal img { max-width: 95%; max-height: 90vh; border-radius: 8px; }
-    .modal-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2rem; font-weight: bold; cursor: pointer; }
+    .tag-list span {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      color: #e2e8f0;
+      padding: 0.38rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
 
-    footer { background: #0f172a; color: white; padding: 35px 20px; border-radius: 14px; text-align: center; }
-    footer p { color: #cbd5e1; margin-top: 8px; font-size: 0.95rem; }
-    footer a { color: #60a5fa; text-decoration: none; }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
 
-    @media (max-width: 860px) {
-      .asrs-grid { grid-template-columns: 1fr; }
-      .video-chapters { grid-template-columns: repeat(3, 1fr); }
+    .btn-primary, .btn-outline {
+      padding: 0.7rem 1.35rem;
+      border-radius: 0.6rem;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-outline {
+      background: rgba(30, 41, 59, 0.8);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+
+    /* 공통 섹션 */
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .section-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-desc {
+      color: var(--text-sub);
+      font-size: 0.96rem;
+      margin-bottom: 2rem;
+    }
+
+    /* 이력 및 자격 요약 (Profile & Education) */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 0.9rem;
+      padding: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-blue);
+    }
+
+    .info-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+      color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .info-card ul {
+      list-style: none;
+      font-size: 0.92rem;
+      color: #cbd5e1;
+    }
+
+    .info-card ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.9rem;
+      position: relative;
+    }
+
+    .info-card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+    }
+
+    /* 핵심 역량 3단 카드 */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .comp-card {
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.7), rgba(17, 24, 39, 0.95));
+      border: 1px solid var(--border-color);
+      border-radius: 0.9rem;
+      padding: 1.6rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .comp-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-blue);
+    }
+
+    .comp-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+
+    .comp-card p {
+      color: var(--text-sub);
+      font-size: 0.93rem;
+    }
+
+    /* 프로젝트 박스 */
+    .project-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1.1rem;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .project-header h3 {
+      font-size: 1.35rem;
+      color: #fff;
+    }
+
+    .tech-badge {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--accent-blue);
+      padding: 0.4rem 0.85rem;
+      border-radius: 0.5rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    /* 비디오 및 설명 2단 그리드 */
+    .media-Overview-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 920px) {
+      .media-Overview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .video-container {
+      background: #050811;
+      border: 1px solid var(--border-color);
+      border-radius: 0.85rem;
+      padding: 0.85rem;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 0.6rem;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 16 / 9;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .video-fallback-notice {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: rgba(11, 17, 32, 0.92);
+      color: var(--text-main);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.92rem;
+    }
+
+    .video-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.85rem;
+    }
+
+    .vid-btn {
+      flex: 1 1 auto;
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      color: #cbd5e1;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .vid-btn:hover, .vid-btn.active {
+      background: var(--accent-blue);
+      color: #0b1120;
+      border-color: var(--accent-blue);
+      font-weight: 700;
+    }
+
+    .vid-btn.seq-btn {
+      border-color: var(--accent-amber);
+      color: #fcd34d;
+    }
+
+    .vid-btn.seq-btn.active {
+      background: var(--accent-amber);
+      color: #0b1120;
+    }
+
+    .role-summary ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .role-summary li {
+      background: rgba(30, 41, 59, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 0.95rem 1.1rem;
+      border-radius: 0.7rem;
+      font-size: 0.92rem;
+      color: #e2e8f0;
+    }
+
+    .role-summary li b {
+      color: var(--accent-blue);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* =====================================================
+       인터랙티브 애니메이션 시뮬레이터 1 : ASRS Full-Loop
+       ===================================================== */
+    .sim-panel {
+      background: linear-gradient(180deg, #0f172a, #090d16);
+      border: 1px solid #38bdf855;
+      border-radius: 0.9rem;
+      padding: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .sim-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .sim-header h4 {
+      font-size: 1.08rem;
+      color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .sim-btn {
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #f8fafc;
+      padding: 0.4rem 0.75rem;
+      border-radius: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .sim-btn:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+
+    .sim-btn.err {
+      border-color: rgba(239, 68, 68, 0.6);
+      color: #fca5a5;
+    }
+
+    .sim-btn.err:hover {
+      background: var(--accent-red);
+      color: #fff;
+    }
+
+    .sim-btn.rst {
+      border-color: rgba(34, 197, 94, 0.6);
+      color: #86efac;
+    }
+
+    .asrs-stage {
+      display: grid;
+      grid-template-columns: 190px 1fr 180px;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    @media (max-width: 850px) {
+      .asrs-stage {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 좌측: 바코드 & 공압 실린더 상태 */
+    .asrs-left-box, .asrs-right-box {
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .scanner-box {
+      background: #0b1120;
+      border: 1px solid #334155;
+      border-radius: 0.55rem;
+      padding: 0.7rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .laser-line {
+      height: 2px;
+      width: 100%;
+      background: var(--accent-red);
+      box-shadow: 0 0 8px var(--accent-red);
+      margin: 0.4rem 0;
+      opacity: 0.25;
+      transition: opacity 0.2s;
+    }
+
+    .laser-line.scanning {
+      opacity: 1;
+      animation: laserSweep 0.6s infinite alternate;
+    }
+
+    @keyframes laserSweep {
+      from { transform: translateY(-4px); }
+      to { transform: translateY(4px); }
+    }
+
+    .cyl-viz {
+      font-size: 0.78rem;
+      background: #0b1120;
+      border: 1px solid #334155;
+      border-radius: 0.55rem;
+      padding: 0.65rem;
+    }
+
+    .cyl-bar-wrap {
+      background: #1e293b;
+      height: 12px;
+      border-radius: 999px;
+      margin-top: 0.3rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cyl-piston {
+      height: 100%;
+      width: 25%;
+      background: var(--accent-blue);
+      border-radius: 999px;
+      transition: width 0.4s ease, background 0.3s;
+    }
+
+    /* 중앙: 2층 8-Bay 그리드 & XY 서보 크레인 */
+    .asrs-center-warehouse {
+      background: #070b14;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      position: relative;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bay-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bay-cell {
+      background: rgba(30, 41, 59, 0.55);
+      border: 1px dashed #475569;
+      border-radius: 0.5rem;
+      height: 68px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .bay-cell.occupied {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      color: #86efac;
+    }
+
+    .bay-cell.target {
+      border: 2px solid var(--accent-blue);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    /* 서보 크레인 헤드 애니메이션 */
+    #servo-crane {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      border: 2px solid var(--accent-blue);
+      background: rgba(56, 189, 248, 0.22);
+      border-radius: 0.45rem;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+      z-index: 10;
+      left: 12px;
+      bottom: 12px;
+      transition: left 0.85s cubic-bezier(0.22, 1, 0.36, 1), bottom 0.85s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #fff;
+      pointer-events: none;
+    }
+
+    .mcode-strip {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid #1e293b;
+      font-size: 0.75rem;
+    }
+
+    .mcode-badge {
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.3rem;
+      background: #1e293b;
+      color: #64748b;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .mcode-badge.on {
+      background: var(--accent-blue);
+      color: #0b1120;
+      box-shadow: 0 0 8px var(--accent-blue);
+    }
+
+    /* 우측: 패트라이트(시그널 타워) */
+    .patlite-tower {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      margin: auto 0;
+    }
+
+    .pat-lamp {
+      width: 48px;
+      height: 32px;
+      border-radius: 0.35rem;
+      background: #1e293b;
+      border: 1px solid #475569;
+      transition: all 0.2s;
+    }
+
+    .pat-lamp.red.on {
+      background: var(--accent-red);
+      box-shadow: 0 0 18px var(--accent-red);
+      animation: blinkFast 0.45s infinite alternate;
+    }
+
+    .pat-lamp.amber.on {
+      background: var(--accent-amber);
+      box-shadow: 0 0 18px var(--accent-amber);
+      animation: blinkFast 0.6s infinite alternate;
+    }
+
+    .pat-lamp.green.on {
+      background: var(--accent-green);
+      box-shadow: 0 0 16px var(--accent-green);
+    }
+
+    @keyframes blinkFast {
+      from { opacity: 1; }
+      to { opacity: 0.3; }
+    }
+
+    .sim-log {
+      margin-top: 0.85rem;
+      background: #050811;
+      border: 1px solid #1e293b;
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      font-family: monospace;
+      font-size: 0.83rem;
+      color: #38bdf8;
+    }
+
+    /* 트러블슈팅 3단 카드 */
+    .ts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .ts-card {
+      background: rgba(30, 41, 59, 0.55);
+      border: 1px solid var(--border-color);
+      border-top: 3px solid var(--accent-blue);
+      border-radius: 0.8rem;
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .ts-card h4 {
+      font-size: 1.02rem;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .ts-card p {
+      font-size: 0.89rem;
+      color: #cbd5e1;
+      margin-bottom: 0.6rem;
+    }
+
+    .ts-card p b {
+      color: #f8fafc;
+    }
+
+    .ts-inline-btns {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+
+    .ts-mini-btn {
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: var(--accent-blue);
+      padding: 0.28rem 0.6rem;
+      border-radius: 0.4rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .ts-mini-btn:hover {
+      background: var(--accent-blue);
+      color: #0b1120;
+    }
+
+    /* =====================================================
+       인터랙티브 애니메이션 2 : IoT 아키텍처 & 물탱크 정량주입
+       ===================================================== */
+    .arch-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+      margin-bottom: 1.4rem;
+      position: relative;
+    }
+
+    @media (max-width: 850px) {
+      .arch-flow {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .arch-node {
+      background: #111827;
+      border: 1px solid #334155;
+      border-radius: 0.7rem;
+      padding: 0.9rem;
+      position: relative;
+    }
+
+    .arch-node h5 {
+      font-size: 0.86rem;
+      color: var(--accent-blue);
+      margin-bottom: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 8px var(--accent-green);
+      animation: pulseGlow 1.2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.4; }
+    }
+
+    .arch-node p {
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+
+    .iot-sim-stage {
+      display: grid;
+      grid-template-columns: 1fr 220px 1fr;
+      gap: 1.1rem;
+      align-items: center;
+      background: #070b14;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1.1rem;
+    }
+
+    @media (max-width: 850px) {
+      .iot-sim-stage {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tank-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .water-tank {
+      width: 130px;
+      height: 150px;
+      border: 3px solid #94a3b8;
+      border-top: none;
+      border-radius: 0 0 0.75rem 0.75rem;
+      background: rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #tank-water {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.85), rgba(37, 99, 235, 0.9));
+      transition: height 0.15s linear;
+    }
+
+    .tank-target-line {
+      position: absolute;
+      bottom: 50%;
+      left: 0;
+      width: 100%;
+      border-top: 2px dashed var(--accent-amber);
+      z-index: 2;
+      font-size: 0.68rem;
+      color: #fcd34d;
+      padding-left: 4px;
+    }
+
+    .sensor-readout-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+
+    .readout-item {
+      background: #111827;
+      border: 1px solid #1e293b;
+      padding: 0.55rem 0.7rem;
+      border-radius: 0.5rem;
+      font-size: 0.78rem;
+    }
+
+    .readout-item span {
+      display: block;
+      color: var(--text-sub);
+      font-size: 0.72rem;
+    }
+
+    .readout-item strong {
+      font-family: monospace;
+      font-size: 0.95rem;
+      color: var(--accent-blue);
+    }
+
+    /* 이미지 4단 갤러리 */
+    .img-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .img-card {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .img-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-blue);
+    }
+
+    .img-card img {
+      width: 100%;
+      height: 165px;
+      object-fit: cover;
+      display: block;
+      background: #090d16;
+    }
+
+    .img-card div {
+      padding: 0.7rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      color: #e2e8f0;
+    }
+
+    /* 핵심 래더 로직 탭 뷰어 */
+    .ladder-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .ladder-tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-sub);
+      padding: 0.6rem 1rem;
+      border-radius: 0.55rem;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .ladder-tab-btn.active {
+      background: var(--accent-blue);
+      color: #0b1120;
+      border-color: var(--accent-blue);
+    }
+
+    .ladder-pane {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 0.9rem;
+      padding: 1.5rem;
+    }
+
+    .ladder-pane.active {
+      display: block;
+    }
+
+    .ladder-code {
+      background: #050811;
+      border: 1px solid #1e293b;
+      border-radius: 0.6rem;
+      padding: 1.1rem;
+      font-family: "Courier New", monospace;
+      font-size: 0.84rem;
+      color: #a5f3fc;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    /* 푸터 및 연락처 */
+    footer {
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+
+    .contact-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin: 1.75rem 0;
+    }
+
+    .contact-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .contact-pill:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    /* 이미지 확대 모달 */
+    #img-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    #img-modal img {
+      max-width: 92%;
+      max-height: 88vh;
+      border-radius: 0.6rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.8rem;
+      font-size: 2.2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* 복사 알림 토스트 */
+    #toast {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      background: var(--accent-green);
+      color: #052e16;
+      font-weight: 800;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.6rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transform: translateY(15px);
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 4000;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <nav>
-      <div class="logo">SUNGHUN PORTFOLIO</div>
-      <div class="nav-links">
-        <a href="#competencies">핵심역량</a>
-        <a href="#asrs">ASRS 프로젝트</a>
-        <a href="#iot">IoT 센서통합</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+  <div id="scroll-progress"></div>
 
+  <nav>
+    <div class="nav-logo"><span></span> SUNGHUN PORTFOLIO</div>
+    <div class="nav-links">
+      <a href="#about">이력·자격</a>
+      <a href="#competencies">핵심역량</a>
+      <a href="#asrs">ASRS 프로젝트</a>
+      <a href="#iot">IoT 센서통합</a>
+      <a href="#ladder">핵심래더</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- HERO HEADER -->
     <header>
+      <div class="status-pill">● 현장 투입 준비 완료 | PLC · Servo · HMI/SCADA · IoT</div>
       <h1>데이터와 로직으로 공장을 설계하는<br><span>스마트팩토리 엔지니어 김성훈</span></h1>
-      <p>PLC 모션 제어부터 HMI/SCADA 데이터 시각화, 현장 안전 인터락까지 구현합니다.</p>
-      <div class="tags">
-        <span class="tag">#MELSEC_PLC</span>
-        <span class="tag">#Siemens_S7-1200</span>
-        <span class="tag">#Servo_Control</span>
-        <span class="tag">#HMI_SCADA</span>
-        <span class="tag">#MySQL_NodeRED</span>
-        <span class="tag">#전기기능사</span>
+      <p>PLC 모션 제어부터 다중 센서 계측, HMI/SCADA/Node-RED 시각화, 예외 처리 안전 인터락까지 직접 배선하고 디버깅합니다.</p>
+      <div class="tag-list">
+        <span>#MELSEC_Q03UDV_UDE</span>
+        <span>#QD77MS4_SimpleMotion</span>
+        <span>#MR-J4W2-22B_Servo</span>
+        <span>#Siemens_S7-1200</span>
+        <span>#LS_HMI_X-SCADA</span>
+        <span>#MySQL_NodeRED</span>
+        <span>#전기기능사(실기예정)</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#asrs" class="btn-primary">🚀 대표 프로젝트 & 시뮬레이터 보기</a>
+        <a href="#contact" class="btn-outline">📞 연락처 및 이력서 확인</a>
       </div>
     </header>
 
-    <section id="competencies">
-      <h2>핵심 직무 역량 (Core Competencies)</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>⚙️ 정밀 모션 및 시퀀스 제어</h3>
-          <p>미쓰비시(Q03UDVCPU, QD77MS4) 및 서보 앰프(MR-J4W2-22B) 기반 XY 2축 직선보간 제어, M코드 공압 실린더 연동 및 입출고 시퀀스 설계</p>
+    <!-- ABOUT & EDUCATION / CERTIFICATIONS -->
+    <section id="about">
+      <h2 class="section-title">🎓 교육 이수 및 자격 사항 (Qualifications & Spec)</h2>
+      <p class="section-desc">전장 배선부터 PLC 래더 설계, 서보 티칭, 상위 DB 연동까지 108일간의 집중 실무 교육과 캡스톤 프로젝트를 완수했습니다.</p>
+      <div class="profile-grid">
+        <div class="info-card">
+          <h3>🏫 수료 교육 과정</h3>
+          <ul>
+            <li><b>과정명:</b> 스마트팩토리(PLC, HMI) 기반 IoT 구축 및 서보제어 실무자 양성 (108일 이수)</li>
+            <li><b>캡스톤 1:</b> IoT 기반 필드 센서 계측 및 제어 (130시간)</li>
+            <li><b>캡스톤 2:</b> 서보 기반 자동창고 입출고 시스템 ASRS (170시간)</li>
+          </ul>
         </div>
-        <div class="card">
-          <h3>📊 IoT 센서 계측 및 모니터링</h3>
-          <p>MELSEC 및 Siemens PLC를 활용한 5대 물리량(온도·압력·유속·유량·전류) 수집, HMI/X-SCADA/Node-RED 실시간 시각화 및 MySQL 연동</p>
+        <div class="info-card">
+          <h3>🪪 보유 자격 및 역량</h3>
+          <ul>
+            <li><b>국가기술자격:</b> 전기기능사 (필기 합격 / 실기 취득예정)</li>
+            <li><b>제어/설계:</b> GX Works2, TIA Portal V18, XP-Builder, X-SCADA</li>
+            <li><b>글로벌 소통:</b> 유럽 현지 체류 경험 및 실전 영어 커뮤니케이션</li>
+          </ul>
         </div>
-        <div class="card">
-          <h3>🛠️ 현장 중심 트러블슈팅</h3>
-          <p>래더/HMI 강제 에러 주입을 통한 시그널타워(패트라이트) 알람 검증, 바코드 불일치 및 공압 이상 감지 시 예외 처리 인터락 회로 구현</p>
+        <div class="info-card">
+          <h3>🔌 하드웨어 제어 스펙</h3>
+          <ul>
+            <li><b>PLC/모션:</b> MELSEC Q03UDV/UDE, QD77MS4, Q64AD, QJ71C24N, Siemens S7-1200</li>
+            <li><b>서보/공압:</b> MR-J4W2-22B, HG-KR23/13B, SMC 로드리스·듀얼로드 실린더</li>
+            <li><b>통신/DB:</b> SSCNET III/H, RS-232/TTL, Ethernet, Node-RED, MySQL</li>
+          </ul>
         </div>
       </div>
     </section>
 
+    <!-- CORE COMPETENCIES -->
+    <section id="competencies">
+      <h2 class="section-title">⚡ 핵심 직무 역량 (Core Competencies)</h2>
+      <p class="section-desc">단순 동작 구현을 넘어 설비 보호 인터록과 데이터 정합성까지 검증하는 실무형 엔지니어링 역량입니다.</p>
+      <div class="comp-grid">
+        <div class="comp-card">
+          <h3>⚙️ 정밀 모션 및 시퀀스 제어</h3>
+          <p>미쓰비시(Q03UDVCPU, QD77MS4) 및 서보 앰프(MR-J4W2-22B) 기반 XY 2축 직선보간 제어(볼스크류 리드 10mm/12mm), M코드(M10~M70) 공압 실린더 연동 및 8-Bay 입출고 시퀀스 설계</p>
+        </div>
+        <div class="comp-card">
+          <h3>📊 IoT 센서 계측 및 모니터링</h3>
+          <p>MELSEC(Q64AD) 및 Siemens(S7-1200 HSC)를 활용한 5대 물리량(온도·압력·유속·유량·전류) 공학 단위 환산, LS HMI·X-SCADA·Node-RED 실시간 시각화 및 MySQL(5초 주기) 자동 연동</p>
+        </div>
+        <div class="comp-card">
+          <h3>🛠️ 현장 중심 트러블슈팅</h3>
+          <p>래더/HMI 강제 에러 주입(D20·D22)을 통한 시그널타워(패트라이트 Y15~Y17) 알람 검증, 바코드 불일치·공압 이상·센서 단선(AD < -50) 감지 시 설비 보호 인터록 회로 구현</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 1: ASRS -->
     <section id="asrs">
-      <h2>주요 프로젝트 1 : 서보 기반 자동창고 입출고 시스템 (ASRS)</h2>
+      <h2 class="section-title">🏗️ 주요 프로젝트 1 : 서보 기반 자동창고 입출고 시스템 (ASRS)</h2>
+      <p class="section-desc">2026.10.06 ~ 2026.11.06 (170시간) | 2조 CORE | 담당: XY 직선보간 티칭·백업, 8-Bay 입출고 및 서보·공압(M코드) 연동, 에러 검증</p>
+
       <div class="project-box">
         <div class="project-header">
-          <h3>XY 2축 서보 직선보간 제어 및 바코드·공압 연동 입출고</h3>
-          <span>MELSEC Q03UDV · QD77MS4 · MR-J4W2-22B · LS HMI</span>
+          <h3>XY 2축 서보 직선보간 제어 및 바코드·공압 연동 자동 입출고</h3>
+          <span class="tech-badge">Q03UDVCPU · QD77MS4 · MR-J4W2-22B · HG-KR23/13B · QJ71C24N · LS HMI</span>
         </div>
 
-        <div class="asrs-grid">
-          <div>
-            <div class="video-container">
-              <!-- 기본 로드 영상을 asrs_total.mp4로 정확히 지정 -->
-              <video id="asrsVideo" src="asrs_total.mp4" controls playsinline preload="metadata">
+        <!-- 비디오 플레이어 & 담당 역할 요약 -->
+        <div class="media-Overview-grid">
+          <div class="video-container">
+            <div class="video-wrapper">
+              <video id="asrs-video" controls playsinline preload="metadata" src="asrs_total.mp4">
                 브라우저가 비디오 태그를 지원하지 않습니다.
               </video>
-              <div class="video-chapters">
-                <button class="chapter-btn active" onclick="switchVideo('asrs_total.mp4', this)">1. 전체 시연</button>
-                <button class="chapter-btn" onclick="switchVideo('asrs_signal.mp4', this)">2. 시그널타워</button>
-                <button class="chapter-btn" onclick="switchVideo('asrs_ts1.mp4', this)">3. TS 1</button>
-                <button class="chapter-btn" onclick="switchVideo('asrs_ts2.mp4', this)">4. TS 2</button>
-                <button class="chapter-btn" onclick="switchVideo('asrs_ts3.mp4', this)">5. TS 3</button>
+            </div>
+            <div class="video-btn-group" id="asrs-btn-group">
+              <button class="vid-btn active" onclick="changeAsrsVideo('asrs_total.mp4', this)">🎬 전체 통합 구동</button>
+              <button class="vid-btn" onclick="changeAsrsVideo('asrs_signal.mp4', this)">🚨 강제 에러·시그널타워</button>
+              <button class="vid-btn" onclick="changeAsrsVideo('asrs_ts1.mp4', this)">🔧 바코드 검증 1(오입고)</button>
+              <button class="vid-btn" onclick="changeAsrsVideo('asrs_ts2.mp4', this)">🔧 바코드 검증 2(전구간)</button>
+              <button class="vid-btn seq-btn" onclick="playAsrsBarcodeSequential(this)">▶ 바코드 1+2 연속재생</button>
+              <button class="vid-btn" onclick="changeAsrsVideo('asrs_ts3.mp4', this)">🔧 공압 이상 인터록</button>
+            </div>
+          </div>
+
+          <div class="role-summary">
+            <ul>
+              <li>
+                <b>📌 담당 역할 (모션 티칭 & M코드 입출고)</b>
+                1축(HG-KR23, 리드 10mm) 및 2축 브레이크 모터(HG-KR13B, 리드 12mm) 기반 2층 8-Bay 직선보간 좌표 티칭·Direct Update 백업 구현, M코드(M10~M70)와 로드리스(CDY1S15H-250)·듀얼로드(CXSM10-80) 공압 실린더 연동 제어
+              </li>
+              <li>
+                <b>📌 강제 에러 주입 및 패트라이트 검증</b>
+                래더 및 HMI(D20·D22)에서 강제로 에러 값을 주입하여 3단 시그널타워(Y15 적색 점멸·부저 / Y16 황색 경고 / Y17 녹색 정상) 및 인터록 정지 동작 완벽 검증
+              </li>
+              <li>
+                <b>📌 바코드(GM65·Arduino·RS-232) Full-Loop</b>
+                물품 바코드 스캔(QJ71C24N 수신) → 제품 ID 판별 및 Bay 할당 → ZP.PSTRT1 직선보간 이송 → 공압 포크 적재/인출 → HMI 상태 업데이트 구현
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 인터랙티브 애니메이션 1: ASRS 시뮬레이터 -->
+        <div class="sim-panel">
+          <div class="sim-header">
+            <h4>⚡ [인터랙티브 애니메이션] ASRS 8-Bay XY 직선보간 & M코드 공압·패트라이트 시뮬레이터</h4>
+            <div class="sim-controls">
+              <button class="sim-btn" onclick="runAsrsSim(1, 'AS')">1번 Bay 입고(AS)</button>
+              <button class="sim-btn" onclick="runAsrsSim(4, 'AS')">4번 Bay 입고(AS)</button>
+              <button class="sim-btn" onclick="runAsrsSim(7, 'RS')">7번 Bay 출고(RS)</button>
+              <button class="sim-btn err" onclick="triggerAsrsError('BARCODE')">⚠️ 바코드 불일치(D732≠D140)</button>
+              <button class="sim-btn err" onclick="triggerAsrsError('PNEUMATIC')">🚨 공압/축에러 주입(D20·104)</button>
+              <button class="sim-btn rst" onclick="resetAsrsSim()">🔄 작업자 리셋(M402/M800)</button>
+            </div>
+          </div>
+
+          <div class="asrs-stage">
+            <!-- 좌측: 바코드 및 실린더 애니메이션 -->
+            <div class="asrs-left-box">
+              <div class="scanner-box">
+                <div style="font-size:0.76rem; color:#94a3b8;">GM65 + QJ71C24N 스캐너</div>
+                <div class="laser-line" id="sim-laser"></div>
+                <div id="sim-barcode-txt" style="font-family:monospace; font-size:0.84rem; color:#38bdf8; font-weight:700;">대기중 (Y12 OFF)</div>
+              </div>
+              <div class="cyl-viz">
+                <div style="display:flex; justify-content:space-between;">
+                  <span>로드리스(Y10)</span>
+                  <strong id="cs12-txt" style="color:#38bdf8;">CS1(X00) 좌측</strong>
+                </div>
+                <div class="cyl-bar-wrap"><div class="cyl-piston" id="piston-lr"></div></div>
+              </div>
+              <div class="cyl-viz">
+                <div style="display:flex; justify-content:space-between;">
+                  <span>듀얼로드 포크(Y11)</span>
+                  <strong id="cs34-txt" style="color:#38bdf8;">CS3(X02) 후진</strong>
+                </div>
+                <div class="cyl-bar-wrap"><div class="cyl-piston" id="piston-fb"></div></div>
               </div>
             </div>
 
-            <div class="iot-summary">
-              <ul>
-                <li><b>담당 역할:</b> XY 직선보간 좌표 티칭·백업, 창고 8-Bay 입출고 동작 및 서보·공압 포크(M코드) 연동 제어</li>
-                <li><b>강제 에러 주입 검증:</b> 래더 및 HMI(D20·D22)에서 강제로 에러 값을 주입하여 시그널타워(적·황·녹 패트라이트) 및 부저 알람 동작 완벽 검증</li>
-                <li><b>통합 시운전 검증:</b> 전체 입출고 시퀀스 구동 및 바코드·공압 에러 발생 시 시스템 예외 처리에 대한 실물 작동 검증</li>
-              </ul>
+            <!-- 중앙: 8-Bay 그리드 & 서보 크레인 -->
+            <div class="asrs-center-warehouse">
+              <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:#94a3b8; margin-bottom:0.4rem;">
+                <span>QD77MS4 2축 직선보간 (ZP.PSTRT1)</span>
+                <span id="servo-pos-txt" style="font-family:monospace; color:#38bdf8;">X: 0 μm | Y: 0 μm | BUSY(X4C): OFF</span>
+              </div>
+
+              <div class="bay-grid" id="warehouse-grid">
+                <div class="bay-cell" id="bay-5"><strong>Bay 5</strong><span>2층 좌1</span></div>
+                <div class="bay-cell" id="bay-6"><strong>Bay 6</strong><span>2층 좌2</span></div>
+                <div class="bay-cell occupied" id="bay-7"><strong>Bay 7</strong><span>입고됨(백산수)</span></div>
+                <div class="bay-cell" id="bay-8"><strong>Bay 8</strong><span>2층 우4</span></div>
+                <div class="bay-cell" id="bay-1"><strong>Bay 1</strong><span>1층 좌1</span></div>
+                <div class="bay-cell occupied" id="bay-2"><strong>Bay 2</strong><span>입고됨</span></div>
+                <div class="bay-cell" id="bay-3"><strong>Bay 3</strong><span>1층 우3</span></div>
+                <div class="bay-cell" id="bay-4"><strong>Bay 4</strong><span>1층 우4</span></div>
+                <div id="servo-crane">XY</div>
+              </div>
+
+              <div class="mcode-strip">
+                <span style="color:#94a3b8; align-self:center; margin-right:0.2rem;">M코드:</span>
+                <span class="mcode-badge" id="mc-10">M10(우이동·전진)</span>
+                <span class="mcode-badge" id="mc-20">M20(리프트후진)</span>
+                <span class="mcode-badge" id="mc-30">M30(리프트전진)</span>
+                <span class="mcode-badge" id="mc-40">M40(복귀·좌이동)</span>
+                <span class="mcode-badge" id="mc-60">M60(입고종료)</span>
+                <span class="mcode-badge" id="mc-70">M70(출고종료)</span>
+              </div>
+            </div>
+
+            <!-- 우측: PATLITE 시그널 타워 -->
+            <div class="asrs-right-box">
+              <div style="text-align:center; font-size:0.78rem; color:#94a3b8;">PATLITE (LR6-302PJB)</div>
+              <div class="patlite-tower">
+                <div class="pat-lamp red" id="lamp-y15" title="Y15 적색 (에러 104/105/공압이상)"></div>
+                <div class="pat-lamp amber" id="lamp-y16" title="Y16 황색 (바코드 불일치/X2E 경고)"></div>
+                <div class="pat-lamp green on" id="lamp-y17" title="Y17 녹색 (M901 OFF 정상 운전)"></div>
+              </div>
+              <div id="pat-status-txt" style="text-align:center; font-size:0.8rem; font-weight:700; color:#4ade80;">
+                Y17(GL) 정상 점등
+              </div>
             </div>
           </div>
 
-          <div class="ts-list">
-            <div class="ts-item">
-              <h4>🔧 트러블슈팅 1 : 바코드 불일치 및 오입고 방지 인터록</h4>
-              <p><b>문제:</b> 스캔 데이터(D732)와 출고 목표(D140) 불일치 시 기존 시스템이 에러 처리 없이 동작을 종료하여 큐 정지 및 오입고 오인식 발생</p>
-              <p><b>해결:</b> 불일치(&lt;&gt;) 감지 시 경고등(Y16) 점등 및 입출고 동작 강제 차단, 현장 작업자가 리셋 버튼(M402) 입력 시에만 에러가 클리어되도록 예외 처리 로직 추가</p>
-            </div>
+          <div class="sim-log" id="asrs-sim-log">
+            [SYSTEM READY] 서보 ON(Y41) 및 원점복귀(M30) 완료. 상단 버튼을 눌러 8-Bay 직선보간 입출고 또는 에러 인터록을 테스트하세요.
+          </div>
+        </div>
 
-            <div class="ts-item">
-              <h4>🔧 트러블슈팅 2 : 전(全) 번호 구간 바코드 불일치 방지</h4>
-              <p><b>문제:</b> 출고 요청 번호와 실제 스캔 번호 불일치 시 모호하게 멈춰 오출고 및 시퀀스 정지 오류 발생</p>
-              <p><b>해결:</b> 모든 구간에서 데이터 불일치 감지 즉시 경고등(Y16) 점등과 함께 크레인 동작 인터록, 작업자가 리셋 버튼(M800) 입력 시에만 에러 해제 프로세스 구축</p>
+        <!-- ASRS 트러블슈팅 3단 (1·2 통합 + 서보/M코드 보강 + 공압/에러주입) -->
+        <div class="ts-grid">
+          <div class="ts-card">
+            <div>
+              <h4>🔧 트러블슈팅 1 : 전(全) 구간 바코드 불일치 감지 및 오입출고 방지 인터록</h4>
+              <p><b>문제:</b> 아두이노·시리얼 모듈(QJ71C24N)을 통해 스캔한 데이터(D732)와 입출고 목표 번호(D140)가 불일치할 때 기존 시스템이 에러 처리 없이 모호하게 정지하여 큐 멈춤 및 오입고·오출고 위험 발생</p>
+              <p><b>해결:</b> 전 번호 구간에서 데이터 불일치(<code><></code>) 감지 즉시 황색 경고등(Y16) 점등과 함께 크레인 서보 기동을 강제 차단(Interlock)하고, 현장 작업자가 확인 후 수동 리셋 버튼(M402 / M800)을 입력할 때만 에러가 해제되도록 예외 처리 프로세스 구축</p>
             </div>
+            <div class="ts-inline-btns">
+              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_ts1.mp4')">▶ 영상1: 오입고 방지</button>
+              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_ts2.mp4')">▶ 영상2: 전구간 인터록</button>
+              <button class="ts-mini-btn" onclick="playAsrsBarcodeSequential()">▶ 1+2 연속재생</button>
+            </div>
+          </div>
 
-            <div class="ts-item">
-              <h4>🔧 트러블슈팅 3 : 공압 이상 감지 시 설비 인터록 및 라이트 제어</h4>
-              <p><b>문제:</b> 필수 공압이 정상 범위를 벗어났음에도 입출고 동작이 수행되어 기계적 손상 및 오작동 유발 위험 존재</p>
-              <p><b>해결:</b> 공압 비정상 감지 즉시 동작 차단(Interlock) 및 레드라이트 점등, 정상 복귀 시 그린라이트 점등과 함께 시퀀스 자동 재개 프로세스 구현</p>
+          <div class="ts-card">
+            <div>
+              <h4>🔧 트러블슈팅 2 : XY 2축 직선보간 및 M코드(M10~M70)·센서 완료 인터록</h4>
+              <p><b>문제:</b> 서보 위치결정(ZP.PSTRT1) 이동 중이거나 공압 포크(로드리스·듀얼로드 실린더)가 완전히 전·후진하지 않은 상태에서 후속 축 이동이 실행될 경우 팔레트 및 기계적 충돌 위험 존재</p>
+              <p><b>해결:</b> 축 BUSY(X4C) OFF 및 원점복귀 완료(M30) 조건에서만 기동을 허가하고, 각 스텝의 M코드(M10·20·30·40·60·70) 출력 시 실린더 끝단 오토스위치(CS1~CS4, X00~X03) 검출 신호가 확인된 후에만 M코드 OFF 완료 신호를 인가하여 다음 서보 이동이 수행되도록 시퀀스 동기화</p>
+            </div>
+            <div class="ts-inline-btns">
+              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_total.mp4')">▶ 전체 연동 시연 보기</button>
+            </div>
+          </div>
+
+          <div class="ts-card">
+            <div>
+              <h4>🔧 트러블슈팅 3 : 공압 이상 및 강제 에러 주입(D20·D22) 설비 보호·패트라이트 제어</h4>
+              <p><b>문제:</b> 필수 공압이 정상 범위를 이탈하거나 서보 축 에러(104·105)·통신 에러(X2E) 발생 시 즉각적인 시각·청각 경보와 설비 정지 검증 체계 필요</p>
+              <p><b>해결:</b> 공압 비정상 및 HMI 테스트 에러 값(D20·D22) 강제 주입 시 즉시 동작 차단(Interlock)과 함께 적색 경보등(Y15) 점멸·부저를 출력하고, 정상 복귀 시 녹색등(Y17, M901 OFF) 점등 및 시퀀스 자동 재개 프로세스 구현</p>
+            </div>
+            <div class="ts-inline-btns">
+              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_signal.mp4')">▶ 강제 에러 주입 영상</button>
+              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_ts3.mp4')">▶ 공압 인터록 영상</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PROJECT 2: IoT SENSOR INTEGRATION -->
     <section id="iot">
-      <h2>주요 프로젝트 2 : IoT 기반 필드 센서 계측 및 제어 시스템</h2>
+      <h2 class="section-title">📡 주요 프로젝트 2 : IoT 기반 필드 센서 계측 및 제어 시스템</h2>
+      <p class="section-desc">2026.09.08 ~ 2026.10.06 (130시간) | 2조 CORE | 담당: MELSEC·Siemens PLC 래더, LS HMI·X-SCADA 작화, 통합 시운전 및 디버깅</p>
+
       <div class="project-box">
         <div class="project-header">
-          <h3>다중 센서(온도·압력·유속·유량·전류) 수집·래더화 및 SCADA/DB 통합</h3>
-          <span>MELSEC(Q64AD) · Siemens(S7-1200) · X-SCADA · MySQL · Node-RED</span>
+          <h3>5대 물리량(온도·압력·유속·유량·전류) 수집·래더화 및 HMI/SCADA/Node-RED/MySQL 통합</h3>
+          <span class="tech-badge">MELSEC Q03UDE(Q64AD) · Siemens S7-1200(HSC) · LS HMI · X-SCADA · Node-RED · MySQL</span>
         </div>
 
-        <div class="iot-summary" style="margin-top: 0; margin-bottom: 20px;">
-          <ul>
-            <li><b>다중 신호 계측 및 공학 단위 환산:</b> 4~20mA/전압 아날로그 입력(Q64AD)과 터빈 유량 펄스 입력(S7-1200 고속카운터 HSC)을 공학 단위로 스케일링하고 임계값 초과 및 센서 고장 판별 래더 구현</li>
-            <li><b>HMI 물탱크 정량 주입 제어:</b> 유량·압력 데이터를 연동하여 목표 유량(SV) 도달 시(D48 ≥ D38) 솔레노이드 밸브(Y10)를 자동 차단하는 응용 제어 구현</li>
-            <li><b>상위 모니터링 및 DB 이력 관리:</b> LS HMI, X-SCADA, Node-RED 대시보드로 실시간 트렌드를 시각화하고 5초 주기로 MySQL(iot_sensor 테이블)에 자동 저장·조회 구현</li>
-          </ul>
+        <!-- IoT 버튼별 동영상 플레이어 & 핵심 구현 요약 -->
+        <div class="media-Overview-grid">
+          <div class="video-container">
+            <div class="video-wrapper">
+              <video id="iot-video" controls playsinline preload="metadata" src="iot_total.mp4" poster="iot1.png" onerror="showIotVideoNotice()">
+                브라우저가 비디오 태그를 지원하지 않습니다.
+              </video>
+              <div class="video-fallback-notice" id="iot-vid-notice">
+                <div style="font-size:1.8rem; margin-bottom:0.5rem;">🎥</div>
+                <strong id="iot-vid-filename" style="color:#38bdf8; margin-bottom:0.35rem;">iot_total.mp4</strong>
+                <p style="color:#94a3b8; max-width:360px;">해당 버튼의 동영상 파일을 GitHub 저장소에 업로드하면 즉시 재생됩니다. 아래 시뮬레이터와 확대 이미지를 먼저 확인해 보세요!</p>
+                <button class="ts-mini-btn" style="margin-top:0.75rem;" onclick="hideIotVideoNotice()">미리보기 이미지(iot1.png) 보기</button>
+              </div>
+            </div>
+            <!-- IoT 버튼별 동영상 스위처 (깃허브에 해당 파일명으로 업로드 시 자동 연동) -->
+            <div class="video-btn-group" id="iot-btn-group">
+              <button class="vid-btn active" onclick="changeIotVideo('iot_total.mp4', this)">🎬 전체 센서 통합 시연</button>
+              <button class="vid-btn" onclick="changeIotVideo('iot_tank.mp4', this)">💧 HMI 물탱크 정량주입</button>
+              <button class="vid-btn" onclick="changeIotVideo('iot_scada.mp4', this)">🖥️ X-SCADA & MySQL</button>
+              <button class="vid-btn" onclick="changeIotVideo('iot_nodered.mp4', this)">🌐 Node-RED 대시보드</button>
+              <button class="vid-btn" onclick="changeIotVideo('iot_alarm.mp4', this)">🚨 임계값·센서고장 경보</button>
+            </div>
+          </div>
+
+          <div class="role-summary">
+            <ul>
+              <li>
+                <b>📌 다중 신호 계측 및 공학 단위 환산 (AD_Conv FB)</b>
+                Q64AD 4채널 아날로그 입력(CH1 온도 D0, CH2 압력 D1, CH3 유속 D2, CH4 CT전류 D3)과 S7-1200 고속카운터(HSC2, I0.3 터빈 유량 펄스)를 공학 단위로 스케일링하고, 임계값 초과(M10~M16) 및 센서 단선(<code>AD < K-50</code>, M11~M17) 판별 래더 구현
+              </li>
+              <li>
+                <b>📌 HMI 물탱크 정량 주입 & 적산 전력량 응용 제어</b>
+                유량률(D24)과 개폐시간(T1/D40)으로 누적 유량(D48)을 연산하여 목표 유량 도달 시(<code>D48 ≥ D38</code>) 전자밸브(Y10)를 자동 차단(RST M2)하고, 1초 클록(SM412) 하강 에지로 단상 유효전력(<code>P=224.5×I×0.95</code>, D62) 및 적산 전력량(Wh, D70) 산출
+              </li>
+              <li>
+                <b>📌 상위 모니터링 및 MySQL(iot_sensor) 이력 관리</b>
+                LS HMI(.226), X-SCADA, Node-RED 대시보드로 실시간 트렌드를 시각화하고 5초 주기로 MySQL DB에 6종 데이터를 자동 저장(INSERT)·조회(SELECT)·삭제(DELETE) 구현
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 10px;">💡 아래 이미지를 클릭하면 원본 크기로 크게 확대하여 보실 수 있습니다.</p>
+        <!-- 인터랙티브 애니메이션 2: IoT 데이터 파이프라인 아키텍처 & 물탱크 정량주입 시뮬레이터 -->
+        <div class="sim-panel">
+          <div class="sim-header">
+            <h4>⚡ [인터랙티브 아키텍처 & 시뮬레이터] 다중 센서 파이프라인 및 물탱크 정량 주입(D48 ≥ D38)</h4>
+            <div class="sim-controls">
+              <button class="sim-btn" onclick="startTankSim()">💧 정량 주입 시작 (M2 ON → Y10 ON)</button>
+              <button class="sim-btn err" onclick="triggerSensorFault()">🔌 센서 단선 테스트 (D0 < -50 → M11 ON)</button>
+              <button class="sim-btn rst" onclick="resetTankSim()">🔄 누적 데이터 초기화 (M1 ON)</button>
+            </div>
+          </div>
 
-        <div class="gallery-grid">
-          <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
-            <img src="iot1.png" alt="실습 장비 전체 구성" onerror="this.parentElement.style.display='none'">
-            <div class="gallery-caption">1. PLC·센서 하드웨어 및 통합 전경</div>
+          <!-- 시스템 아키텍처 다이어그램 (4단계 데이터 흐름) -->
+          <div class="arch-flow">
+            <div class="arch-node">
+              <h5>1. 필드 센서 계층 <span class="pulse-dot"></span></h5>
+              <p>
+                • 온도(신호발생기 4~20mA)<br>
+                • 압력(Swagelok 4~20mA)<br>
+                • 유속(FM-215-8-P 1~5V)<br>
+                • 전류(CT 2회관통 4~20mA)<br>
+                • 유량(터빈 홀센서 Pulse)
+              </p>
+            </div>
+            <div class="arch-node">
+              <h5>2. PLC 제어 계층 <span class="pulse-dot"></span></h5>
+              <p>
+                • <b>MELSEC Q03UDE (.246:1025)</b><br>
+                  Q64AD CH1~4 → AD_Conv FB<br>
+                  정량주입(D48≥D38) → Y10<br>
+                • <b>Siemens S7-1200 (.95:102)</b><br>
+                  I0.3 HSC2 카운트 → DB1.DBW2
+              </p>
+            </div>
+            <div class="arch-node">
+              <h5>3. 시각화 (HMI/SCADA) <span class="pulse-dot"></span></h5>
+              <p>
+                • <b>LS eXP2-0700 (.226)</b><br>
+                  센서별 SV 설정·밸브 조작<br>
+                • <b>X-SCADA & Node-RED</b><br>
+                  1초 주기 폴링 · 실시간 게이지/트렌드 차트 표시
+              </p>
+            </div>
+            <div class="arch-node">
+              <h5>4. DB 이력 관리 <span class="pulse-dot"></span></h5>
+              <p>
+                • <b>MySQL (iot_sensor)</b><br>
+                  5초 주기 6개 물리량 자동 INSERT<br>
+                  <code>no, temp, pressure, lpm, liter, ampere, date</code>
+              </p>
+            </div>
           </div>
-          <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
-            <img src="iot2.png" alt="X-SCADA 및 MySQL 연동" onerror="this.parentElement.style.display='none'">
-            <div class="gallery-caption">2. X-SCADA 대시보드 및 DB 연동</div>
+
+          <!-- 물탱크 정량 주입 애니메이션 스테이지 -->
+          <div class="iot-sim-stage">
+            <div class="sensor-readout-grid">
+              <div class="readout-item">
+                <span>CH1 온도 PV (D20 ÷ 100)</span>
+                <strong id="iot-val-temp">50.17 ℃</strong>
+              </div>
+              <div class="readout-item">
+                <span>CH2 압력 PV (D22 ÷ 1000)</span>
+                <strong id="iot-val-pres">0.415 MPa</strong>
+              </div>
+              <div class="readout-item">
+                <span>CH3 유량률 PV (D24 ÷ 100)</span>
+                <strong id="iot-val-lpm">30.00 LPM</strong>
+              </div>
+              <div class="readout-item">
+                <span>CH4 전류/전력 (D26 / D62)</span>
+                <strong id="iot-val-amp">5.000 A (1066W)</strong>
+              </div>
+            </div>
+
+            <div class="tank-wrap">
+              <div style="font-size:0.76rem; color:#94a3b8; margin-bottom:0.35rem;">
+                전자밸브(Y10): <b id="valve-y10-txt" style="color:#ef4444;">OFF</b>
+              </div>
+              <div class="water-tank">
+                <div class="tank-target-line">목표 SV(D38): 50.000L</div>
+                <div id="tank-water"></div>
+              </div>
+              <div style="font-family:monospace; font-size:0.82rem; margin-top:0.4rem; color:#38bdf8;">
+                누적(D48): <b id="tank-d48-txt">0.000</b> / 100.000 L
+              </div>
+            </div>
+
+            <div style="font-size:0.83rem; color:#cbd5e1; background:#111827; padding:0.9rem; border-radius:0.6rem; border:1px solid #1e293b;">
+              <div style="font-weight:700; color:#fff; margin-bottom:0.4rem;">🔍 PLC 정량 제어 & DB 상태</div>
+              <div id="iot-sim-status">
+                • <b>운전 요청(M2):</b> OFF (저수위 M6 ON)<br>
+                • <b>환산식:</b> <code>D44 = D24 × D40 ÷ 60</code><br>
+                • <b>차단 조건:</b> <code>D48 ≥ D38 (50000)</code> 시 <code>RST M2</code><br>
+                • <b>센서 진단:</b> 전 채널 정상 (M11~M17 OFF)
+              </div>
+            </div>
           </div>
-          <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
-            <img src="iot3.png" alt="LS HMI 정량주입기 및 센서 화면" onerror="this.parentElement.style.display='none'">
-            <div class="gallery-caption">3. LS HMI 모니터링 및 정량주입기</div>
+        </div>
+
+        <!-- IoT 트러블슈팅 3단 (PPT 기반 신설) -->
+        <div class="ts-grid">
+          <div class="ts-card">
+            <div>
+              <h4>🔧 트러블슈팅 1 : Q64AD 전류·전압 하드웨어 매칭 및 센서 단선(AD < -50) 감지 · CT 감도 개선</h4>
+              <p><b>문제:</b> 4~20mA 전류 센서(온도·압력·전류)와 1~5V 전압 센서(유속 FM-215-8-P) 혼용 시 입력 임피던스 차이, 배선 단선 시 음수 AD값 유입, 소전류 부하에서 CT 센서 감도 부족 현상 발생</p>
+              <p><b>해결:</b> Q64AD 전류 채널(CH1·2·4)은 내부 저항 쇼트바를 연결하고 전압 채널(CH3)은 쇼트바를 제거하여 신호를 매칭함. CT에 전선을 같은 방향으로 2회 관통시켜 측정 감도를 2배(20A→10A 범위)로 높이고, 공통 함수 블록(AD_Conv) 내에 <code>현재값_AI < K-50</code> 비교 로직을 넣어 단선 시 즉시 센서고장(M11·13·15·17) 경보가 점등되도록 구현</p>
+            </div>
           </div>
-          <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
-            <img src="iot4.png" alt="Node-RED 웹 대시보드 및 래더 로직" onerror="this.parentElement.style.display='none'">
-            <div class="gallery-caption">4. Node-RED 대시보드 및 제어 로직</div>
+
+          <div class="ts-card">
+            <div>
+              <h4>🔧 트러블슈팅 2 : 이기종 장비(MELSEC·Siemens) 다중 SMPS 공통 GND 구축 및 단위 배율 통일</h4>
+              <p><b>문제:</b> 터빈 유량센서 펄스를 지멘스 PLC(S7-1200 I0.3, HSC2)로 계측하고 전자밸브 릴레이와 연동할 때 서로 다른 SMPS 사용으로 인한 기준 전위차 문제 및 HMI·SCADA·Node-RED 간 정수/실수 배율 중복 적용 오류 발생</p>
+              <p><b>해결:</b> 서로 다른 SMPS의 <code>-(0V/GND)</code> 단자를 전선으로 묶어 공통 GND 기준을 확보하고 릴레이 5번 단자 코일 점퍼를 구성함. 또한 PLC 정수 주소(D20÷100, D22÷1000, D26÷1000)와 지멘스 실수 태그(DB1.DBD12)의 배율 적용 규칙을 통일하여 HMI·X-SCADA·Node-RED·MySQL 간 데이터 오차를 제거</p>
+            </div>
+          </div>
+
+          <div class="ts-card">
+            <div>
+              <h4>🔧 트러블슈팅 3 : 물탱크 정량 주입 오버슈트 방지(D48 ≥ D38) 및 설정값 범위 제한(DLIMIT)</h4>
+              <p><b>문제:</b> 목표 유량(D38) 도달 판정을 단순 일치(<code>=</code>)로 비교하거나 작업자가 허용 범위를 벗어난 목표값을 입력할 경우, 밸브 응답 지연으로 목표치를 넘겨 계속 주입되는 오버슈트 위험 존재</p>
+              <p><b>해결:</b> <code>DLIMIT K1 K100000 D38 D38</code> 명령으로 입력 범위를 0.001~100.000L로 안전하게 제한하고, 비교 조건을 이상(<code>D48 ≥ D38</code>) 및 만수위(<code>D48 ≥ 100000</code>, M7)로 설계하여 목표량 도달 즉시 <code>RST M2</code>로 전자밸브(Y10)가 차단되도록 구현</p>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin-top: 1.75rem; color: var(--text-sub); font-size: 0.9rem;">
+          💡 아래 실습 화면 이미지를 클릭하면 원본 크기로 크게 확대하여 보실 수 있습니다.
+        </p>
+
+        <div class="img-gallery">
+          <div class="img-card" onclick="openModal('iot1.png')">
+            <img alt="실습 장비 전체 구성" src="iot1.png">
+            <div>1. PLC·센서 하드웨어 및 통합 전경</div>
+          </div>
+          <div class="img-card" onclick="openModal('iot2.png')">
+            <img alt="X-SCADA 및 MySQL 연동" src="iot2.png">
+            <div>2. X-SCADA 대시보드 및 DB 연동</div>
+          </div>
+          <div class="img-card" onclick="openModal('iot3.png')">
+            <img alt="LS HMI 정량주입기 및 센서 화면" src="iot3.png">
+            <div>3. LS HMI 모니터링 및 정량주입기</div>
+          </div>
+          <div class="img-card" onclick="openModal('iot4.png')">
+            <img alt="Node-RED 웹 대시보드 및 래더 로직" src="iot4.png">
+            <div>4. Node-RED 대시보드 및 제어 로직</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CORE LADDER LOGIC SNIPPETS -->
+    <section id="ladder">
+      <h2 class="section-title">🧩 핵심 제어 래더 및 DB 아키텍처 스니펫 (Core Logic)</h2>
+      <p class="section-desc">두 프로젝트에서 직접 설계하고 디버깅한 대표 PLC 래더 구조와 MySQL 데이터 연동 규격입니다.</p>
+
+      <div class="ladder-tabs">
+        <button class="ladder-tab-btn active" onclick="openLadderTab(0, this)">1. [ASRS] ZP.PSTRT1 & M코드 공압 인터록</button>
+        <button class="ladder-tab-btn" onclick="openLadderTab(1, this)">2. [ASRS] 바코드 비교(<>) & 패트라이트 제어</button>
+        <button class="ladder-tab-btn" onclick="openLadderTab(2, this)">3. [IoT] AD_Conv 스케일링 & 단선 감지 FB</button>
+        <button class="ladder-tab-btn" onclick="openLadderTab(3, this)">4. [IoT] 물탱크 정량주입 & 적산전력량·MySQL</button>
+      </div>
+
+      <!-- TAB 1 -->
+      <div class="ladder-pane active">
+        <div class="ladder-code">(* [ASRS] 스텝 기동 인터록 및 QD77MS4 위치결정 실행 / M코드 공압 완료 확인 *)
+|   M42(기동요청)    Y41(서보ON)    M30(원점완료)    X4C(1축BUSY)                                   |
+|-------| |------------| |------------| |------------|/|-------------------[SET M140 (기동플래그)]--|
+|                                                                                                  |
+|   M140                                                                                           |
+|-------| |------------------------------------------------------------[ZP.PSTRT1 U4 K1 D40 M141]--|
+|                                                                                                  |
+| (* M코드 10: 로드리스 우이동(Y10) 및 듀얼로드 전진(Y11) → 오토스위치 CS2(X01)·CS4(X03) 완료 확인 *) |
+|  [D12 == K10 (M코드10)]                                                  [SET Y10]  [SET Y11]    |
+|  [D12 == K10]           X01(CS2 우측끝)      X03(CS4 전진끝)             [TO U4 G1502 K1 K1]     |
+|-------| |--------------------| |------------------| |--------------------(M코드 OFF 완료신호)----|</div>
+        <p style="font-size:0.9rem; color:#cbd5e1;">
+          <b>핵심 설계 의도:</b> 서보 축이 이동 중일 때(<code>X4C ON</code>) 중복 시동을 막고, 목표 Bay 도착 후 발생하는 M코드(10·20·30·40·60·70)마다 실린더 리드 스위치(<code>X00~X03</code>)의 기계적 도달을 확인한 뒤에만 M코드 OFF 신호를 인가하여 포크가 창고에 걸린 채 서보가 움직이는 사고를 원천 차단했습니다.
+        </p>
+      </div>
+
+      <!-- TAB 2 -->
+      <div class="ladder-pane">
+        <div class="ladder-code">(* [ASRS] 바코드 스캔 데이터(D732)와 목표 번호(D140) 비교 인터록 및 시그널타워(Y15~Y17) 제어 *)
+|  M200(판독트리거)   [ <> D732(스캔ID)  D140(목표Bay) ]                                           |
+|-------| |------------------|--------------------------|------------------[SET M902 (불일치에러)]--|
+|                                                                                                  |
+|  M902(바코드불일치)  M402(입고리셋)   M800(출고리셋)                                              |
+|-------| |----------------|/|--------------|/|----------------------------(Y16 황색경고등/인터록)--|
+|                                                                                                  |
+|  [D20 == K104] OR [D22 == K105] (강제/축에러)   SM412(1초클록)                                    |
+|-------| |------------------------------------------| |-------------------(Y15 적색점멸 & 부저)---|
+|                                                                                                  |
+|  M901(종합에러판정)                                                                               |
+|-------|/|----------------------------------------------------------------(Y17 녹색정상표시등)----|</div>
+        <p style="font-size:0.9rem; color:#cbd5e1;">
+          <b>핵심 설계 의도:</b> 입고·출고 전 구간에서 바코드 불일치(<code><></code>) 발생 시 자기유지 셋(SET)으로 크레인 동작을 즉시 잠그고, 현장 작업자가 직접 리셋(<code>M402/M800</code>)을 눌러야만 해제되도록 설계하여 오입출고를 방지했습니다.
+        </p>
+      </div>
+
+      <!-- TAB 3 -->
+      <div class="ladder-pane">
+        <div class="ladder-code">(* [IoT] 아날로그 4채널 공통 함수 블록 (FB: AD_Conv) - 0~4000 원시값 스케일링 및 단선 감지 *)
+|  SM400(상시ON)                                                                                   |
+|-------| |---+---[FLT   현재값_AI(D0~D3)     현재값_실수          ]                               |
+|             +---[FLT   스케일_정수(D30~D33) 스케일_실수          ]                               |
+|             +---[E*    현재값_실수          E100        현재값_x100 ]                            |
+|             +---[E/    현재값_x100          E4000       실수_PV(D80~D86)]                        |
+|             +---[E*    실수_PV              스케일_실수 HMI_실수_PV ]                            |
+|             +---[INT   HMI_실수_PV          HMI_정수_PV(D20~D26) ]                               |
+|                                                                                                  |
+|  SM400          [ >=   HMI_정수_PV          HMI_설정값_SV(D21~D27) ]                             |
+|-------| |----------------------------------------------------------------(임계값_초과 M10~M16)---|
+|                                                                                                  |
+|  SM400          [ <    현재값_AI            K-50                   ]                             |
+|-------| |----------------------------------------------------------------(센서고장_단선 M11~M17)-|</div>
+        <p style="font-size:0.9rem; color:#cbd5e1;">
+          <b>핵심 설계 의도:</b> 온도·압력·유속·전류 4개 채널의 스케일링 연산을 <code>AD_Conv</code> 함수 블록(FB)으로 모듈화하여 코드 재사용성을 높였으며, <code>< K-50</code> 비교를 통해 4~20mA 배선 단선 시 즉시 센서 고장 비트를 출력하도록 구현했습니다.
+        </p>
+      </div>
+
+      <!-- TAB 4 -->
+      <div class="ladder-pane">
+        <div class="ladder-code">(* [IoT] 물탱크 정량 주입(D48 >= D38) 자동 차단 및 1초 하강에지(SM412) 적산 전력량 연산 *)
+|  SM402(초기1스캔)                                                                                |
+|-------| |---+---[DMOV   K50000   D38(목표유량 50.000L) ]                                         |
+|  SM400      +---[DLIMIT K1       K100000   D38   D38   ] (* 설정 범위 0.001~100.000L 제한 *)     |
+|                                                                                                  |
+|  [D>=  D48(누적유량)  D38(목표유량)] OR [D>= D48 K100000(만수위 M7)]                             |
+|-------| |----------------------------------------------------------------[RST M2 (밸브운전해제)]-|
+|                                                                                                  |
+|  M4(초기화)  SM412(1초클록 하강에지)                                                             |
+|-----|/|---------|↓|---+---[E/   D60(전력W: 224.5*I*0.95)  E3600   D64(1초분 Wh) ]                |
+|                       +---[E+   D66(Wh x10)               D68     D68(적산누적) ]                |
+|                       +---[DINT D68                       D70(HMI 적산전력량 Wh)]                |</div>
+        <p style="font-size:0.9rem; color:#cbd5e1;">
+          <b>핵심 설계 의도:</b> 매 스캔마다 전력량이 중복 가산되는 오류를 막기 위해 <code>SM412(1초 클록)</code> 하강 에지(<code>|↓|</code>) 접점에서만 <code>P ÷ 3600</code>을 누적(<code>E+</code>)하도록 설계했으며, 환산된 6대 센서 데이터는 5초 주기로 MySQL <code>iot_sensor</code> 테이블에 적재됩니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT & LINKS -->
     <footer id="contact">
-      <h3>Contact & Links</h3>
-      <p>글로벌 소통 역량(유럽 체류 경험 및 실전 영어 회화)과 탄탄한 제어 기본기로 현장에 즉시 기여하겠습니다.</p>
-      <p style="margin-top: 12px;">💻 GitHub Repository: <a href="https://github.com/rlatjdgns9441/Projecct" target="_blank">github.com/rlatjdgns9441/Projecct</a></p>
+      <h2 class="section-title" style="justify-content:center;">📬 Contact & Links</h2>
+      <p style="color:var(--text-sub); max-width:640px; margin:0.5rem auto 0;">
+        탄탄한 PLC·서보 제어 기본기와 현장 트러블슈팅 경험, 글로벌 소통 역량으로 현장에 즉시 기여하겠습니다.
+      </p>
+
+      <div class="contact-cards">
+        <div class="contact-pill" onclick="copyText('010-9228-9441', '전화번호(010-9228-9441)가 복사되었습니다.')">
+          📱 010-9228-9441 <span style="font-size:0.75rem; color:var(--accent-blue);">[복사]</span>
+        </div>
+        <div class="contact-pill" onclick="copyText('gnslekgo@naver.com', '이메일(gnslekgo@naver.com)이 복사되었습니다.')">
+          ✉️ gnslekgo@naver.com <span style="font-size:0.75rem; color:var(--accent-blue);">[복사]</span>
+        </div>
+        <a class="contact-pill" href="https://github.com/rlatjdgns9441/Projecct" target="_blank" rel="noopener">
+          💻 GitHub: rlatjdgns9441/Projecct
+        </a>
+        <!-- 추후 이력서 PDF 파일 업로드 시 onclick 대신 href="이력서파일명.pdf" download 속성을 활성화하세요 -->
+        <div class="contact-pill" onclick="copyText('gnslekgo@naver.com', '이력서 PDF는 현재 최종 업데이트 중입니다. 이메일이 복사되었습니다.')">
+          📄 이력서 PDF <span style="font-size:0.75rem; color:var(--accent-amber);">[업데이트 예정]</span>
+        </div>
+      </div>
+
+      <p style="font-size:0.82rem; color:#64748b; margin-top:2rem;">
+        © 2026 Kim Seonghun. Built with Smart Factory Engineering Portfolio Architecture.
+      </p>
     </footer>
   </div>
 
-  <div id="imgModal" class="modal" onclick="this.style.display='none'">
-    <span class="modal-close">&times;</span>
-    <img id="modalImg" src="" alt="확대 이미지">
+  <!-- 이미지 확대 모달 -->
+  <div id="img-modal" onclick="closeModal()">
+    <span class="modal-close">×</span>
+    <img id="modal-target" alt="확대 이미지" src="">
   </div>
 
-  <script>
-    function switchVideo(filename, btn) {
-      const video = document.getElementById('asrsVideo');
-      
-      video.src = filename;
-      video.load();
-      video.play().catch(err => {
-        console.log('재생 실패 또는 파일 미존재:', filename);
-      });
+  <!-- 클립보드 복사 알림 토스트 -->
+  <div id="toast">복사되었습니다!</div>
 
-      document.querySelectorAll('.chapter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  <script>
+    /* 1. 상단 스크롤 프로그레스 바 */
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    });
+
+    /* 2. ASRS 비디오 플레이어 전환 및 연속 재생(ts1 -> ts2) 로직 */
+    const asrsVideo = document.getElementById('asrs-video');
+    let isSequentialMode = false;
+
+    function changeAsrsVideo(src, btnEl) {
+      isSequentialMode = false;
+      asrsVideo.src = src;
+      asrsVideo.play().catch(() => {});
+      if (btnEl) {
+        document.querySelectorAll('#asrs-btn-group .vid-btn').forEach(b => b.classList.remove('active'));
+        btnEl.classList.add('active');
+      }
     }
 
+    function playAsrsBarcodeSequential(btnEl) {
+      isSequentialMode = true;
+      asrsVideo.src = 'asrs_ts1.mp4';
+      asrsVideo.play().catch(() => {});
+      document.querySelectorAll('#asrs-btn-group .vid-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      showToast('바코드 검증 1(asrs_ts1) 재생 후 검증 2(asrs_ts2)가 자동으로 이어서 재생됩니다.');
+    }
+
+    asrsVideo.addEventListener('ended', () => {
+      if (isSequentialMode && asrsVideo.getAttribute('src') === 'asrs_ts1.mp4') {
+        isSequentialMode = false;
+        asrsVideo.src = 'asrs_ts2.mp4';
+        asrsVideo.play().catch(() => {});
+        showToast('이어서 바코드 검증 2(전 구간 인터록) 영상을 재생합니다.');
+      }
+    });
+
+    /* 3. IoT 비디오 플레이어 전환 및 파일 미업로드 시 안내 처리 */
+    const iotVideo = document.getElementById('iot-video');
+    const iotNotice = document.getElementById('iot-vid-notice');
+    const iotFilenameTxt = document.getElementById('iot-vid-filename');
+
+    function changeIotVideo(src, btnEl) {
+      iotNotice.style.display = 'none';
+      iotFilenameTxt.textContent = src;
+      iotVideo.src = src;
+      iotVideo.play().catch(() => {});
+      if (btnEl) {
+        document.querySelectorAll('#iot-btn-group .vid-btn').forEach(b => b.classList.remove('active'));
+        btnEl.classList.add('active');
+      }
+    }
+
+    function showIotVideoNotice() {
+      iotNotice.style.display = 'flex';
+    }
+
+    function hideIotVideoNotice() {
+      iotNotice.style.display = 'none';
+    }
+
+    /* 4. 인터랙티브 시뮬레이터 1 : ASRS 8-Bay XY 직선보간 & M코드 공압 애니메이션 */
+    let asrsTimer = null;
+    let asrsInterlocked = false;
+
+    const bayCoords = {
+      1: { left: '10%', bottom: '15%', xUm: 55000, yUm: 40000 },
+      2: { left: '34%', bottom: '15%', xUm: 135000, yUm: 40000 },
+      3: { left: '58%', bottom: '15%', xUm: 215000, yUm: 40000 },
+      4: { left: '82%', bottom: '15%', xUm: 295000, yUm: 40000 },
+      5: { left: '10%', bottom: '56%', xUm: 55000, yUm: 145000 },
+      6: { left: '34%', bottom: '56%', xUm: 135000, yUm: 145000 },
+      7: { left: '58%', bottom: '56%', xUm: 215000, yUm: 145000 },
+      8: { left: '82%', bottom: '56%', xUm: 295000, yUm: 145000 }
+    };
+
+    function clearMcodeBadges() {
+      ['10', '20', '30', '40', '60', '70'].forEach(c => {
+        document.getElementById('mc-' + c).classList.remove('on');
+      });
+    }
+
+    function setPatlite(red, amber, green, msg, color) {
+      document.getElementById('lamp-y15').classList.toggle('on', red);
+      document.getElementById('lamp-y16').classList.toggle('on', amber);
+      document.getElementById('lamp-y17').classList.toggle('on', green);
+      const txt = document.getElementById('pat-status-txt');
+      txt.textContent = msg;
+      txt.style.color = color;
+    }
+
+    function runAsrsSim(bayNum, mode) {
+      if (asrsInterlocked) {
+        showToast('설비 인터록(Interlock) 상태입니다! 먼저 [작업자 리셋] 버튼을 눌러주세요.');
+        return;
+      }
+      clearTimeout(asrsTimer);
+      clearMcodeBadges();
+      document.querySelectorAll('.bay-cell').forEach(c => c.classList.remove('target'));
+
+      const targetCell = document.getElementById('bay-' + bayNum);
+      targetCell.classList.add('target');
+      const crane = document.getElementById('servo-crane');
+      const log = document.getElementById('asrs-sim-log');
+      const laser = document.getElementById('sim-laser');
+      const bTxt = document.getElementById('sim-barcode-txt');
+      const posTxt = document.getElementById('servo-pos-txt');
+
+      // Step 1: 바코드 스캔
+      laser.classList.add('scanning');
+      bTxt.textContent = 'ID 스캔: BAY-0' + bayNum + ' 일치';
+      log.textContent = `[STEP 1] Y12(IR_ON) 바코드 스캔 완료 → D732 == D140(Bay ${bayNum}) 일치 확인. ZP.PSTRT1 기동!`;
+
+      // Step 2: XY 2축 직선보간 이동
+      asrsTimer = setTimeout(() => {
+        laser.classList.remove('scanning');
+        const c = bayCoords[bayNum];
+        crane.style.left = c.left;
+        crane.style.bottom = c.bottom;
+        posTxt.textContent = `X: ${c.xUm} μm | Y: ${c.yUm} μm | BUSY(X4C): ON`;
+        log.textContent = `[STEP 2] QD77MS4 XY 2축 직선보간 이송 중... (1축 리드 10mm / 2축 리드 12mm)`;
+
+        // Step 3: M10~M30 공압 포크 구동
+        asrsTimer = setTimeout(() => {
+          posTxt.textContent = `X: ${c.xUm} μm | Y: ${c.yUm} μm | BUSY(X4C): OFF`;
+          document.getElementById('mc-10').classList.add('on');
+          document.getElementById('piston-lr').style.width = '100%';
+          document.getElementById('piston-fb').style.width = '100%';
+          document.getElementById('cs12-txt').textContent = 'CS2(X01) 우측완료';
+          document.getElementById('cs34-txt').textContent = 'CS4(X03) 전진완료';
+          log.textContent = `[STEP 3] M코드 10~30 실행: 로드리스(Y10) 우이동 & 듀얼로드 포크(Y11) 전진 → CS2(X01)·CS4(X03) 센서 검출 확인!`;
+
+          // Step 4: M40 복귀 및 M60/M70 완료
+          asrsTimer = setTimeout(() => {
+            clearMcodeBadges();
+            document.getElementById('mc-40').classList.add('on');
+            document.getElementById(mode === 'AS' ? 'mc-60' : 'mc-70').classList.add('on');
+            document.getElementById('piston-lr').style.width = '25%';
+            document.getElementById('piston-fb').style.width = '25%';
+            document.getElementById('cs12-txt').textContent = 'CS1(X00) 좌측복귀';
+            document.getElementById('cs34-txt').textContent = 'CS3(X02) 후진복귀';
+
+            if (mode === 'AS') {
+              targetCell.classList.add('occupied');
+              targetCell.querySelector('span').textContent = '입고완료';
+            } else {
+              targetCell.classList.remove('occupied');
+              targetCell.querySelector('span').textContent = '출고됨(공베이)';
+            }
+
+            crane.style.left = '12px';
+            crane.style.bottom = '12px';
+            posTxt.textContent = `X: 0 μm | Y: 0 μm | 대기위치 복귀`;
+            log.textContent = `[COMPLETE] M코드 ${mode === 'AS' ? '60(입고종료)' : '70(출고종료)'} 완료 후 작업 대기위치 복귀 및 HMI 상태 업데이트 완료!`;
+          }, 1200);
+        }, 950);
+      }, 650);
+    }
+
+    function triggerAsrsError(type) {
+      clearTimeout(asrsTimer);
+      asrsInterlocked = true;
+      const crane = document.getElementById('servo-crane');
+      const log = document.getElementById('asrs-sim-log');
+      const bTxt = document.getElementById('sim-barcode-txt');
+
+      if (type === 'BARCODE') {
+        crane.style.borderColor = '#f59e0b';
+        bTxt.textContent = '불일치! (D732 ≠ D140)';
+        bTxt.style.color = '#f59e0b';
+        setPatlite(false, true, false, 'Y16(OL) 황색 경고 점등', '#f59e0b');
+        log.textContent = `[INTERLOCK 작동] 스캔 바코드(D732) <> 목표 번호(D140) 불일치 감지! Y16 황색 경고등 점등 및 크레인 기동 차단. (M402/M800 리셋 필요)`;
+      } else {
+        crane.style.borderColor = '#ef4444';
+        setPatlite(true, false, false, 'Y15(RL) 적색 점멸·부저', '#ef4444');
+        log.textContent = `[EMERGENCY INTERLOCK] 공압 이상 / HMI 강제 에러(D20=104) 감지! 설비 즉시 정지 및 Y15 적색 패트라이트 점멸·부저 출력!`;
+      }
+    }
+
+    function resetAsrsSim() {
+      clearTimeout(asrsTimer);
+      asrsInterlocked = false;
+      clearMcodeBadges();
+      const crane = document.getElementById('servo-crane');
+      crane.style.borderColor = '#38bdf8';
+      crane.style.left = '12px';
+      crane.style.bottom = '12px';
+      document.getElementById('piston-lr').style.width = '25%';
+      document.getElementById('piston-fb').style.width = '25%';
+      const bTxt = document.getElementById('sim-barcode-txt');
+      bTxt.textContent = '대기중 (리셋 완료)';
+      bTxt.style.color = '#38bdf8';
+      setPatlite(false, false, true, 'Y17(GL) 정상 점등', '#4ade80');
+      document.getElementById('asrs-sim-log').textContent = `[RESET COMPLETE] 작업자 리셋(M402/M800) 입력 확인 → 에러 클리어 및 Y17 녹색등 점등. 정상 운전 대기 상태입니다.`;
+    }
+
+    /* 5. 인터랙티브 시뮬레이터 2 : IoT 물탱크 정량주입(D48 >= D38) & 센서 단선 */
+    let tankInterval = null;
+    let currentD48 = 0; // 0 ~ 100000 (0.000L ~ 100.000L)
+    const targetD38 = 50000; // 50.000L
+
+    function startTankSim() {
+      clearInterval(tankInterval);
+      if (currentD48 >= targetD38) {
+        currentD48 = 0;
+      }
+      const waterEl = document.getElementById('tank-water');
+      const d48Txt = document.getElementById('tank-d48-txt');
+      const y10Txt = document.getElementById('valve-y10-txt');
+      const statusEl = document.getElementById('iot-sim-status');
+
+      y10Txt.textContent = 'ON (주입중)';
+      y10Txt.style.color = '#22c55e';
+
+      tankInterval = setInterval(() => {
+        currentD48 += 2500; // 시뮬레이션 가속
+        if (currentD48 >= targetD38) {
+          currentD48 = targetD38;
+          clearInterval(tankInterval);
+          y10Txt.textContent = 'OFF (자동 차단)';
+          y10Txt.style.color = '#ef4444';
+          statusEl.innerHTML = `
+            • <b style="color:#4ade80;">정량 도달 완료 (D48 ≥ D38):</b> 50.000L 도달 즉시 <code>RST M2</code> 작동!<br>
+            • <b>전자밸브(Y10):</b> 자동 차단 완료 (오버슈트 방지)<br>
+            • <b>MySQL (iot_sensor):</b> 5초 주기 최신 행 INSERT 정상
+          `;
+        } else {
+          statusEl.innerHTML = `
+            • <b style="color:#38bdf8;">운전 요청(M2 ON):</b> 전자밸브(Y10) 개방 및 유량 적산 중...<br>
+            • <b>실시간 연산:</b> <code>D44 = D24(3000) × D40 ÷ 60</code><br>
+            • <b>비교 감시:</b> D48(${currentD48}) < D38(${targetD38})
+          `;
+        }
+        const pct = (currentD48 / 100000) * 100;
+        waterEl.style.height = pct + '%';
+        d48Txt.textContent = (currentD48 / 1000).toFixed(3);
+      }, 120);
+    }
+
+    function triggerSensorFault() {
+      clearInterval(tankInterval);
+      document.getElementById('valve-y10-txt').textContent = 'OFF (인터록 차단)';
+      document.getElementById('valve-y10-txt').style.color = '#ef4444';
+      document.getElementById('iot-val-temp').textContent = 'ERR (D0: -120)';
+      document.getElementById('iot-val-temp').style.color = '#ef4444';
+      document.getElementById('iot-sim-status').innerHTML = `
+        • <b style="color:#ef4444;">🚨 센서 고장 감지 (M11 ON):</b> CH1 AD 원시값(D0) < K-50 단선 판별!<br>
+        • <b>안전 조치:</b> <code>AD_Conv_1</code> 블록에서 M11 비트 즉시 출력 및 HMI 경보 램프 점등<br>
+        • <b>복구 방법:</b> 우측 [누적 데이터 초기화 (M1)] 버튼을 눌러 복구하세요.
+      `;
+    }
+
+    function resetTankSim() {
+      clearInterval(tankInterval);
+      currentD48 = 0;
+      document.getElementById('tank-water').style.height = '0%';
+      document.getElementById('tank-d48-txt').textContent = '0.000';
+      document.getElementById('valve-y10-txt').textContent = 'OFF';
+      document.getElementById('valve-y10-txt').style.color = '#ef4444';
+      const tempEl = document.getElementById('iot-val-temp');
+      tempEl.textContent = '50.17 ℃';
+      tempEl.style.color = '#38bdf8';
+      document.getElementById('iot-sim-status').innerHTML = `
+        • <b>데이터 초기화(M1 ON):</b> <code>FMOV K0 D40 K14</code> 실행 완료 (D48 = 0)<br>
+        • <b>센서 상태:</b> 전 채널 정상 복귀 (M11~M17 OFF / 저수위 M6 ON)<br>
+        • <b>대기 상태:</b> [정량 주입 시작] 버튼을 눌러 시뮬레이션을 실행하세요.
+      `;
+    }
+
+    /* 6. 핵심 래더 탭 전환 */
+    function openLadderTab(idx, btnEl) {
+      document.querySelectorAll('.ladder-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.ladder-pane').forEach(p => p.classList.remove('active'));
+      btnEl.classList.add('active');
+      document.querySelectorAll('.ladder-pane')[idx].classList.add('active');
+    }
+
+    /* 7. 이미지 확대 모달 & 클립보드 복사 토스트 */
     function openModal(src) {
-      document.getElementById('modalImg').src = src;
-      document.getElementById('imgModal').style.display = 'flex';
+      document.getElementById('modal-target').src = src;
+      document.getElementById('img-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('img-modal').style.display = 'none';
+    }
+
+    function copyText(text, msg) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(msg);
+      }).catch(() => {
+        showToast(text);
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2600);
     }
   </script>
 </body>
