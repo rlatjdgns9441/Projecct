@@ -1587,7 +1587,7 @@
     }
 
     /* =====================================================
-       입사지원서(이력서·직무역량·자기소개서) 모달 뷰어 & PDF 인쇄 최적화
+       입사지원서(이력서·직무역량·자기소개서) 모달 뷰어 & 3페이지 PDF 인쇄 완벽 최적화
        ===================================================== */
     #resume-modal {
       display: none;
@@ -1723,8 +1723,6 @@
       border-radius: 0.65rem;
       padding: 1.15rem 1.25rem;
       margin-bottom: 0.95rem;
-      break-inside: avoid;
-      page-break-inside: avoid;
     }
 
     .essay-box h5 {
@@ -1750,48 +1748,68 @@
       margin-bottom: 0;
     }
 
-    /* PDF 인쇄 시 페이지 잘림 및 3줄 쪼개짐 방지 최적화 */
+    /* 4번 완벽 해결: 인쇄 시 메인 포트폴리오 DOM 높이를 제거(display: none)해 13페이지 빈 종이 생성을 막고 3쪽으로 압축 */
     @media print {
       @page {
         size: A4;
-        margin: 12mm;
+        margin: 10mm 12mm;
       }
-      body * {
-        visibility: hidden;
+      #scroll-progress,
+      nav,
+      .container,
+      #img-modal,
+      #toast {
+        display: none !important;
       }
-      #resume-modal,
-      #resume-modal * {
-        visibility: visible;
+      body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
       #resume-modal {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        background: #fff;
-        padding: 0;
-        overflow: visible;
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        background: #ffffff !important;
+        padding: 0 !important;
+        overflow: visible !important;
       }
       .resume-top-bar {
         display: none !important;
       }
       .resume-sheet {
-        box-shadow: none;
-        border: none;
-        max-width: 100%;
+        box-shadow: none !important;
+        border: none !important;
+        max-width: 100% !important;
+        margin: 0 !important;
       }
       .resume-body {
-        padding: 0;
+        padding: 0 !important;
+      }
+      .resume-doc-title {
+        font-size: 1.55rem;
+        padding-bottom: 0.7rem;
+        margin-bottom: 1rem;
       }
       .resume-section-h4 {
-        margin-top: 1.2rem;
+        margin: 1.1rem 0 0.5rem;
         break-after: avoid;
         page-break-after: avoid;
       }
-      .essay-box,
       .resume-table {
+        margin-bottom: 0.75rem;
         break-inside: avoid;
         page-break-inside: avoid;
+      }
+      .essay-box {
+        padding: 0.85rem 1rem;
+        margin-bottom: 0.7rem;
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+      .essay-box h5 {
+        break-after: avoid;
+        page-break-after: avoid;
       }
     }
 
@@ -1869,7 +1887,7 @@
     <header>
       <div class="status-pill">● PLC · HMI 기반 설비 모니터링 및 제어</div>
       <h1>제어 로직을 이해하고, 설비의 이상을 추적하는<br><span>자동화 인재 김성훈</span></h1>
-      <p>MELSEC·Siemens PLC 시퀀스 제어, 서보·공압 인터록, HMI/SCADA 기반 모니터링을 교육 프로젝트에서 실습했습니다. 기아자동차 공장 생산 인턴 경험과 기본적인 영어 의사소통 역량을 바탕으로 해외 생산설비의 안정적인 운영을 지원하겠습니다.</p>
+      <p>MELSEC·Siemens PLC 시퀀스 제어, 서보·공압 인터록, HMI/SCADA 기반 모니터링을 교육 프로젝트에서 실습했습니다. 기아자동차 조립 라인 단기 생산인턴(아르바이트) 경험과 기본적인 영어 의사소통 역량을 바탕으로 해외 생산설비의 안정적인 운영을 지원하겠습니다.</p>
       <div class="tag-list">
         <span>#PLC_HMI_로직모니터링</span>
         <span>#설정값(SV)_정량제어</span>
@@ -2588,7 +2606,7 @@
         </div>
         <div class="comp-card">
           <h3>🌍 생산 현장 안전·5S & 글로벌 소통</h3>
-          <p>기아자동차 공장 조립 라인 생산 인턴(6개월) 근무로 체득한 부품·공구 5S 정위치 정리와 표준작업절차(SOP) 준수 습관, 유럽 체류 및 외국인 교류를 통해 쌓은 기본 영어 의사소통 역량</p>
+          <p>기아자동차 조립 라인 단기 생산인턴(아르바이트) 근무로 체득한 부품·공구 5S 정위치 정리와 표준작업절차(SOP) 준수 습관, 유럽 체류 및 외국인 교류를 통해 쌓은 기본 영어 의사소통 역량</p>
         </div>
       </div>
 
@@ -2596,9 +2614,9 @@
         <div class="info-card">
           <h3>🏫 학력 및 전문 교육사항</h3>
           <ul>
-            <li><b>전문교육:</b> 스마트팩토리(PLC, HMI) 기반 IoT 구축 및 서보제어 실무자 양성 (2026.05.27 ~ 2026.11.06 / 108일·860시간)</li>
+            <li><b>전문교육:</b> 스마트팩토리(PLC, HMI) 기반 IoT 구축 및 서보제어 실무자 양성 (2026.05.27 ~ 2026.11.06 / 108일·860시간 / <b>수료 예정</b>)</li>
             <li><b>학력사항:</b> 한신대학교 한국사학과 졸업 (2018.02 / 4년제 대졸)</li>
-            <li><b>현장경험:</b> 박물관 도슨트(6개월) · 토익 학원 조교(6개월) · 기아자동차 조립 라인 생산 인턴(6개월)</li>
+            <li><b>현장경험:</b> 박물관 도슨트 · 토익 학원 조교 · 기아자동차 조립 라인 단기 생산인턴(아르바이트)</li>
           </ul>
         </div>
         <div class="info-card">
@@ -2624,7 +2642,7 @@
     <footer id="contact">
       <h2 class="section-title" style="justify-content:center;">📬 Contact & Resume</h2>
       <p style="color:var(--text-body); max-width:680px; margin:0.5rem auto 0; font-weight:500;">
-        교육 프로젝트에서 다진 PLC·HMI 모니터링 기본기와 기아자동차 생산 인턴 경험, 기본적인 영어 의사소통 역량을 바탕으로 해외 생산설비의 안정적인 운영을 지원하겠습니다.
+        교육 프로젝트에서 다진 PLC·HMI 모니터링 기본기와 기아자동차 조립 라인 단기 생산인턴(아르바이트) 경험, 기본적인 영어 의사소통 역량을 바탕으로 해외 생산설비의 안정적인 운영을 지원하겠습니다.
       </p>
 
       <div class="contact-cards">
@@ -2650,8 +2668,6 @@
 
   <!-- =====================================================
        입사지원서(이력서·직무역량·자기소개서) 모달 창
-       - OPIc(2026.11.07 응시 예정) 및 전기기능사 실기(2026.11.27 시험 예정) 날짜 명시
-       - 사학과 졸업 -> 박물관 도슨트(6개월) -> 토익 공부 중 조교 발탁(6개월) -> 공시생(3년) -> 기아자동차 생산 인턴(6개월) -> PLC 교육 입과 순서 정확히 반영
        ===================================================== -->
   <div id="resume-modal" onclick="if(event.target === this) closeResumeModal()">
     <div class="resume-sheet">
@@ -2661,7 +2677,7 @@
           <button class="resume-action-btn privacy-toggle" id="privacy-btn" onclick="toggleResumePrivacy()">
             🔓 제출·인쇄용 상세 주소/생년월일 모두 표시하기
           </button>
-          <button class="resume-action-btn" onclick="printFullResume()">🖨️ 깨끗한 PDF로 인쇄 / 저장</button>
+          <button class="resume-action-btn" onclick="printFullResume()">🖨️ 깨끗한 3페이지 PDF로 인쇄 / 저장</button>
           <button class="resume-action-btn close" onclick="closeResumeModal()">✕ 닫기</button>
         </div>
       </div>
@@ -2669,7 +2685,7 @@
       <div class="resume-body">
         <div class="resume-doc-title">입 사 지 원 서</div>
 
-        <!-- 1. 기본 인적사항 (연락처 줄바꿈 쪼개짐 방지 nowrap-cell 적용) -->
+        <!-- 1. 기본 인적사항 -->
         <h4 class="resume-section-h4">1. 인적사항 및 지원분야</h4>
         <table class="resume-table">
           <tbody>
@@ -2699,7 +2715,7 @@
           </tbody>
         </table>
 
-        <!-- 2. 학력 및 교육사항 -->
+        <!-- 2. 학력 및 교육사항 (1번 요청: 수료 예정으로 반영) -->
         <h4 class="resume-section-h4">2. 학력 및 전문 교육사항</h4>
         <table class="resume-table">
           <thead>
@@ -2715,7 +2731,7 @@
               <td class="nowrap-cell">2026.05.27 ~ 2026.11.06</td>
               <td><b>스마트팩토리(PLC, HMI) 기반 IoT 구축 및 서보제어 실무자 양성</b></td>
               <td class="nowrap-cell">108일 (860시간)</td>
-              <td class="nowrap-cell">수료</td>
+              <td class="nowrap-cell"><b>수료 예정</b></td>
             </tr>
             <tr>
               <td class="nowrap-cell">2018년 2월</td>
@@ -2726,7 +2742,7 @@
           </tbody>
         </table>
 
-        <!-- 3. 자격·어학·보유능력·병역사항 (시험 일자 명확히 표기) -->
+        <!-- 3. 자격·어학·보유능력·병역사항 -->
         <h4 class="resume-section-h4">3. 자격사항 · 어학 · 보유기술 · 병역사항</h4>
         <table class="resume-table">
           <tbody>
@@ -2769,17 +2785,17 @@
         <div class="essay-box">
           <h5>③ 시퀀스 도면 해독 · I/O 신호 점검 및 현장 5S·안전수칙 준수</h5>
           <p><b>[핵심 학습내용]</b> 전기기능사 자격 준비 및 교육 실습을 통해 시퀀스 회로 도면을 해독하는 기초를 다지고, 제어반 내 릴레이, 타이머, MC, 솔레노이드 밸브, 오토스위치 등 하드웨어 소자와 PLC 입출력(I/O) 접점 간의 신호 흐름 및 다중 SMPS 공통 GND 결선 점검 방법을 실습했습니다.</p>
-          <p><b>[수행 역량 및 강점]</b> 설비 도면과 I/O 맵을 해독하여 접점 신호 상태와 배선 단선 여부를 추적·점검할 수 있습니다. 기아자동차 공장 생산 인턴 당시 체득한 현장 안전수칙과 5S 활동을 철저히 준수하며, 입사 후 담당 라인의 제어 계통도와 설비 운영 절차를 빠르게 익혀 안정적인 라인 가동을 지원하겠습니다.</p>
+          <p><b>[수행 역량 및 강점]</b> 설비 도면과 I/O 맵을 해독하여 접점 신호 상태와 배선 단선 여부를 추적·점검할 수 있습니다. 기아자동차 조립 라인 단기 생산인턴(아르바이트) 당시 체득한 현장 안전수칙과 5S 활동을 철저히 준수하며, 입사 후 담당 라인의 제어 계통도와 설비 운영 절차를 빠르게 익혀 안정적인 라인 가동을 지원하겠습니다.</p>
         </div>
 
-        <!-- 5. 자기소개서 (도슨트 6개월 -> 토익 공부 중 조교 6개월 -> 공시생 3년 -> 기아차 생산 인턴 6개월 -> PLC 교육 시간순 서사) -->
+        <!-- 5. 자기소개서 (2번·3번 반영: 파편적 개월 수 덧셈 유발 문구 제거 + 연속된 흐름으로 자연스럽게 연결 + 기아차 명칭 통일) -->
         <h4 class="resume-section-h4">5. 자기소개서</h4>
 
         <div class="essay-box">
           <h5>■ 성장과정 (직무 전환 계기 및 제조 현장 5S·안전수칙 체득)</h5>
-          <p>대학(한국사학과) 졸업 후 박물관 도슨트로 6개월간 근무하며 관람객의 눈높이에 맞춰 명확하게 소통하는 법을 익혔고, 이후 어학원에서 토익 공부를 하던 중 성실함을 인정받아 6개월간 토익 학원 조교로 일하며 수강생 관리와 데이터 정리 업무를 수행했습니다. 그 후 약 3년간 공직을 목표로 수험 생활에 매진했습니다. 비록 원하던 결과는 얻지 못했지만, 이 시기는 목표를 향해 흔들림 없이 엉덩이를 붙이고 끝까지 파고드는 집중력과 인내력을 기르는 자양분이 되었습니다.</p>
-          <p>이후 진로를 재점검하며 기아자동차 공장 조립 라인에서 6개월간 생산 인턴으로 근무한 경험이 제 인생의 전환점이 되었습니다. 수많은 컨베이어와 로봇, 자동화 설비가 시퀀스 로직과 인터록에 의해 한 치의 오차 없이 맞물려 돌아가는 현장에서 직접 땀 흘리며, 설비의 두뇌 역할을 하는 PLC 제어 분야에 큰 매력을 느꼈습니다. 또한 조립 라인에서 볼트나 공구 하나만 정해진 위치를 벗어나도 작업 지연과 불량으로 직결된다는 것을 체감하며, 작업 전후 부품·공구 정위치 정리(5S)와 표준작업절차(SOP)를 철저히 지키는 습관을 몸에 익혔습니다.</p>
-          <p>책상 앞이 아닌 현장에서 설비를 다루는 기술 인재가 되기로 결심한 뒤, 미련 없이 수험 생활을 갈무리하고 스마트팩토리 PLC·HMI·서보제어 실무 교육(108일, 860시간)에 입과했습니다. 교육 초기 7일간의 집중 학습으로 전기기능사 필기시험에 합격(11월 27일 실기 시험 예정)하며 기초를 다졌고, 제어반 실습에서도 전선 라벨링과 단자대 정리를 철저히 수행하며 해외 생산 현장의 PLC Operator로 빠르게 적응할 준비를 마쳤습니다.</p>
+          <p>대학(한국사학과) 졸업 후 박물관 도슨트로 근무하며 관람객의 눈높이에 맞춰 명확하게 소통하는 법을 익혔고, 이후 어학원에서 토익 공부를 하던 중 성실함을 인정받아 토익 학원 조교로 발탁되어 수강생 관리와 데이터 정리 업무를 수행했습니다. 그 후 공직을 목표로 수험 생활에 매진하는 한편 편의점 운영 등 단기 아르바이트로 학업과 생계를 병행했습니다. 비록 수험 생활에서 원하던 결과는 얻지 못했지만, 이 시기는 목표를 향해 흔들림 없이 파고드는 집중력과 책임감을 기르는 자양분이 되었습니다.</p>
+          <p>이후 진로를 재점검하며 기아자동차 공장 조립 라인에서 단기 생산인턴(아르바이트)으로 근무한 경험이 제 인생의 전환점이 되었습니다. 수많은 컨베이어와 로봇, 자동화 설비가 시퀀스 로직과 인터록에 의해 한 치의 오차 없이 맞물려 돌아가는 현장에서 직접 땀 흘리며, 설비의 두뇌 역할을 하는 PLC 제어 분야에 큰 매력을 느꼈습니다. 또한 조립 라인에서 볼트나 공구 하나만 정해진 위치를 벗어나도 작업 지연과 불량으로 직결된다는 것을 체감하며, 작업 전후 부품·공구 정위치 정리(5S)와 표준작업절차(SOP)를 철저히 지키는 습관을 몸에 익혔습니다.</p>
+          <p>책상 앞이 아닌 현장에서 설비를 다루는 기술 인재가 되기로 결심한 뒤, 미련 없이 수험 생활을 갈무리하고 스마트팩토리 PLC·HMI·서보제어 실무 교육(108일, 860시간, 11월 6일 수료 예정)에 입과했습니다. 교육 초기 7일간의 집중 학습으로 전기기능사 필기시험에 합격(11월 27일 실기 시험 예정)하며 기초를 다졌고, 제어반 실습에서도 전선 라벨링과 단자대 정리를 철저히 수행하며 해외 생산 현장의 PLC Operator로 빠르게 적응할 준비를 마쳤습니다.</p>
         </div>
 
         <div class="essay-box">
@@ -2791,7 +2807,7 @@
 
         <div class="essay-box">
           <h5>■ 지원동기 및 입사 후 포부 (표준절차 준수 · 알람/인터록 대응 · 정확한 기록과 인수인계)</h5>
-          <p>자동화 생산라인에서 운전 설정값을 정확히 관리하고 HMI와 PLC 시퀀스를 모니터링하며 설비의 안정적인 가동을 뒷받침하는 PLC Operator 직무에 매력을 느껴 지원했습니다. 교육 프로젝트에서 시운전용 에러 주입 회로(D20·D22)와 인터록 조건을 구성해 시그널타워 알람 및 리셋 복구 절차를 반복 검증해 본 경험, 그리고 기아자동차 생산 인턴 근무로 다진 뚝심과 현장 적응력을 바탕으로 해외 생산 거점의 안정적인 라인 운영에 기여하고자 합니다.</p>
+          <p>자동화 생산라인에서 운전 설정값을 정확히 관리하고 HMI와 PLC 시퀀스를 모니터링하며 설비의 안정적인 가동을 뒷받침하는 PLC Operator 직무에 매력을 느껴 지원했습니다. 교육 프로젝트에서 시운전용 에러 주입 회로(D20·D22)와 인터록 조건을 구성해 시그널타워 알람 및 리셋 복구 절차를 반복 검증해 본 경험, 그리고 기아자동차 조립 라인 단기 생산인턴(아르바이트) 근무로 다진 뚝심과 현장 적응력을 바탕으로 해외 생산 거점의 안정적인 라인 운영에 기여하고자 합니다.</p>
           <p>입사 초기에는 사업장의 표준작업절차(SOP)와 환경·안전 규정, 5S 활동 및 설비 매뉴얼을 철저히 숙지하겠습니다. 교육에서 익힌 설정값(SV) 적용과 바코드 대조 원리를 바탕으로 현장의 생산 조건(Recipe) 관리와 출하 이력 관리, MES 및 엑셀 실적 기록 업무를 빠르게 익히겠습니다. 또한 알람이나 공정 이상 발생 시 설비 상태와 인터록 조건을 신속히 확인하여 정해진 절차에 따라 보고·리셋·복구하고, 작업 교대 시 정확한 인수인계를 수행하겠습니다.</p>
           <p>나아가 현장 경험을 꾸준히 축적하여 담당 설비의 PLC 로직과 보전 포인트를 깊이 있게 파악하고, 반복되는 알람 요인을 사전에 점검해 설비 가동률과 안정적인 생산 운영에 기여하는 글로벌 PLC Operator로 성장하겠습니다.</p>
         </div>
@@ -2911,7 +2927,7 @@
       }
     });
 
-    /* 3. IoT 비디오 플레이어 (참조 버그 완벽 수정 완료) */
+    /* 3. IoT 비디오 플레이어 */
     const iotVideo = document.getElementById('iot-video');
     const iotNotice = document.getElementById('iot-vid-notice');
     let triedUpperCaseFallback = false;
