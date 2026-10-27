@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>김성훈 포트폴리오 | PLC · HMI 기반 설비 모니터링 및 제어</title>
+  <!-- 채용담당자 링크 열람만 허용하고 무분별한 검색엔진 개인정보 수집 방지 -->
+  <meta name="robots" content="noindex, nofollow" />
+  <title>김성훈 포트폴리오 | PLC · HMI 설비 모니터링 및 운영 (PLC Operator)</title>
   <style>
     :root {
       /* 따뜻하고 가독성 높은 웜 아이보리 & 테라코타 엔지니어링 테마 */
@@ -1824,19 +1826,18 @@
   </nav>
 
   <div class="container">
-    <!-- HERO HEADER (1번 요청사항 반영 완료) -->
+    <!-- HERO HEADER -->
     <header>
       <div class="status-pill">● PLC · HMI 기반 설비 모니터링 및 제어</div>
       <h1>제어 로직을 이해하고, 설비의 이상을 추적하는<br><span>자동화 인재 김성훈</span></h1>
       <p>MELSEC·Siemens PLC 시퀀스 제어, 서보·공압 인터록, HMI/SCADA 기반 모니터링을 교육 프로젝트에서 실습했습니다. 생산 현장 경험과 기본적인 영어 의사소통 역량을 바탕으로 해외 생산설비의 안정적인 운영을 지원하겠습니다.</p>
       <div class="tag-list">
-        <span>#MELSEC_Q03UDV_UDE</span>
-        <span>#QD77MS4_SimpleMotion</span>
-        <span>#MR-J4W2-22B_Servo</span>
-        <span>#Siemens_S7-1200</span>
-        <span>#LS_HMI_X-SCADA</span>
-        <span>#MySQL_NodeRED</span>
-        <span>#전기기능사(실기예정)</span>
+        <span>#PLC_HMI_로직모니터링</span>
+        <span>#운전조건(Recipe)_관리</span>
+        <span>#인터록_알람리셋복구</span>
+        <span>#MELSEC_Siemens</span>
+        <span>#트랙IN_OUT_데이터기록</span>
+        <span>#전기기능사(실기응시예정)</span>
       </div>
       <div class="hero-actions">
         <a href="#asrs" class="btn-primary">🚀 대표 프로젝트 & 시뮬레이터 보기</a>
@@ -1848,43 +1849,43 @@
     <!-- PROJECT 1: ASRS -->
     <section id="asrs">
       <h2 class="section-title">🏗️ 주요 프로젝트 1 : 서보 기반 자동창고 입출고 시스템 (ASRS)</h2>
-      <p class="section-desc">2026.10.06 ~ 2026.11.06 (170시간) | 2조 CORE (5인) | 직접 담당: XY 직선보간 티칭·백업, 8-Bay 입출고·M코드 공압 연동, 강제 에러 알람 검증</p>
+      <p class="section-desc">2026.10.06 ~ 2026.11.06 (170시간) | 2조 CORE (5인) | 직접 담당: XY 보간 좌표 설정·업데이트, 설비 간 인터록 연계운전, 알람 확인·리셋·복구 검증</p>
 
       <div class="project-box">
         <div class="project-header">
-          <h3>XY 2축 서보 직선보간 제어 및 바코드·공압 연동 자동 입출고</h3>
+          <h3>공정 간 시퀀스 연계운전 · LOT 바코드 트랙 IN/OUT 및 알람 리셋·복구 구현</h3>
           <span class="tech-badge">Q03UDVCPU · QD77MS4 · MR-J4W2-22B · HG-KR23/13B · QJ71C24N · LS HMI</span>
         </div>
 
-        <!-- 1. 비디오 플레이어 & 본인 기여도(직접 담당 vs 공동 수행) 명확 구분 -->
+        <!-- 1. 비디오 플레이어 & 본인 기여도 명확 구분 -->
         <div class="media-Overview-grid">
           <div class="video-container" id="asrs-video-box">
             <div class="video-wrapper">
               <video id="asrs-video" controls muted playsinline preload="metadata" src="asrs_total.mp4"></video>
             </div>
             <div class="video-btn-group" id="asrs-btn-group">
-              <button class="vid-btn active" data-src="asrs_total.mp4" onclick="changeAsrsVideo('asrs_total.mp4', false)">🎬 전체 통합 구동</button>
-              <button class="vid-btn" data-src="asrs_signal.mp4" onclick="changeAsrsVideo('asrs_signal.mp4', false)">🚨 강제 에러·시그널타워</button>
-              <button class="vid-btn" data-src="asrs_ts1.mp4" onclick="changeAsrsVideo('asrs_ts1.mp4', false)">🔧 바코드 검증 1(오입고)</button>
-              <button class="vid-btn" data-src="asrs_ts2.mp4" onclick="changeAsrsVideo('asrs_ts2.mp4', false)">🔧 바코드 검증 2(전구간)</button>
+              <button class="vid-btn active" data-src="asrs_total.mp4" onclick="changeAsrsVideo('asrs_total.mp4', false)">🎬 전체 연계운전 시연</button>
+              <button class="vid-btn" data-src="asrs_signal.mp4" onclick="changeAsrsVideo('asrs_signal.mp4', false)">🚨 알람 확인·시그널타워</button>
+              <button class="vid-btn" data-src="asrs_ts1.mp4" onclick="changeAsrsVideo('asrs_ts1.mp4', false)">🔧 바코드 불일치·리셋 1</button>
+              <button class="vid-btn" data-src="asrs_ts2.mp4" onclick="changeAsrsVideo('asrs_ts2.mp4', false)">🔧 바코드 불일치·리셋 2</button>
               <button class="vid-btn seq-btn" id="asrs-seq-btn" onclick="playAsrsBarcodeSequential(false)">▶ 바코드 1+2 연속재생</button>
-              <button class="vid-btn" data-src="asrs_ts3.mp4" onclick="changeAsrsVideo('asrs_ts3.mp4', false)">🔧 공압 이상 인터록</button>
+              <button class="vid-btn" data-src="asrs_ts3.mp4" onclick="changeAsrsVideo('asrs_ts3.mp4', false)">🔧 공압 이상 인터록·복구</button>
             </div>
           </div>
 
           <div class="role-summary">
             <ul>
               <li>
-                <div class="role-badge-row"><span class="badge-mine">본인 주도 담당</span><b>XY 2축 보간 좌표 티칭·백업 및 8-Bay 입출고 구현</b></div>
-                1축(HG-KR23 200W, 볼스크류 리드 10mm) 및 2축 브레이크 서보(HG-KR13B 100W, 리드 12mm) 기반 2층 8-Bay 직선보간 좌표를 설정·티칭하고, HMI에서 좌표 수정 시 PLC 위치결정 데이터로 반영(Direct Write/Update)되는 백업 로직 구현
+                <div class="role-badge-row"><span class="badge-mine">본인 주도 담당</span><b>운전 조건(XY 좌표 파라미터) 적용·관리 및 8-Bay 트랙 IN/OUT</b></div>
+                1축(HG-KR23) 및 2축 브레이크 서보(HG-KR13B) 기반 8-Bay 입출고 좌표를 설정·티칭하고, HMI 화면에서 운전 조건(좌표값) 수정 시 PLC 위치결정 메모리로 즉시 업데이트(Direct Write)되는 관리 기능 구현
               </li>
               <li>
-                <div class="role-badge-row"><span class="badge-mine">본인 주도 담당</span><b>서보·공압(M코드) 순차 연동 및 강제 에러 주입 검증</b></div>
-                입고(M10·20·30·40·60) 및 출고(M10·20·30·40·70) M코드와 로드리스·듀얼로드 실린더 센서(CS1~CS4) 완료 조건을 연동 제어하고, 래더/HMI(D20·D22)에서 강제로 에러 값을 주입해 시그널타워(Y15~Y17) 알람 및 설비 정지 동작을 테스트
+                <div class="role-badge-row"><span class="badge-mine">본인 주도 담당</span><b>공정 간 인터록·연계운전(M코드) 및 알람 확인·리셋·복구</b></div>
+                입고(M10·20·30·40·60) 및 출고(M10·20·30·40·70) 시퀀스와 실린더 센서(CS1~CS4) 인터록을 확인하여 연계운전을 구현하고, 알람 발생(D20·D22 테스트 주입, 바코드 불일치, 공압 이상) 시 시그널타워(Y15~Y17) 확인 후 리셋(M402/M800)으로 복구하는 절차 검증
               </li>
               <li>
-                <div class="role-badge-row"><span class="badge-team">팀 공동 수행</span><b>전장 배선 구축 및 바코드·서보 통합 시운전 디버깅</b></div>
-                팀원들과 제어반/센서(EE-SX674) 전장 배선을 구축하고, 바코드 스캐너(GM65·Arduino·QJ71C24N) 품목 판별 데이터와 서보 입출고 큐(Queue) 시퀀스를 결합하여 통합 시운전 및 예외 처리 인터록 디버깅 수행
+                <div class="role-badge-row"><span class="badge-team">팀 공동 수행</span><b>LOT 바코드 품목 식별 및 설비 통합 시운전·데이터 기록</b></div>
+                팀원들과 제어반/센서 배선을 구축하고, 바코드(GM65·QJ71C24N) 기반 물품 LOT 식별 및 작업 큐(Track IN/OUT) 상태가 HMI 화면에 정확히 기록·갱신되도록 통합 시운전 수행
               </li>
             </ul>
           </div>
@@ -1892,16 +1893,16 @@
 
         <!-- 2. ASRS 트러블슈팅 3단 -->
         <div class="ts-section-label">
-          <div>🛠️ 핵심 엔지니어링 트러블슈팅 (Troubleshooting)</div>
+          <div>🛠️ 핵심 엔지니어링 트러블슈팅 (알람 확인 · 인터록 차단 · 리셋 및 복구)</div>
           <span>💡 각 카드의 [▶ 영상 보기] 버튼을 누르면 위 동영상 플레이어로 자동 이동하여 즉시 재생됩니다.</span>
         </div>
 
         <div class="ts-grid">
           <div class="ts-card">
             <div>
-              <h4>🔧 트러블슈팅 1 : 전(全) 구간 바코드 불일치 감지 및 오입출고 방지 인터록</h4>
-              <p><b>문제:</b> 시리얼 모듈(QJ71C24N)로 수신한 스캔 데이터(<code>D732</code>)와 입출고 목표 번호(<code>D140</code>) 불일치 시 기존 로직이 별도 알람 없이 모호하게 대기하여 작업 큐 멈춤 및 오입고·오출고 우려 발생</p>
-              <p><b>해결:</b> 전 번호 구간에서 데이터 불일치(<code><></code>) 감지 시 황색 경고등(<code>Y16</code>) 점등과 함께 서보 기동 조건을 차단(Interlock)하고, 현장 작업자가 확인 후 리셋 버튼(<code>M402</code> / <code>M800</code>)을 입력할 때만 에러가 해제되도록 예외 처리 시퀀스 구성</p>
+              <h4>🔧 트러블슈팅 1 : LOT 바코드 불일치·통신 알람(Y16) 확인 및 수동 리셋(M402/M800) 복구</h4>
+              <p><b>문제:</b> 시리얼 모듈(QJ71C24N)로 수신한 물품 바코드(<code>D732</code>)와 입출고 목표 번호(<code>D140</code>) 불일치 시 기존 로직이 별도 알람 없이 대기하여 트랙 IN/OUT 큐 멈춤 및 오투입 우려 발생</p>
+              <p><b>해결:</b> 전 번호 구간에서 불일치(<code><></code>) 또는 통신 에러(<code>X2E</code>) 감지 시 황색 알람등(<code>Y16</code>) 점등과 함께 서보 기동을 인터록 차단하고, 운영자가 현장을 확인한 뒤 리셋 버튼(<code>M402</code> / <code>M800</code>)을 눌러야만 복구되도록 구성 (바코드 미인식 타임아웃 세분화는 추가 보완 과제로 도출)</p>
             </div>
             <div class="ts-inline-btns">
               <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_ts1.mp4', true)">▶ 영상1: 오입고 방지</button>
@@ -1912,58 +1913,58 @@
 
           <div class="ts-card">
             <div>
-              <h4>🔧 트러블슈팅 2 : XY 2축 직선보간 및 M코드(10·20·30·40·60/70)·센서 완료 인터록</h4>
-              <p><b>문제:</b> 서보 위치결정(<code>ZP.PSTRT1</code>) 이동 중이거나 로드리스(좌·우)·듀얼로드(리프트 전·후) 실린더가 끝단까지 도달하지 않은 상태에서 후속 축 이동이 실행될 경우 팔레트 간섭 위험 존재</p>
-              <p><b>해결:</b> 축 BUSY(<code>X4C</code>) OFF 및 원점복귀(<code>M30</code>) 완료 조건에서만 기동을 허가하고, 각 스텝의 M코드(입고 <code>10→20→30→40→60</code> / 출고 <code>10→20→30→40→70</code>)마다 오토스위치(<code>CS1~CS4</code>, <code>X00~X03</code>) 검출 신호 확인 후에만 M코드 OFF 완료 신호를 인가하여 비정상 후속 동작을 방지</p>
+              <h4>🔧 트러블슈팅 2 : 서보·공압 공정 간 인터록 확인 및 M코드(10~70) 연계운전</h4>
+              <p><b>문제:</b> 서보 위치결정(<code>ZP.PSTRT1</code>) 운전 중이거나 로드리스(좌·우)·듀얼로드(리프트 전·후) 실린더가 완료 위치에 도달하기 전에 다음 시퀀스가 실행될 경우 설비 간섭 위험 존재</p>
+              <p><b>해결:</b> 서보 BUSY(<code>X4C</code>) OFF 및 원점복귀(<code>M30</code>) 인터록 조건을 확인하고, 각 M코드(입고 <code>10→20→30→40→60</code> / 출고 <code>10→20→30→40→70</code>)마다 실린더 센서(<code>CS1~CS4</code>, <code>X00~X03</code>) 입력 확인 후 다음 공정으로 넘어가는 연계운전 구현</p>
             </div>
             <div class="ts-inline-btns">
-              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_total.mp4', true)">▶ 전체 연동 시연 영상으로 이동</button>
+              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_total.mp4', true)">▶ 전체 연계운전 영상으로 이동</button>
             </div>
           </div>
 
           <div class="ts-card">
             <div>
-              <h4>🔧 트러블슈팅 3 : 공압 이상 및 강제 에러 주입(D20·D22) 시그널타워 알람 검증</h4>
-              <p><b>문제:</b> 실물 설비에서 서보 축 에러(104·105)나 공압 이탈 상황을 매번 물리적으로 발생시켜 알람 회로를 테스트하기에는 장비 손상 위험이 존재</p>
-              <p><b>해결:</b> HMI 및 래더(<code>D20·D22</code>)에 테스트 에러 값 주입 회로를 구성하여 적색 경보등(<code>Y15</code>) 점멸·부저 및 인터록 차단을 안전하게 테스트하고, 공압 정상 복귀 시 녹색등(<code>Y17</code>, <code>M901 OFF</code>) 점등과 함께 시퀀스가 재개되도록 구현</p>
+              <h4>🔧 트러블슈팅 3 : 공압 이상 및 설비 알람 테스트 회로(D20·D22) 검증·복구</h4>
+              <p><b>문제:</b> 실물 설비에서 서보 축 에러(104·105)나 공압 이탈 상황을 매번 물리적으로 발생시켜 알람 회로를 검증하기에는 장비 손상 위험이 존재</p>
+              <p><b>해결:</b> 시운전 검증용 에러 주입 경로(<code>D20·D22</code>) 및 공압 감시 인터록을 구성하여 적색 경보등(<code>Y15</code>) 점멸·부저와 설비 정지를 검증하고, 정상 복귀 시 녹색등(<code>Y17</code>) 점등과 함께 재개되도록 구현 (실제 양산 라인에서는 테스트 경로 비활성화 또는 관리자 권한 잠금 적용 필요)</p>
             </div>
             <div class="ts-inline-btns">
-              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_signal.mp4', true)">▶ 강제 에러 주입 영상</button>
-              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_ts3.mp4', true)">▶ 공압 인터록 영상</button>
+              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_signal.mp4', true)">▶ 알람 테스트 영상</button>
+              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_ts3.mp4', true)">▶ 공압 인터록·복구 영상</button>
             </div>
           </div>
         </div>
 
         <!-- 기술면접 대비 상세 설계 근거 아코디언 -->
         <details class="interview-qa-details">
-          <summary>💡 [기술면접 핵심 디테일] QD77MS4 파라미터 설정 및 바코드·리밋센서 설계 근거 보기</summary>
+          <summary>💡 [실무 운영 디테일] 운전 파라미터(Recipe) 설정 및 인터록·알람 복구 확인 절차 보기</summary>
           <div class="qa-content-grid">
             <div class="qa-item">
-              <strong>Q1. 1축·2축 서보 기구 사양과 Simple Motion 파라미터는?</strong>
-              1축(X축, HG-KR23 200W)은 볼스크류 1회전당 이동량 <b>10mm(10,000μm, 도그 길이 15mm)</b>, 2축(Y축 수직축, HG-KR13B 100W 브레이크 내장)은 리드 <b>12mm(도그 길이 10mm)</b>로 설정했습니다. 수직축 낙하 방지를 위해 서보 ON 및 브레이크 릴레이(Y14) 타이머 시퀀스를 연동했습니다.
+              <strong>Q1. 1축·2축 서보 기구 사양과 운전 파라미터 설정은?</strong>
+              1축(X축, HG-KR23 200W)은 볼스크류 1회전당 이동량 <b>10mm(10,000μm, 도그 길이 15mm)</b>, 2축(Y축 수직축, HG-KR13B 100W 브레이크 내장)은 리드 <b>12mm(도그 길이 10mm)</b>로 설정했습니다. 수직축 안전을 위해 서보 ON 및 브레이크 릴레이(Y14) 인터록 타이머를 적용했습니다.
             </div>
             <div class="qa-item">
-              <strong>Q2. 원점(HOME) 센서와 상하좌우 리밋(RLS/FLS)의 접점 구분 이유는?</strong>
-              오므론 포토 마이크로센서(EE-SX674/674A) 적용 시, <b>HOME 센서는 a접점(Dark-ON, 백색선 오픈)</b>으로 차광 시 검출되게 했고, <b>RLS·FLS 리밋 센서는 b접점(Light-ON, 백색선 24V 연결)</b>으로 배선하여 혹시 센서 배선이 단선되더라도 리밋 신호로 감지해 서보 동작을 멈추도록 구성했습니다.
+              <strong>Q2. 원점(HOME) 센서와 상하좌우 리밋(RLS/FLS)의 안전 인터록 구조는?</strong>
+              포토 마이크로센서(EE-SX674/674A) 적용 시, <b>HOME 센서는 a접점(Dark-ON)</b>으로 차광 시 검출되게 했고, <b>RLS·FLS 리밋 센서는 b접점(Light-ON, 24V 상시 인가)</b>으로 배선하여 단선이나 이상 발생 시 즉시 리밋 알람으로 감지해 설비를 보호하도록 구성했습니다.
             </div>
             <div class="qa-item">
-              <strong>Q3. 바코드 불일치 차단 후 리셋 복귀 프로세스는?</strong>
-              아두이노가 GM65 스캐너 문자열을 읽어 MAX3232를 통해 QJ71C24N(RS-232)으로 전달하면, PLC에서 품목 ID(D732)와 요청 번호(D140)를 비교합니다. 불일치 시 인터록 플래그가 SET되어 ZP.PSTRT1 기동 라인을 끊고 Y16을 점등하며, 작업자가 실물을 확인한 뒤 M402(입고)/M800(출고) 리셋을 눌러야만 플래그가 RST되어 대기 상태로 복귀합니다.
+              <strong>Q3. 알람 발생 시 확인, 리셋 및 실설비 테스트 회로 관리 방안은?</strong>
+              바코드 스캔값(D732)과 작업 지시 번호(D140) 불일치 시 인터록 플래그가 SET되어 ZP.PSTRT1 기동을 차단하고 Y16 황색 알람을 점등합니다. 운영자가 실물 LOT 상태를 대조 확인한 뒤 M402/M800 리셋 버튼을 조작해 복구하며, 시운전용 에러 주입 번지(D20·D22)는 실제 생산 시 오조작 방지를 위해 인터록 잠금 처리하는 것이 안전합니다.
             </div>
           </div>
         </details>
 
-        <!-- 3. 인터랙티브 애니메이션 1: 초록색 팔레트(로드리스 실린더) 출발 -> 서보 픽업 -> 8-Bay 창고 적재 -->
+        <!-- 3. 인터랙티브 애니메이션 1 -->
         <div class="sim-panel">
           <div class="sim-header">
             <h4>⚡ [인터랙티브 시뮬레이터] 로드리스 실린더(초록 팔레트 출발) ➔ XY 2축 직선보간 & M코드(10·20·30·40·60/70)</h4>
             <div class="sim-controls">
-              <button class="sim-btn" onclick="runAsrsSim(1, 'AS')">📥 1번 Bay 입고(AS)</button>
-              <button class="sim-btn" onclick="runAsrsSim(4, 'AS')">📥 4번 Bay 입고(AS)</button>
-              <button class="sim-btn" onclick="runAsrsSim(7, 'RS')">📤 7번 Bay 출고(RS)</button>
-              <button class="sim-btn err" onclick="triggerAsrsError('BARCODE')">⚠️ 바코드 불일치(D732≠D140)</button>
-              <button class="sim-btn err" onclick="triggerAsrsError('PNEUMATIC')">🚨 공압/축에러 주입(D20·104)</button>
-              <button class="sim-btn rst" onclick="resetAsrsSim()">🔄 작업자 리셋(M402/M800)</button>
+              <button class="sim-btn" onclick="runAsrsSim(1, 'AS')">📥 1번 Bay 입고(Track IN)</button>
+              <button class="sim-btn" onclick="runAsrsSim(4, 'AS')">📥 4번 Bay 입고(Track IN)</button>
+              <button class="sim-btn" onclick="runAsrsSim(7, 'RS')">📤 7번 Bay 출고(Track OUT)</button>
+              <button class="sim-btn err" onclick="triggerAsrsError('BARCODE')">⚠️ 바코드 불일치 알람(Y16)</button>
+              <button class="sim-btn err" onclick="triggerAsrsError('PNEUMATIC')">🚨 공압/축에러 알람(Y15)</button>
+              <button class="sim-btn rst" onclick="resetAsrsSim()">🔄 알람 확인·리셋 복구(M402/M800)</button>
             </div>
           </div>
 
@@ -1975,10 +1976,9 @@
               </div>
 
               <div class="asrs-physical-layout">
-                <!-- 좌측: 바코드 스캐너 + 로드리스 실린더 + 초록색 팔레트 출발대 -->
                 <div class="station-roadless-zone">
                   <div class="station-top-scanner">
-                    <div style="font-size:0.68rem; color:#a8a29e;">상단 바코드 스캐너 (GM65 · Y12)</div>
+                    <div style="font-size:0.68rem; color:#a8a29e;">LOT 바코드 스캐너 (GM65 · Y12)</div>
                     <div id="sim-barcode-txt" style="font-family:monospace; font-size:0.78rem; color:#fbbf24; font-weight:700;">스캔 대기중</div>
                   </div>
 
@@ -2005,7 +2005,6 @@
                   </div>
                 </div>
 
-                <!-- 우측: Y축 EZ limo 리니어 기둥 + X축 볼스크류 + 2층 8-Bay 선반 -->
                 <div class="warehouse-mechanical-frame">
                   <div class="y-axis-rail" title="2축 브레이크 서보모터 HG-KR13B (볼스크류 리드 12mm)">
                     <span>Y+</span>
@@ -2090,7 +2089,6 @@
               </div>
             </div>
 
-            <!-- 우측: PATLITE 시그널 타워 -->
             <div class="asrs-right-box">
               <div style="text-align:center; font-size:0.76rem; color:#a8a29e;">PATLITE (LR6-302PJB)</div>
               <div class="patlite-tower">
@@ -2099,7 +2097,7 @@
                 <div class="pat-lamp green on" id="lamp-y17" title="Y17 녹색 (M901 OFF 정상 운전)"></div>
               </div>
               <div id="pat-status-txt" style="text-align:center; font-size:0.8rem; font-weight:700; color:#4ade80;">
-                Y17(GL) 정상 점등
+                Y17(GL) 정상 운전
               </div>
             </div>
           </div>
@@ -2111,71 +2109,61 @@
       </div>
     </section>
 
-    <!-- PROJECT 2: IoT SENSOR INTEGRATION -->
+    <!-- PROJECT 2: IoT SENSOR INTEGRATION (5대 물리량 계측 & 6개 데이터 컬럼 DB 기록 명확 통일) -->
     <section id="iot">
       <h2 class="section-title">📡 주요 프로젝트 2 : IoT 기반 필드 센서 계측 및 제어 시스템</h2>
-      <p class="section-desc">2026.09.08 ~ 2026.10.06 (130시간) | 2조 CORE (5인) | 직접 담당: MELSEC·Siemens 센서 환산 래더 설계, LS HMI·X-SCADA 모니터링 및 정량주입 작화</p>
+      <p class="section-desc">2026.09.08 ~ 2026.10.06 (130시간) | 2조 CORE (5인) | 직접 담당: MELSEC·Siemens 공정 상태 모니터링 래더, HMI 운전조건(SV/Recipe) 적용 및 DB 기록</p>
 
       <div class="project-box">
         <div class="project-header">
-          <h3>5대 물리량(온도·압력·유속·유량·전류) 수집·래더화 및 HMI/SCADA/Node-RED/MySQL 통합</h3>
+          <h3>5대 물리량(온도·압력·순간유량률[LPM]·누적유량[L]·전류) 모니터링 및 운전 조건(SV)·DB 기록 관리</h3>
           <span class="tech-badge">MELSEC Q03UDE(Q64AD) · Siemens S7-1200(HSC) · LS HMI · X-SCADA · Node-RED · MySQL</span>
         </div>
 
-        <!-- 1. IoT 3버튼 동영상 플레이어 & 본인 기여도 명확 구분 -->
+        <!-- 1. IoT 3버튼 동영상 플레이어 (크롤러가 숨김 안내문을 읽지 않도록 빈 컨테이너로 초기화) -->
         <div class="media-Overview-grid">
           <div class="video-container" id="iot-video-box">
             <div class="video-wrapper">
               <video id="iot-video" controls muted playsinline preload="auto" src="iot_tank.mp4" poster="iot3.png"></video>
-              <div class="video-fallback-notice" id="iot-vid-notice">
-                <div style="font-size:1.7rem; margin-bottom:0.4rem;">🎥</div>
-                <strong id="iot-vid-filename" style="color:#fbbf24; margin-bottom:0.35rem;">iot_tank.mp4</strong>
-                <p style="color:#d6d3d1; max-width:390px; line-height:1.5;">
-                  해당 영상 파일 업로드 또는 H.264 MP4 코덱 확인 후 재생할 수 있습니다.
-                </p>
-                <div style="display:flex; gap:0.5rem; margin-top:0.75rem; flex-wrap:wrap; justify-content:center;">
-                  <a id="iot-direct-link" href="iot_tank.mp4" target="_blank" class="ts-mini-btn">새 탭에서 파일 확인</a>
-                  <button class="ts-mini-btn" onclick="hideIotVideoNotice()">실습 화면 이미지 보기</button>
-                </div>
-              </div>
+              <div class="video-fallback-notice" id="iot-vid-notice" aria-hidden="true"></div>
             </div>
             <div class="video-btn-group" id="iot-btn-group">
-              <button class="vid-btn active" data-src="iot_tank.mp4" onclick="changeIotVideo('iot_tank.mp4', false)">💧 1. HMI 물탱크 정량제어 (7초 시연)</button>
-              <button class="vid-btn" data-src="iot_total.mp4" onclick="changeIotVideo('iot_total.mp4', false)">🎬 2. 전체 센서 통합 시연</button>
-              <button class="vid-btn" data-src="iot_scada.mp4" onclick="changeIotVideo('iot_scada.mp4', false)">🖥️ 3. X-SCADA & Node-RED 통합</button>
+              <button class="vid-btn active" data-src="iot_tank.mp4" onclick="changeIotVideo('iot_tank.mp4', false)">💧 1. HMI 운전조건(SV) 정량제어 (7초)</button>
+              <button class="vid-btn" data-src="iot_total.mp4" onclick="changeIotVideo('iot_total.mp4', false)">🎬 2. 전체 공정 상태 모니터링</button>
+              <button class="vid-btn" data-src="iot_scada.mp4" onclick="changeIotVideo('iot_scada.mp4', false)">🖥️ 3. X-SCADA & DB 데이터 기록</button>
             </div>
           </div>
 
           <div class="role-summary">
             <ul>
               <li>
-                <div class="role-badge-row"><span class="badge-mine">본인 주도 담당</span><b>다중 센서 공학 단위 환산(AD_Conv FB) 및 경보·정량제어 래더</b></div>
-                Q64AD 4채널 아날로그 입력(온도 D0, 압력 D1, 유속 D2, CT전류 D3)과 S7-1200 고속카운터(HSC2, I0.3 펄스) 스케일링 래더를 구현하고, 물탱크 목표 유량 도달 시(<code>D48 ≥ D38</code>) 전자밸브(Y10) 자동 차단(RST M2) 및 단상 적산 전력량(Wh, D70) 연산 로직 작성
+                <div class="role-badge-row"><span class="badge-mine">본인 주도 담당</span><b>생산 운전 조건(SV/Recipe) 적용 및 물탱크 정량 주입 시퀀스</b></div>
+                HMI 화면에서 설정한 목표 유량(<code>D38</code>, Recipe 조건)과 실시간 누적 유량(<code>D48</code>)을 비교하여 목표 도달 시(<code>D48 ≥ D38</code>) 솔레노이드 밸브(<code>Y10</code>)를 자동 차단(<code>RST M2</code>)하고, 데이터 초기화(<code>M1</code>)로 다음 배치 운전을 준비하는 로직 구현
               </li>
               <li>
-                <div class="role-badge-row"><span class="badge-mine">본인 주도 담당</span><b>LS HMI 및 X-SCADA 통합 대시보드·센서 상세 화면 작화</b></div>
-                단일 HMI(.226)에서 MELSEC(.246:1025)과 Siemens(.95:102) 다중 통신 대상을 구분하여 태그와 소수점 배율을 매핑하고, 센서별 설정값(SV) 입력·밸브 수동/자동 조작·실시간 추세 그래프 화면을 구성
+                <div class="role-badge-row"><span class="badge-mine">본인 주도 담당</span><b>5대 물리량 HMI/SCADA 모니터링 및 이상 알람(임계값/단선) 구성</b></div>
+                5대 물리량(온도·압력·순간유량률[LPM, 화면표기 유속]·누적유량[L]·전류)을 공학 단위로 환산(<code>AD_Conv FB</code>)해 실시간 모니터링하고, 공정 임계값 초과 알람(<code>M10~M16</code>)과 센서 배선 단선 알람(<code>AD < K-50</code>, <code>M11~M17</code>)을 분리 구현
               </li>
               <li>
-                <div class="role-badge-row"><span class="badge-team">팀 공동 수행</span><b>센서·전장 배선 구축 및 Node-RED · MySQL DB 연동 검증</b></div>
-                팀원들과 5대 센서·릴레이 배선 및 다중 SMPS 공통 GND를 구축하고, X-SCADA·Node-RED와 MySQL(<code>iot_sensor</code> 테이블, 5초 주기 자동 INSERT) 구간별 데이터 정합성 대조 및 통합 디버깅 수행
+                <div class="role-badge-row"><span class="badge-team">팀 공동 수행</span><b>운전 실적 데이터 자동 기록(MySQL 6개 계측 항목) 및 이력 관리</b></div>
+                팀원들과 MELSEC·Siemens 통신 및 공통 GND 배선을 구축하고, 5초 주기로 5대 물리량과 원격 계측값(<code>ad_val</code>)을 포함한 6개 데이터 항목을 MySQL(<code>iot_sensor</code> 테이블)에 자동 기록·조회·검증
               </li>
             </ul>
           </div>
         </div>
 
-        <!-- 2. IoT 트러블슈팅 3단 -->
+        <!-- 2. IoT 트러블슈팅 3단 (클로드 지적 반영: D48 >= D38 기술적 정확성 확보) -->
         <div class="ts-section-label">
-          <div>🛠️ 핵심 엔지니어링 트러블슈팅 (Troubleshooting)</div>
+          <div>🛠️ 핵심 엔지니어링 트러블슈팅 (운전조건 관리 · 공정 이상 감지 · 데이터 기록 정합성)</div>
           <span>💡 각 카드의 [▶ 영상 보기] 버튼을 누르면 위 동영상 플레이어로 자동 이동하여 재생됩니다.</span>
         </div>
 
         <div class="ts-grid">
           <div class="ts-card">
             <div>
-              <h4>🔧 트러블슈팅 1 : Q64AD 전류·전압 하드웨어 매칭 및 센서 단선(AD < -50) 분리 감지</h4>
-              <p><b>문제:</b> 4~20mA 전류 센서와 1~5V 전압 센서(유속 FM-215-8-P) 혼용 시 입력 설정 차이, 배선 단선 시 음수 AD값 유입, 소전류 부하에서 CT 센서 감도 부족 현상 발생</p>
-              <p><b>해결:</b> Q64AD 전류 채널(CH1·2·4)은 내부 저항 쇼트바를 연결하고 전압 채널(CH3)은 쇼트바를 제거해 매칭함. CT에 전선을 동일 방향으로 2회 관통시켜 감도를 2배(20A→10A)로 높이고, 공통 FB(<code>AD_Conv</code>)에서 공정 임계값 초과(<code>PV ≥ SV</code>, <code>M10·12·14·16</code>)와 배선 단선(<code>AD < K-50</code>, <code>M11·13·15·17</code>) 비트를 분리 출력하도록 구성</p>
+              <h4>🔧 트러블슈팅 1 : 공정 이상(임계값 초과)과 센서 단선 알람(AD < -50) 분리 감지</h4>
+              <p><b>문제:</b> 4~20mA/1~5V 센서 신호 수집 중 실제 공정 과열·과압 상태와 배선 단선으로 인한 신호 불량을 화면에서 즉각 구분하여 대응할 필요성 존재</p>
+              <p><b>해결:</b> Q64AD 채널별 전류·전압 쇼트바 매칭 및 CT 2회 관통 감도 보정(20A→10A)을 수행하고, 공통 FB(<code>AD_Conv</code>)에서 공정 조건 초과 알람(<code>PV ≥ SV</code>, <code>M10·12·14·16</code>)과 센서 단선 알람(<code>AD < K-50</code>, <code>M11·13·15·17</code>)을 분리하여 운영자가 즉시 원인을 파악하고 보고·조치할 수 있도록 구현</p>
             </div>
             <div class="ts-inline-btns">
               <button class="ts-mini-btn" onclick="changeIotVideo('iot_total.mp4', true)">▶ 전체 센서 통합 시연 보기</button>
@@ -2184,20 +2172,20 @@
 
           <div class="ts-card">
             <div>
-              <h4>🔧 트러블슈팅 2 : 이기종 장비(MELSEC·Siemens) 다중 SMPS 공통 GND 구축 및 단위 배율 통일</h4>
-              <p><b>문제:</b> 터빈 유량센서 펄스를 지멘스 PLC(S7-1200 I0.3, HSC2)로 계측하고 전자밸브 릴레이와 연동할 때 서로 다른 SMPS 사용으로 인한 기준 전위차 문제 및 HMI·SCADA·Node-RED 간 정수/실수 배율 중복 적용 오류 발생</p>
-              <p><b>해결:</b> 서로 다른 SMPS의 <code>-(0V/GND)</code> 단자를 전선으로 묶어 공통 기준 전위를 확보하고 릴레이 5번 단자 코일 점퍼를 구성함. 또한 PLC 정수 주소(<code>D20÷100</code>, <code>D22÷1000</code>, <code>D26÷1000</code>)와 지멘스 실수 태그(<code>DB1.DBD12</code>)의 배율 규칙을 통일하여 상위 DB 저장값과의 오차를 해소</p>
+              <h4>🔧 트러블슈팅 2 : 이기종 PLC 공통 GND 구축 및 상위 DB/엑셀 기록용 단위 배율 통일</h4>
+              <p><b>문제:</b> MELSEC(아날로그 4채널)과 Siemens S7-1200(터빈 펄스 유량 HSC2) 간 서로 다른 SMPS 전원 사용으로 인한 신호 불안정 및 HMI·SCADA·DB 기록 시 소수점 배율 불일치 발생</p>
+              <p><b>해결:</b> 다중 SMPS의 <code>-(0V/GND)</code> 공통 접지와 릴레이 5번 단자 코일 점퍼를 구성하여 신호를 안정화하고, PLC 정수 주소(<code>D20÷100</code>, <code>D22÷1000</code>, <code>D24÷100</code>, <code>D26÷1000</code>)와 지멘스 유량 태그(<code>DB1.DBW2÷100</code>)의 환산 배율을 통일하여 운전 일지 및 DB 기록 정합성을 확보</p>
             </div>
             <div class="ts-inline-btns">
-              <button class="ts-mini-btn" onclick="changeIotVideo('iot_scada.mp4', true)">▶ X-SCADA & Node-RED 영상 보기</button>
+              <button class="ts-mini-btn" onclick="changeIotVideo('iot_scada.mp4', true)">▶ X-SCADA & DB 기록 영상 보기</button>
             </div>
           </div>
 
           <div class="ts-card">
             <div>
-              <h4>🔧 트러블슈팅 3 : 물탱크 정량 주입 오버슈트 방지(D48 ≥ D38) 및 설정값 범위 제한(DLIMIT)</h4>
-              <p><b>문제:</b> 목표 유량(<code>D38</code>) 도달 판정을 단순 일치(<code>=</code>)로 비교하거나 작업자가 허용 범위를 벗어난 목표값을 입력할 경우, 밸브 응답 지연으로 목표치를 넘겨 계속 주입되는 문제 발생 가능</p>
-              <p><b>해결:</b> <code>DLIMIT K1 K100000 D38 D38</code> 명령으로 입력 범위를 0.001~100.000L로 제한하고, 비교 조건을 이상(<code>D48 ≥ D38</code>) 및 만수위(<code>D48 ≥ 100000</code>, <code>M7</code>)로 설계하여 목표량 도달 시 <code>RST M2</code>로 전자밸브(<code>Y10</code>)가 차단되도록 구현</p>
+              <h4>🔧 트러블슈팅 3 : 목표 유량 스캔 초과 미검출 방지(D48 ≥ D38) 및 Recipe 범위 제한(DLIMIT)</h4>
+              <p><b>문제:</b> 목표 유량(<code>D38</code>) 도달을 단순 일치(<code>=</code>)로만 비교하면 PLC 연산 주기 사이 목표값을 넘어선 순간(`50.020L` 등) 신호를 놓쳐 연속 과주입이 발생하며, 작업자의 Recipe 오입력 예방도 필요</p>
+              <p><b>해결:</b> <code>DLIMIT K1 K100000 D38 D38</code>로 Recipe 입력 범위를 0.001~100.000L로 제한하고, 이상 비교(<code>D48 ≥ D38</code>) 및 만수위 인터록(<code>M7</code>)을 적용해 목표치 도달 미검출로 인한 연속 주입을 방지함 (밸브 응답 지연에 따른 미세 편차는 실측 후 보정값 적용으로 확인)</p>
             </div>
             <div class="ts-inline-btns">
               <button class="ts-mini-btn" onclick="changeIotVideo('iot_tank.mp4', true)">▶ HMI 물탱크 정량제어 영상 보기</button>
@@ -2207,66 +2195,66 @@
 
         <!-- 기술면접 대비 상세 설계 근거 아코디언 -->
         <details class="interview-qa-details">
-          <summary>💡 [기술면접 핵심 디테일] 센서 고장 vs 공정 이상 구별 로직 및 Node-RED·MySQL 연동 검증 절차 보기</summary>
+          <summary>💡 [실무 운영 디테일] 공정 이상 vs 센서 고장 판별 및 운전 데이터(DB/일지) 기록 검증 절차 보기</summary>
           <div class="qa-content-grid">
             <div class="qa-item">
-              <strong>Q1. Q64AD 입력에서 '센서 단선 고장'과 '실제 공정 과열/과압 이상'을 어떻게 구별했는가?</strong>
-              <code>AD_Conv</code> 함수 블록 내에서 두 가지 비교 회로를 분리했습니다. 4~20mA 센서가 정상 연결된 상태에서 물리량이 상승하면 환산값(PV)이 설정값(SV) 이상이 되므로 <b>공정 임계값 초과 경보(M10·M12·M14·M16)</b>가 켜집니다. 반면 배선 단선 등으로 전류가 0mA 이하로 떨어져 원시 AD값이 음수(<code>현재값_AI < K-50</code>)가 되면 <b>센서 고장 경보(M11·M13·M15·M17)</b>가 별도로 점등되어 현장 작업자가 즉시 원인을 구분할 수 있습니다.
+              <strong>Q1. HMI 모니터링 중 '센서 단선 고장'과 '실제 공정 이상'을 어떻게 구분하여 대응하는가?</strong>
+              <code>AD_Conv</code> 블록에서 4~20mA 정상 범위 내 물리량이 설정 조건(SV)을 넘으면 <b>공정 초과 알람(M10·M12·M14·M16)</b>이 점등되고, 배선 단선 등으로 전류가 끊겨 원시 AD값이 음수(<code>현재값_AI < K-50</code>)로 떨어지면 <b>센서 고장 알람(M11·M13·M15·M17)</b>이 점등됩니다. 이를 통해 설비 보전팀에 정확한 이상 원인을 즉시 보고할 수 있습니다.
             </div>
             <div class="qa-item">
-              <strong>Q2. Node-RED에서 MySQL까지 데이터 전달 및 저장 오류는 어떻게 검증했는가?</strong>
-              5단계 구간 대조법을 적용했습니다: ① PLC 온라인 모니터에서 원천 레지스터(D20~D26, DB1.DBW2) 확인 ➔ ② X-SCADA 태그 수신값 및 스케일 배율 대조 ➔ ③ Node-RED <code>Debug</code> 노드로 1초 주기 수신 페이로드와 SQL 쿼리 응답 확인 ➔ ④ MySQL <code>iot_sensor</code> 테이블에서 5초 주기로 <code>no</code> 자동 증가와 <code>date</code> 타임스탬프 간격 확인 ➔ ⑤ 웹 대시보드 게이지/차트 반영을 교차 검증했습니다.
+              <strong>Q2. MySQL DB 테이블(iot_sensor)의 저장 구조와 정합성 확인 방법은?</strong>
+              <code>iot_sensor</code> 테이블은 기록 번호(<code>no</code>)와 시각(<code>date</code>), 그리고 5대 물리량(<code>temp</code>, <code>pressure</code>, <code>lpm</code>, <code>liter</code>, <code>ampere</code>)에 원격 계측값(<code>ad_val</code>)을 포함한 6개 계측 컬럼으로 구성됩니다. PLC 온라인 값 ➔ SCADA 표시값 ➔ Node-RED Debug ➔ MySQL 5초 주기 신규 행을 단계별로 대조해 데이터 누락을 점검했습니다.
             </div>
           </div>
         </details>
 
-        <!-- 3. 인터랙티브 애니메이션 2: IoT 데이터 파이프라인 아키텍처 & 물탱크 정량주입 시뮬레이터 -->
+        <!-- 3. 인터랙티브 애니메이션 2 -->
         <div class="sim-panel">
           <div class="sim-header">
-            <h4>⚡ [인터랙티브 아키텍처 & 시뮬레이터] 다중 센서 파이프라인 및 물탱크 정량 주입(D48 ≥ D38)</h4>
+            <h4>⚡ [인터랙티브 아키텍처 & 시뮬레이터] 공정 상태 모니터링 및 운전 조건(D48 ≥ D38) 정량 제어</h4>
             <div class="sim-controls">
-              <button class="sim-btn" onclick="startTankSim()">💧 정량 주입 시작 (M2 ON → Y10 ON)</button>
-              <button class="sim-btn err" onclick="triggerSensorFault()">🔌 센서 단선 테스트 (D0 < -50 → M11 ON)</button>
-              <button class="sim-btn rst" onclick="resetTankSim()">🔄 누적 데이터 초기화 (M1 ON)</button>
+              <button class="sim-btn" onclick="startTankSim()">💧 정량 운전 시작 (M2 ON → Y10 ON)</button>
+              <button class="sim-btn err" onclick="triggerSensorFault()">🔌 센서 단선 알람 확인 (D0 < -50 → M11 ON)</button>
+              <button class="sim-btn rst" onclick="resetTankSim()">🔄 알람 리셋 · 실적 초기화 (M1 ON)</button>
             </div>
           </div>
 
           <div class="arch-flow">
             <div class="arch-node">
-              <h5>1. 필드 센서 계층 <span class="pulse-dot"></span></h5>
+              <h5>1. 현장 5대 물리량 센서 <span class="pulse-dot"></span></h5>
               <p>
                 • 온도(신호발생기 4~20mA)<br>
                 • 압력(Swagelok 4~20mA)<br>
-                • 유속(FM-215-8-P 1~5V)<br>
+                • 순간유량률(FM-215 1~5V)<br>
                 • 전류(CT 2회관통 4~20mA)<br>
-                • 유량(터빈 홀센서 Pulse)
+                • 누적유량(터빈 홀센서 Pulse)
               </p>
             </div>
             <div class="arch-node">
-              <h5>2. PLC 제어 계층 <span class="pulse-dot"></span></h5>
+              <h5>2. PLC 시퀀스·인터록 <span class="pulse-dot"></span></h5>
               <p>
                 • <b>MELSEC Q03UDE (.246:1025)</b><br>
                   Q64AD CH1~4 → AD_Conv FB<br>
-                  정량주입(D48≥D38) → Y10<br>
+                  운전조건(D48≥D38) → Y10<br>
                 • <b>Siemens S7-1200 (.95:102)</b><br>
                   I0.3 HSC2 카운트 → DB1.DBW2
               </p>
             </div>
             <div class="arch-node">
-              <h5>3. 시각화 (HMI/SCADA) <span class="pulse-dot"></span></h5>
+              <h5>3. HMI/SCADA 모니터링 <span class="pulse-dot"></span></h5>
               <p>
                 • <b>LS eXP2-0700 (.226)</b><br>
-                  센서별 SV 설정·밸브 조작<br>
+                  운전조건(SV) 설정·알람 확인<br>
                 • <b>X-SCADA & Node-RED</b><br>
-                  1초 주기 폴링 · 실시간 게이지/트렌드 차트 표시
+                  실시간 공정 상태·트렌드 감시
               </p>
             </div>
             <div class="arch-node">
-              <h5>4. DB 이력 관리 <span class="pulse-dot"></span></h5>
+              <h5>4. 운전 데이터 기록(DB) <span class="pulse-dot"></span></h5>
               <p>
                 • <b>MySQL (iot_sensor)</b><br>
-                  5초 주기 6개 물리량 자동 INSERT<br>
-                  <code>no, temp, pressure, lpm, liter, ampere, date</code>
+                  5초 주기 6개 계측항목 기록<br>
+                  <code>temp, pressure, lpm, liter, ampere, ad_val + date</code>
               </p>
             </div>
           </div>
@@ -2282,7 +2270,7 @@
                 <strong id="iot-val-pres">0.415 MPa</strong>
               </div>
               <div class="readout-item">
-                <span>CH3 유량률 PV (D24 ÷ 100)</span>
+                <span>CH3 순간유량률 (D24 ÷ 100)</span>
                 <strong id="iot-val-lpm">30.00 LPM</strong>
               </div>
               <div class="readout-item">
@@ -2296,21 +2284,21 @@
                 전자밸브(Y10): <b id="valve-y10-txt" style="color:#ef4444;">OFF</b>
               </div>
               <div class="water-tank">
-                <div class="tank-target-line">목표 SV(D38): 50.000L</div>
+                <div class="tank-target-line">운전조건 SV(D38): 50.000L</div>
                 <div id="tank-water"></div>
               </div>
               <div style="font-family:monospace; font-size:0.82rem; margin-top:0.4rem; color:#fbbf24;">
-                누적(D48): <b id="tank-d48-txt">0.000</b> / 100.000 L
+                실적(D48): <b id="tank-d48-txt">0.000</b> / 100.000 L
               </div>
             </div>
 
             <div style="font-size:0.83rem; color:#e7e5e4; background:var(--sim-panel); padding:0.9rem; border-radius:0.6rem; border:1px solid var(--sim-border);">
-              <div style="font-weight:700; color:#fbbf24; margin-bottom:0.4rem;">🔍 PLC 정량 제어 & DB 상태</div>
+              <div style="font-weight:700; color:#fbbf24; margin-bottom:0.4rem;">🔍 공정 운전 상태 & 데이터 기록</div>
               <div id="iot-sim-status">
-                • <b>운전 요청(M2):</b> OFF (저수위 M6 ON)<br>
-                • <b>환산식:</b> <code>D44 = D24 × D40 ÷ 60</code><br>
-                • <b>차단 조건:</b> <code>D48 ≥ D38 (50000)</code> 시 <code>RST M2</code><br>
-                • <b>센서 진단:</b> 전 채널 정상 (M11~M17 OFF)
+                • <b>운전 상태(M2):</b> 대기중 (저수위 M6 ON)<br>
+                • <b>운전 조건(Recipe):</b> <code>D38 = 50.000L (DLIMIT 적용)</code><br>
+                • <b>정지 조건:</b> <code>D48 ≥ D38</code> 도달 시 <code>RST M2</code><br>
+                • <b>알람 모니터링:</b> 전 채널 정상 (M10~M17 OFF)
               </div>
             </div>
           </div>
@@ -2327,11 +2315,11 @@
           </div>
           <div class="img-card" onclick="openModal('iot2.png')">
             <img alt="X-SCADA 및 MySQL 연동" src="iot2.png">
-            <div>2. X-SCADA 대시보드 및 DB 연동</div>
+            <div>2. X-SCADA 대시보드 및 DB 기록</div>
           </div>
           <div class="img-card" onclick="openModal('iot3.png')">
             <img alt="LS HMI 정량주입기 및 센서 화면" src="iot3.png">
-            <div>3. LS HMI 모니터링 및 정량주입기</div>
+            <div>3. LS HMI 운전조건(SV) 및 모니터링</div>
           </div>
           <div class="img-card" onclick="openModal('iot4.png')">
             <img alt="Node-RED 웹 대시보드 및 래더 로직" src="iot4.png">
@@ -2344,13 +2332,13 @@
     <!-- CORE LADDER LOGIC & I/O MEMORY MAP SNIPPETS -->
     <section id="ladder">
       <h2 class="section-title">🧩 핵심 제어 래더 다이어그램 및 통합 I/O 메모리 맵 (Core Logic)</h2>
-      <p class="section-desc">시각적 래더 블록 다이어그램으로 핵심 조건을 빠르게 파악하고, 필요 시 상세 래더 구조와 I/O 할당표를 펼쳐 확인할 수 있습니다.</p>
+      <p class="section-desc">설비 인터록 확인, 알람 리셋·복구, 운전 조건(SV) 비교를 위한 핵심 래더 로직과 디바이스 주소 맵입니다.</p>
 
       <div class="ladder-tabs">
-        <button class="ladder-tab-btn active" onclick="openLadderTab(0, this)">1. [ASRS] ZP.PSTRT1 & M코드(10~70) 인터록</button>
-        <button class="ladder-tab-btn" onclick="openLadderTab(1, this)">2. [ASRS] 바코드 비교(<>) & 패트라이트 제어</button>
-        <button class="ladder-tab-btn" onclick="openLadderTab(2, this)">3. [IoT] AD_Conv 스케일링 & 단선 감지 FB</button>
-        <button class="ladder-tab-btn" onclick="openLadderTab(3, this)">4. [IoT] 물탱크 정량주입 & 적산전력량 연산</button>
+        <button class="ladder-tab-btn active" onclick="openLadderTab(0, this)">1. [ASRS] 연계운전 & M코드(10~70) 인터록</button>
+        <button class="ladder-tab-btn" onclick="openLadderTab(1, this)">2. [ASRS] 바코드 알람 확인 & 리셋 복구</button>
+        <button class="ladder-tab-btn" onclick="openLadderTab(2, this)">3. [IoT] 공정 모니터링 & 단선 알람 FB</button>
+        <button class="ladder-tab-btn" onclick="openLadderTab(3, this)">4. [IoT] 운전조건(SV) 정량제어 & 실적연산</button>
         <button class="ladder-tab-btn" onclick="openLadderTab(4, this)">5. 📋 통합 I/O & 디바이스 주소 맵</button>
       </div>
 
@@ -2367,7 +2355,7 @@
             <span class="ld-wire">──</span>
             <div class="ld-contact nc"><span>X4C (/)</span><small>1축BUSY(b)</small></div>
             <span class="ld-wire">──────</span>
-            <div class="ld-coil"><span>[SET M140] ➔ [ZP.PSTRT1 U4 K1 D40 M141]</span><small>QD77MS4 2축 직선보간 위치결정 기동</small></div>
+            <div class="ld-coil"><span>[SET M140] ➔ [ZP.PSTRT1 U4 K1 D40 M141]</span><small>인터록 조건 확인 후 2축 위치결정 기동</small></div>
           </div>
           <div class="visual-rung">
             <span class="rung-step-num">Rung 02</span>
@@ -2377,11 +2365,11 @@
             <span class="ld-wire">──</span>
             <div class="ld-contact"><span>X03 (CS4)</span><small>리프트전진끝</small></div>
             <span class="ld-wire">──────</span>
-            <div class="ld-coil"><span>[TO U4 G1502 K1 K1]</span><small>센서 도달 확인 후 M코드 OFF 완료 신호 인가</small></div>
+            <div class="ld-coil"><span>[TO U4 G1502 K1 K1]</span><small>센서 도달 확인 후 M코드 OFF 연계운전</small></div>
           </div>
         </div>
         <p style="font-size:0.92rem; color:var(--text-body);">
-          <b>핵심 동작 요약:</b> 서보 축이 이동 중일 때(<code>X4C ON</code>) 중복 시동을 막고, 각 스텝의 M코드(입고 <code>10→20→30→40→60</code> / 출고 <code>10→20→30→40→70</code>)마다 실린더 오토스위치(<code>CS1~CS4</code>, <code>X00~X03</code>)의 기계적 도달을 확인한 뒤에만 버퍼메모리(<code>G1502</code>)에 M코드 OFF 완료 신호를 인가하여 비정상 후속 동작을 방지하도록 구성했습니다.
+          <b>핵심 동작 요약:</b> 서보 축이 이동 중일 때(<code>X4C ON</code>) 중복 시동을 막고, 각 스텝의 M코드(입고 <code>10→20→30→40→60</code> / 출고 <code>10→20→30→40→70</code>)마다 실린더 오토스위치(<code>CS1~CS4</code>, <code>X00~X03</code>)의 위치 도달을 확인한 뒤에만 다음 공정으로 넘어가도록 인터록 연계운전을 구성했습니다.
         </p>
         <details class="raw-ladder-toggle">
           <summary>🔍 텍스트 래더 구조 상세 보기 (클릭)</summary>
@@ -2404,21 +2392,21 @@
             <span class="ld-wire">──</span>
             <div class="ld-compare"><span>[<> D732 D140]</span><small>스캔ID ≠ 목표Bay</small></div>
             <span class="ld-wire">──────</span>
-            <div class="ld-coil"><span>[SET M902]</span><small>불일치 에러 래치(인터록)</small></div>
+            <div class="ld-coil"><span>[SET M902]</span><small>불일치 알람 래치(인터록)</small></div>
           </div>
           <div class="visual-rung">
             <span class="rung-step-num">Rung 02</span>
-            <div class="ld-contact"><span>M902</span><small>불일치에러</small></div>
+            <div class="ld-contact"><span>M902</span><small>불일치알람</small></div>
             <span class="ld-wire">──</span>
             <div class="ld-contact nc"><span>M402 (/)</span><small>입고리셋(b)</small></div>
             <span class="ld-wire">──</span>
             <div class="ld-contact nc"><span>M800 (/)</span><small>출고리셋(b)</small></div>
             <span class="ld-wire">──────</span>
-            <div class="ld-coil"><span>(Y16 황색경고등 ON & 서보기동 차단)</span><small>수동 리셋 전까지 인터록 유지</small></div>
+            <div class="ld-coil"><span>(Y16 황색알람 ON & 서보기동 차단)</span><small>운영자 확인 및 리셋 전까지 대기</small></div>
           </div>
         </div>
         <p style="font-size:0.92rem; color:var(--text-body);">
-          <b>핵심 동작 요약:</b> 입고·출고 전 구간에서 바코드 불일치(<code><></code>) 발생 시 자기유지 셋(SET)으로 크레인 동작을 잠그고, 현장 작업자가 직접 리셋(<code>M402/M800</code>)을 눌러야만 해제되도록 구성하여 오입출고를 예방했습니다.
+          <b>핵심 동작 요약:</b> 입고·출고 전 구간에서 LOT 바코드 불일치(<code><></code>) 또는 통신 이상(<code>X2E</code>) 발생 시 황색 경고등(<code>Y16</code>)을 점등하고 크레인 동작을 잠그며, 운영자가 현장을 확인한 뒤 리셋(<code>M402/M800</code>)을 조작해 복구하도록 구성했습니다.
         </p>
         <details class="raw-ladder-toggle">
           <summary>🔍 텍스트 래더 구조 상세 보기 (클릭)</summary>
@@ -2426,7 +2414,7 @@
 |  M200(판독트리거)   [ <> D732(스캔ID)  D140(목표Bay) ]                   [SET M902 (불일치에러)]--|
 |  M902(바코드불일치)  M402(입고리셋)   M800(출고리셋)                                              |
 |-------| |----------------|/|--------------|/|----------------------------(Y16 황색경고등/인터록)--|
-|  [D20 == K104] OR [D22 == K105] (강제/축에러)   SM412(1초클록)           (Y15 적색점멸 & 부저)---|</div>
+|  [D20 == K104] OR [D22 == K105] (시운전 에러주입/축에러)  SM412(1초클록)  (Y15 적색점멸 & 부저)---|</div>
         </details>
       </div>
 
@@ -2447,11 +2435,11 @@
             <span class="ld-wire">──</span>
             <div class="ld-compare"><span>[< 현재값_AI  K-50]</span><small>4~20mA 배선 단선 판별</small></div>
             <span class="ld-wire">──────</span>
-            <div class="ld-coil"><span>(센서고장 M11 · M13 · M15 · M17)</span><small>단선 시 경보 출력</small></div>
+            <div class="ld-coil"><span>(센서고장 알람 M11 · M13 · M15 · M17)</span><small>단선 시 즉시 알람 표시</small></div>
           </div>
         </div>
         <p style="font-size:0.92rem; color:var(--text-body);">
-          <b>핵심 동작 요약:</b> 온도·압력·유속·전류 4개 채널의 스케일링 연산을 <code>AD_Conv</code> 함수 블록(FB)으로 모듈화하여 재사용성을 높였으며, 공정 임계값 초과(<code>>= SV</code>)와 배선 단선(<code>< K-50</code>) 경보를 분리하여 구현했습니다.
+          <b>핵심 동작 요약:</b> 온도·압력·순간유량률(LPM)·전류 4개 채널의 스케일링 연산을 <code>AD_Conv</code> 함수 블록(FB)으로 모듈화하고, 운전 조건 임계값 초과 알람(<code>>= SV</code>)과 배선 단선 알람(<code>< K-50</code>)을 구분하여 모니터링할 수 있도록 구성했습니다.
         </p>
         <details class="raw-ladder-toggle">
           <summary>🔍 텍스트 래더 구조 상세 보기 (클릭)</summary>
@@ -2467,11 +2455,11 @@
         <div class="visual-rung-list">
           <div class="visual-rung">
             <span class="rung-step-num">Rung 01</span>
-            <div class="ld-compare"><span>[DLIMIT K1 K100000 D38 D38]</span><small>목표유량 0.001~100.000L 제한</small></div>
+            <div class="ld-compare"><span>[DLIMIT K1 K100000 D38 D38]</span><small>운전조건(SV) 0.001~100.000L 관리</small></div>
             <span class="ld-wire">──</span>
-            <div class="ld-compare"><span>[D>= D48 D38]</span><small>누적유량 ≥ 목표유량</small></div>
+            <div class="ld-compare"><span>[D>= D48 D38]</span><small>실적유량 ≥ 목표유량</small></div>
             <span class="ld-wire">──────</span>
-            <div class="ld-coil"><span>[RST M2] ➔ (Y10 밸브 차단)</span><small>오버슈트 방지 정량 차단</small></div>
+            <div class="ld-coil"><span>[RST M2] ➔ (Y10 밸브 차단)</span><small>목표 도달 미검출 방지 정지 인터록</small></div>
           </div>
           <div class="visual-rung">
             <span class="rung-step-num">Rung 02</span>
@@ -2479,11 +2467,11 @@
             <span class="ld-wire">──</span>
             <div class="ld-contact"><span>SM412 [↓]</span><small>1초클록 하강에지</small></div>
             <span class="ld-wire">──────</span>
-            <div class="ld-coil"><span>[E/ D60 E3600 D64] ➔ [E+ D66 D68 D68] ➔ [DINT D68 D70]</span><small>1초당 Wh 적산 전력량 누적</small></div>
+            <div class="ld-coil"><span>[E/ D60 E3600 D64] ➔ [E+ D66 D68 D68] ➔ [DINT D68 D70]</span><small>1초당 Wh 적산 전력량 실적 누적</small></div>
           </div>
         </div>
         <p style="font-size:0.92rem; color:var(--text-body);">
-          <b>핵심 동작 요약:</b> 매 스캔마다 전력량이 중복 가산되는 오류를 막기 위해 <code>SM412(1초 클록)</code> 하강 에지(<code>|↓|</code>) 접점에서만 <code>P ÷ 3600</code>을 누적(<code>E+</code>)하도록 설계했으며, 환산된 6대 센서 데이터는 5초 주기로 MySQL <code>iot_sensor</code> 테이블에 저장됩니다.
+          <b>핵심 동작 요약:</b> HMI에서 입력한 운전 조건(<code>D38</code>) 이상 도달 시(<code>D48 ≥ D38</code>) 즉시 밸브를 차단해 스캔 초과로 인한 미검출 연속 주입을 막고, <code>SM412(1초 클록)</code> 하강 에지(<code>|↓|</code>)마다 전력량 실적을 누적하며 5초 주기로 MySQL <code>iot_sensor</code> 테이블에 기록합니다.
         </p>
         <details class="raw-ladder-toggle">
           <summary>🔍 텍스트 래더 구조 상세 보기 (클릭)</summary>
@@ -2503,7 +2491,7 @@
                 <th>구분</th>
                 <th>디바이스 / 주소</th>
                 <th>연결 기기 및 센서 모델</th>
-                <th>기능 및 공학 단위·제어 조건</th>
+                <th>기능 및 운전 조건·인터록 역할</th>
               </tr>
             </thead>
             <tbody>
@@ -2526,28 +2514,28 @@
                 <td><code>Y10</code>(로드리스 좌·우) / <code>Y11</code>(듀얼로드 전·후) / <code>Y12</code>(IR 바코드 트리거) / <code>Y14</code>(2축 브레이크)</td>
               </tr>
               <tr>
-                <td><b>ASRS 경보</b></td>
+                <td><b>ASRS 알람</b></td>
                 <td><code>Y15 / Y16 / Y17</code></td>
                 <td>PATLITE 시그널타워 <code>LR6-302PJB</code></td>
-                <td><code>Y15</code>(적색: 104·105 축/공압 에러 점멸) / <code>Y16</code>(황색: 바코드 불일치·통신 경고) / <code>Y17</code>(녹색: 정상)</td>
+                <td><code>Y15</code>(적색: 축/공압 에러 점멸) / <code>Y16</code>(황색: 바코드 불일치·X2E 통신알람) / <code>Y17</code>(녹색: 정상)</td>
               </tr>
               <tr>
                 <td><b>IoT 아날로그</b></td>
                 <td><code>D0~D3 ➔ D20·22·24·26</code></td>
                 <td>MELSEC <code>Q64AD</code> (CH1~CH4)</td>
-                <td>CH1 온도(<code>D20÷100</code> ℃), CH2 압력(<code>D22÷1000</code> MPa), CH3 유속(<code>D24÷100</code> LPM), CH4 전류(<code>D26÷1000</code> A)</td>
+                <td>CH1 온도(<code>D20÷100</code> ℃), CH2 압력(<code>D22÷1000</code> MPa), CH3 순간유량률(<code>D24÷100</code> LPM), CH4 전류(<code>D26÷1000</code> A)</td>
               </tr>
               <tr>
-                <td><b>IoT 정량/전력</b></td>
+                <td><b>IoT 운전조건</b></td>
                 <td><code>D38 / D48 / D62 / D70</code></td>
                 <td>LS HMI (<code>.226</code>) · 전자밸브(<code>Y10</code>)</td>
-                <td><code>D38</code>(목표유량 SV), <code>D48</code>(누적유량 PV, <code>D48≥D38</code> 시 차단), <code>D62</code>(유효전력 W), <code>D70</code>(적산전력량 Wh)</td>
+                <td><code>D38</code>(목표유량 Recipe SV), <code>D48</code>(누적유량 실적, <code>D48≥D38</code> 시 차단), <code>D62</code>(전력 W), <code>D70</code>(전력량 Wh)</td>
               </tr>
               <tr>
                 <td><b>IoT 펄스/DB</b></td>
                 <td><code>I0.3 (HSC2) ➔ DB1.DBW2</code></td>
                 <td>Siemens <code>S7-1200</code> (.95) · MySQL</td>
-                <td>터빈 유량 펄스 카운트 환산(<code>÷100</code> L) ➔ 5초 주기 <code>iot_sensor</code> 테이블 6개 물리량 자동 INSERT</td>
+                <td>터빈 펄스 누적유량(<code>÷100</code> L) ➔ 5초 주기 <code>iot_sensor</code> 테이블(5대 물리량+<code>ad_val</code> 총 6개 계측열) 기록</td>
               </tr>
             </tbody>
           </table>
@@ -2555,23 +2543,23 @@
       </div>
     </section>
 
-    <!-- CORE COMPETENCIES & QUALIFICATIONS (2번 요청사항 반영 완료) -->
+    <!-- CORE COMPETENCIES & QUALIFICATIONS (기아차 표기 및 지멘스 비중 명확화) -->
     <section id="about">
       <h2 class="section-title">⚡ 핵심 직무 역량 및 이력·자격 (Competencies & Spec)</h2>
-      <p class="section-desc">교육 프로젝트에서 실습한 제어 역량과 108일(860시간)간의 과정 및 현장·어학 경험입니다.</p>
+      <p class="section-desc">PLC·HMI 설비 운영(Operator)에 필요한 모니터링·인터록·데이터 기록 실습 역량과 현장·어학 경험입니다.</p>
 
       <div class="comp-grid" style="margin-bottom: 1.5rem;">
         <div class="comp-card">
-          <h3>⚙️ 정밀 모션 및 시퀀스 제어</h3>
-          <p>미쓰비시(Q03UDVCPU, QD77MS4) 및 서보 앰프(MR-J4W2-22B) 기반 XY 2축 직선보간 제어(1축 리드 10mm / 2축 리드 12mm), M코드(10·20·30·40·60/70) 공압 실린더 연동 및 입출고 시퀀스 실습</p>
+          <h3>⚙️ 공정 간 인터록·시퀀스 연계운전</h3>
+          <p>미쓰비시(Q03UDV/UDE 주력) 및 지멘스(S7-1200 기초·HSC 계측) 로직 해독, 서보 위치결정(QD77MS4)·공압 실린더(M코드·오토스위치) 인터록 확인 및 알람 리셋·복구 실습</p>
         </div>
         <div class="comp-card">
-          <h3>📊 IoT 센서 계측 및 모니터링</h3>
-          <p>MELSEC(Q64AD) 및 Siemens(S7-1200 HSC)를 활용한 5대 물리량(온도·압력·유속·유량·전류) 공학 단위 환산, LS HMI·X-SCADA·Node-RED 실시간 시각화 및 MySQL(5초 주기) 연동 실습</p>
+          <h3>📊 HMI 공정 모니터링 & 운전 데이터 기록</h3>
+          <p>HMI/SCADA 화면을 통한 운전 조건(Recipe/SV) 적용 및 5대 물리량 모니터링, LOT 바코드 트랙 IN/OUT 상태 관리, MySQL·엑셀(Excel) 기반 운전 데이터 기록 및 일지 정리</p>
         </div>
         <div class="comp-card">
-          <h3>🌍 현장 근무 경험 & 글로벌 소통</h3>
-          <p>기아자동차 공장 조립 라인 근무로 현장 안전·매뉴얼 준수의 중요성을 체득했습니다. 유럽 체류와 외국인 친구들과의 교류를 통해 기본적인 영어 의사소통 경험을 쌓았으며, 현지 작업자와의 업무 소통 능력을 지속적으로 향상하고 있습니다.</p>
+          <h3>🌍 생산 현장 안전·5S & 글로벌 소통</h3>
+          <p>기아자동차 공장 조립 라인 아르바이트 근무로 체득한 안전수칙·5S·매뉴얼 준수 감각과, 유럽 체류 및 외국인 교류를 통해 쌓은 기본적인 영어 의사소통 역량으로 해외 설비 운영 지원</p>
         </div>
       </div>
 
@@ -2580,24 +2568,24 @@
           <h3>🏫 학력 및 전문 교육사항</h3>
           <ul>
             <li><b>전문교육:</b> 스마트팩토리(PLC, HMI) 기반 IoT 구축 및 서보제어 실무자 양성 (2026.05.27 ~ 2026.11.06 / 108일·860시간)</li>
-            <li><b>학력사항:</b> 한신대학교 한국사학과 졸업 (2018.02)</li>
-            <li><b>현장경험:</b> 기아자동차 공장 조립 라인 근무 외 다수 현장 실무</li>
+            <li><b>학력사항:</b> 한신대학교 한국사학과 졸업 (2018.02 / 4년제 대졸)</li>
+            <li><b>현장경험:</b> 기아자동차 공장 조립 라인 아르바이트 및 박물관 도슨트·교육·매장 운영</li>
           </ul>
         </div>
         <div class="info-card">
-          <h3>🪪 보유 자격 및 어학·병역</h3>
+          <h3>🪪 보유 자격 및 근무 조건</h3>
           <ul>
-            <li><b>국가기술자격:</b> 전기기능사 (필기 합격 / 2026.11 실기 취득예정)</li>
-            <li><b>운전/병역:</b> 1종 보통 운전면허 (2015.02) / 육군 병장 만기전역</li>
-            <li><b>글로벌 역량:</b> 유럽 체류 기반 기본 영어 의사소통 및 지속 학습 중 (OPIc 준비중)</li>
+            <li><b>국가기술자격:</b> 전기기능사 (필기 합격 / 2026.11 실기 응시 예정)</li>
+            <li><b>PC/데이터:</b> 엑셀(Excel) 데이터 기록·문서화, MySQL 기본 쿼리</li>
+            <li><b>글로벌/교대:</b> 영어 기본 의사소통 (OPIc 준비중) / 교대·해외 장기 근무 가능</li>
           </ul>
         </div>
         <div class="info-card">
           <h3>🔌 기술 숙련도 구분 (현장 투명성)</h3>
           <ul>
-            <li><b>주력 수행:</b> MELSEC/Siemens 래더 작성, 서보 티칭·M코드 인터록, HMI/SCADA 작화</li>
-            <li><b>팀 공동구현:</b> 제어반·센서 기초 배선, RS-232 바코드 연동, Node-RED·MySQL 연동</li>
-            <li><b>지속 학습:</b> 다축 복합 보간 게인 튜닝 및 대규모 설비 통신·DB 운영 심화</li>
+            <li><b>주력 수행:</b> MELSEC 래더 및 HMI/SCADA 모니터링, 운전조건(SV) 설정, 알람 확인·복구</li>
+            <li><b>기초/공동:</b> Siemens S7-1200 HSC 펄스 유량 계측, 제어반·센서 배선, DB 기록 연동</li>
+            <li><b>지속 학습:</b> 설비 보전 실무 심화 및 상위 MES/ERP 시스템 운영 숙달</li>
           </ul>
         </div>
       </div>
@@ -2607,7 +2595,7 @@
     <footer id="contact">
       <h2 class="section-title" style="justify-content:center;">📬 Contact & Resume</h2>
       <p style="color:var(--text-body); max-width:680px; margin:0.5rem auto 0; font-weight:500;">
-        교육 프로젝트에서 다진 PLC·HMI 기본기와 생산 현장 경험, 기본적인 영어 의사소통 역량을 바탕으로 해외 생산설비의 안정적인 운영을 지원하겠습니다.
+        교육 프로젝트에서 다진 PLC·HMI 모니터링 기본기와 생산 현장 경험, 기본적인 영어 의사소통 역량을 바탕으로 해외 생산설비의 안정적인 운영을 지원하겠습니다.
       </p>
 
       <div class="contact-cards">
@@ -2632,7 +2620,13 @@
   </div>
 
   <!-- =====================================================
-       입사지원서(이력서·직무역량·자기소개서) 모달 창 (2번·3번 요청사항 완벽 반영)
+       입사지원서(이력서·직무역량·자기소개서) 모달 창
+       - 클로드 피드백 반영:
+         1) 보유능력란 MELSEC(주력) / Siemens(기초·HSC 계측) 명확화
+         2) 전기기능사 '2026.11 실기 응시 예정' 표기 통일
+         3) 기아자동차 공장 조립 아르바이트 표기 통일 및 2018 졸업 후 직무 전환 서사 보강
+         4) 자소서 내 '7일 필기 합격' 및 '바코드 인터록' 중복 제거 (IoT 공통 GND·단선 분리 디버깅 사례 추가)
+         5) 방어적 표현('아직 배움이 필요한')을 구체적 수행 범위와 입사 후 숙달 계획으로 개선
        ===================================================== -->
   <div id="resume-modal" onclick="if(event.target === this) closeResumeModal()">
     <div class="resume-sheet">
@@ -2675,12 +2669,12 @@
               <th>주 소</th>
               <td id="res-addr">경기도 광명시 <span style="font-size:0.75rem; color:#64748b;">(제출·인쇄 시 상세 번지 표시)</span></td>
               <th>지원분야</th>
-              <td><b>PLC, 자동제어, HMI</b></td>
+              <td><b>생산팀 PLC Operator (설비 운전 · HMI/로직 모니터링)</b></td>
             </tr>
           </tbody>
         </table>
 
-        <!-- 2. 학력 및 교육사항 -->
+        <!-- 2. 학력 및 교육사항 (11월 수료 표기 유지) -->
         <h4 class="resume-section-h4">2. 학력 및 전문 교육사항</h4>
         <table class="resume-table">
           <thead>
@@ -2700,7 +2694,7 @@
             </tr>
             <tr>
               <td>2018년 2월</td>
-              <td>한신대학교</td>
+              <td>한신대학교 (4년제)</td>
               <td>한국사학과</td>
               <td>졸업</td>
             </tr>
@@ -2714,14 +2708,14 @@
             <tr>
               <th>자격사항</th>
               <td colspan="3">
-                • <b>전기기능사</b> (필기합격 / 2026.11 실기예정 · 한국산업인력공단)<br>
+                • <b>전기기능사</b> (필기합격 / 2026.11 실기 응시 예정 · 한국산업인력공단)<br>
                 • <b>운전면허증 1종 보통</b> (2015.02 · 경찰청)
               </td>
             </tr>
             <tr>
               <th>보유능력</th>
               <td colspan="3">
-                <b>PLC 제어 (MELSEC / Siemens TIA Portal)</b> · <b>HMI / SCADA 작화</b> · <b>자동제어 시스템 및 서보·공압 인터록</b> · <b>하드웨어 통신 및 제어</b>
+                <b>PLC·HMI 운전 및 로직 모니터링 (MELSEC 주력 / Siemens S7-1200 기초·HSC 계측)</b> · <b>운전조건(Recipe/SV) 적용 및 인터록·알람 리셋/복구</b> · <b>엑셀(Excel)/DB 데이터 기록 및 일지 작성</b> · <b>영어 기본 의사소통 (해외 장기·교대근무 가능)</b>
               </td>
             </tr>
             <tr>
@@ -2731,50 +2725,49 @@
           </tbody>
         </table>
 
-        <!-- 4. 교육 내용 및 개인 역량 -->
+        <!-- 4. 교육 내용 및 핵심 직무 역량 (방어적 표현을 구체적 수행 범위+성장 계획으로 전환) -->
         <h4 class="resume-section-h4">4. 교육 내용 및 핵심 직무 역량</h4>
 
         <div class="essay-box">
-          <h5>① 자동제어 및 서보 위치결정 프로젝트</h5>
-          <p><b>[핵심 학습내용]</b> 국내외 산업 현장에서 광범위하게 사용되는 미쓰비시(MELSEC) 및 지멘스(Siemens TIA Portal) PLC의 기본 제어 개념부터 실무 응용까지 체계적으로 학습했습니다. 접점 제어, 타이머, 카운터를 활용한 시퀀스 로직 구축과 설비의 안전한 가동을 위한 인터락 조건을 직접 설계해 보았습니다. 특히 ASRS(자동창고) 입출고 시스템 프로젝트를 수행하며, 서보모터 기반의 정밀한 위치 결정 및 속도 제어 프로그래밍 실습을 완성했습니다.</p>
-          <p><b>[자신 있는 부분]</b> 서보모터를 이용한 XY 2축 직선보간 위치 제어 및 물류 이송 제어 로직을 작성하고 티칭·백업 데이터를 관리할 수 있습니다. 또한, 하드웨어 연동 시 발생할 수 있는 기구적 간섭이나 바코드 불일치 에러 상황을 미리 예측하여 인터락 회로를 구성하는 데 강점이 있으며, 시운전 단계에서 발생하는 신호 오류 및 디버깅을 차분하고 정확하게 해결할 수 있습니다.</p>
+          <h5>① 공정 간 인터록·시퀀스 확인 및 알람 리셋·복구 실습 (자동제어 프로젝트)</h5>
+          <p><b>[핵심 학습내용]</b> 미쓰비시(MELSEC) PLC를 주력으로 접점 제어, 타이머, 카운터를 활용한 시퀀스 로직과 HMI 모니터링 체계를 집중 학습했습니다. 특히 ASRS(자동창고) 입출고 시스템 프로젝트를 수행하며, 바코드 기반 물품 LOT 식별(Track IN/OUT), 서보 위치결정(QD77MS4) 및 공압 실린더(M코드·오토스위치) 간의 순차 연계운전과 인터록 조건을 직접 구현하고 검증했습니다.</p>
+          <p><b>[수행 역량 및 강점]</b> 설비 운전 조건(좌표·파라미터)을 HMI 화면에서 적용·관리하고, 공정 간 인터록 조건(BUSY 상태, 실린더 센서 완료 신호 등)을 확인하여 연계운전을 모니터링할 수 있습니다. 바코드 불일치나 공압 이상 등 알람 발생 시 HMI와 시그널타워로 원인을 신속히 확인하고, 정해진 절차에 따라 리셋(Reset) 및 복구하는 프로세스를 정확히 수행할 수 있습니다.</p>
         </div>
 
         <div class="essay-box">
-          <h5>② 센서 데이터 수집 및 모니터링 체계 이해</h5>
-          <p><b>[핵심 학습내용]</b> 미쓰비시(MELSEC) 및 지멘스 PLC와 연동된 센서를 통해 현장의 주요 물리량인 온도, 압력, 유량, 유속, 전류 값을 측정하고 공학 단위로 스케일링하여 통신으로 전송하는 프로세스를 구축했습니다. 수집된 데이터를 SCADA 및 HMI 모니터링 화면으로 실시간 시각화하였으며, 이를 MySQL 데이터베이스와 연동하여 현장 데이터가 저장·관리되는 스마트팩토리 전체 데이터 흐름을 학습했습니다.</p>
-          <p><b>[자신 있는 부분]</b> 단순한 설비 구동 제어에 그치지 않고, 센서 데이터 수집부터 HMI/SCADA 모니터링 화면 구성까지 이어지는 데이터 시각화 체계를 직관적으로 이해하고 다룰 수 있습니다. 비록 대규모 통신 및 DB 세부 설정은 계속해서 배워나가는 단계이지만, 제어 단과 모니터링 단을 잇는 구조적 이해를 바탕으로 상위 시스템 담당자 및 타 분야 엔지니어와 원활히 소통하며 협업할 수 있는 직무적 시야를 갖추고 있습니다.</p>
+          <h5>② HMI/SCADA 공정 상태 모니터링 및 운전 조건(Recipe)·데이터 기록 관리</h5>
+          <p><b>[핵심 학습내용]</b> 미쓰비시 PLC(Q64AD 아날로그 수집) 및 지멘스 S7-1200 PLC(고속카운터 HSC 유량 펄스 계측)를 연동하여 5대 물리량(온도·압력·순간유량률·누적유량·전류)을 측정하고 HMI 및 SCADA 화면으로 실시간 모니터링하는 시스템을 구축했습니다. HMI에서 목표 주입량(SV/Recipe)을 설정해 정량 제어하고, 원격 계측값을 포함한 6개 데이터 항목을 5초 주기로 MySQL 데이터베이스에 자동 기록·조회하는 흐름을 실습했습니다.</p>
+          <p><b>[수행 역량 및 강점]</b> HMI 화면을 통해 실시간 공정 상태와 알람(공정 임계값 초과 vs 센서 배선 단선)을 구분하여 모니터링하고, 운전 조건 일지 작성 및 엑셀(Excel)·DB를 활용한 생산 실적 데이터 기록 업무를 정확하게 수행할 수 있습니다. 제어 단의 센서 데이터가 상위 모니터링 및 MES 시스템으로 전달·기록되는 구조를 이해하고 있어 현장 엔지니어 및 타 부서와 원활히 소통할 수 있습니다.</p>
         </div>
 
         <div class="essay-box">
-          <h5>③ 시퀀스 회로 도면 해독 및 하드웨어 기초 배선·점검 역량</h5>
-          <p><b>[핵심 학습내용]</b> 전기기능사 시험 준비 및 교육 과정을 통해 시퀀스 회로 도면을 해독하는 기초를 다지고, 실제 제어반 내 주회로와 제어회로의 기초 배선 작업을 실습했습니다. 릴레이, 타이머, MC(마그넷 콘택터), 오토스위치 등 주요 하드웨어 소자와 PLC 입출력(I/O) 접점 간의 신호 흐름을 이해하였으며, 기초적인 결선 및 신호 라인 점검 프로세스를 학습했습니다.</p>
-          <p><b>[자신 있는 부분]</b> 복잡한 제어반 배선 전체를 단독으로 완벽히 수행하기에는 아직 배움이 더 필요한 단계이지만, 도면을 바탕으로 회로의 신호 흐름과 공통 GND 기준을 파악하고 기본적인 배선 상태를 점검하는 감각을 갖추고 있습니다. 기초 지식을 바탕으로 현장 선배 엔지니어분들의 지도를 빠르게 흡수하여, 배선 실무 및 트러블슈팅 역량을 신속히 완성해 나가겠습니다.</p>
+          <h5>③ 시퀀스 도면 해독 · I/O 신호 점검 및 현장 안전수칙 준수</h5>
+          <p><b>[핵심 학습내용]</b> 전기기능사 자격 준비 및 교육 실습을 통해 시퀀스 회로 도면을 해독하는 기초를 다지고, 제어반 내 릴레이, 타이머, MC, 솔레노이드 밸브, 오토스위치 등 하드웨어 소자와 PLC I/O 접점 간의 신호 흐름 및 다중 SMPS 공통 GND 결선 점검 방법을 실습했습니다.</p>
+          <p><b>[수행 역량 및 강점]</b> 단독 제어반 전체 설계보다는 기존 설비의 도면과 I/O 맵을 해독하여 접점 신호 상태와 배선 단선 여부를 추적·점검하는 데 강점이 있습니다. 입사 후 현장 안전수칙과 5S 활동을 철저히 준수하며, 담당 라인의 제어 계통도와 설비 보전 절차를 빠르게 체득하여 안정적인 라인 운영을 지원하겠습니다.</p>
         </div>
 
-        <!-- 5. 자기소개서 (2번·3번 요청사항 문장 반영 완료) -->
+        <!-- 5. 자기소개서 (중복 사례 제거 + 직무 전환 계기 설명 + IoT 디버깅 장면 추가) -->
         <h4 class="resume-section-h4">5. 자기소개서</h4>
 
         <div class="essay-box">
-          <h5>■ 성장과정</h5>
-          <p>저의 성장과정은 새로운 분야에 주저 없이 도전하고, 목표가 생기면 집요하게 몰입하여 성과를 만들어온 과정입니다. 비전공 분야에 머무르지 않고 제어 기술과 공정 자동화의 핵심인 PLC에 깊은 흥미를 느끼며 엔지니어로서의 새로운 도전을 시작했습니다. 단기간에 확실한 기본기를 증명하고자 전기기능사 시험에 도전했고, 목표를 세운 뒤 집중적인 학습에 몰입하여 단 7일 만에 필기시험에 합격하고 현재 실기 취득을 마무리하고 있습니다. 이러한 경험은 생소한 기술이라도 빠르게 흡수하고 내 것으로 만들 수 있다는 강한 자신감을 심어주었습니다.</p>
-          <p>또한, 다양한 현장 아르바이트를 통해 실전 역량과 꼼꼼함을 다져왔습니다. 자동차 공장 조립 라인에서는 단 한 치의 오차도 허용하지 않는 꼼꼼함과 공정 매뉴얼 준수의 중요성을 배웠고, 편의점 및 교육 지도 경험을 통해서는 책임감 있는 관리 능력과 다양한 사람들과 원활히 소통하는 법을 체득했습니다.</p>
-          <p>이처럼 '목표를 향한 빠르고 과감한 도전정신'과 '현장에서 다져진 꼼꼼한 세심함'을 바탕으로, 입사 후에도 빠르게 변화하는 PLC 및 제어 설비 환경에 누구보다 빠르게 적응하여 신뢰받는 엔지니어로 성장하겠습니다.</p>
+          <h5>■ 성장과정 (직무 전환 계기 및 제조 현장 안전·매뉴얼 준수)</h5>
+          <p>대학 졸업 후 박물관 도슨트와 교육 지도, 편의점 운영을 비롯해 기아자동차 공장 조립 라인 아르바이트 등 다양한 현장에서 성실히 일하며 사회 경험을 쌓았습니다. 특히 자동차 조립 라인에서 근무할 당시, 수많은 컨베이어와 자동화 설비가 시퀀스 로직과 인터록에 의해 유기적으로 맞물려 돌아가는 모습을 직접 눈으로 보며 설비 자동화 제어 분야에 깊은 매력을 느꼈고, 현장을 지키는 PLC 제어·운영 인재로의 전환을 결심했습니다.</p>
+          <p>비전공자로서 확실한 기본기를 갖추고자 스마트팩토리 PLC·HMI·서보제어 실무 교육(108일, 860시간)에 입과했고, 교육 초기 단기간에 기초를 다지기 위해 전기기능사 시험에 도전하여 7일간의 집중 학습으로 필기시험에 합격한 뒤 현재 11월 실기시험 응시를 준비하고 있습니다.</p>
+          <p>자동차 조립 라인에서 몸소 익힌 표준작업절차(SOP)·안전수칙 준수·5S 활동 습관과, 매장 운영 및 교육 현장에서 다진 정확한 데이터 기록·교대 인수인계 소통 능력을 바탕으로 해외 생산 현장의 PLC Operator 업무에 빠르게 적응하겠습니다.</p>
         </div>
 
         <div class="essay-box">
-          <h5>■ 성격의 장단점 및 직무관련 경험</h5>
-          <p>저의 장점은 문제의 원인을 명확히 파악하고 해결할 때까지 몰입하는 집요함입니다. 실습이나 작업 중 예기치 않은 오류가 발생하면 원인을 단정 짓지 않고, 도면과 I/O 접점, PLC 로직을 하나씩 역추적하며 근본적인 문제를 해결합니다. 실제로 ASRS 자동창고 프로젝트 수행 당시, 바코드 스캔 데이터(D732)와 입출고 목표 번호(D140)가 불일치할 때 기존 시스템이 에러 처리 없이 멈춰 오입출고 위험이 발생하는 문제를 발견했습니다. 이를 해결하기 위해 전 번호 구간에서 불일치 감지 시 황색 경고등(Y16) 점등과 함께 서보 기동을 차단하고, 작업자가 수동 리셋(M402/M800)을 입력할 때만 해제되는 인터록 로직을 구현하여 시운전 안정성을 높였습니다. 동료나 작업자의 요청이 있을 때 제 일정이 밀릴 수 있던 단점은, 본래 업무의 우선순위와 마감 시간을 먼저 확인한 뒤 지원 가능 시간을 명확히 공유하는 방식으로 개선하여 팀 프로젝트 일정을 차질 없이 완수했습니다.</p>
-          <p>또한 다양한 문화권의 사람들과 거리감 없이 어울리는 오픈 마인드와 소통 능력을 갖추고 있습니다. 유럽 체류와 외국인 친구들과의 교류를 통해 기본적인 영어 의사소통 경험을 쌓았으며, OPIc 등 어학 학습을 병행하며 현지 작업자와의 업무 소통 능력을 지속적으로 향상하고 있습니다.</p>
-          <p>직무 관련 경험으로는 첫째, 미쓰비시 MELSEC과 지멘스(TIA Portal) 기반의 PLC 제어 및 다중 센서 통합 프로젝트 실습입니다. ASRS 프로젝트에서는 XY 2축 서보 직선보간 티칭과 M코드(M10~M70) 공압 실린더 완료 센서(CS1~CS4) 인터록을 구현했고, IoT 센서 통합 프로젝트에서는 온도·압력·유속·전류 아날로그 신호(Q64AD)의 스케일링 함수 블록(AD_Conv) 및 배선 단선(AD < -50) 분리 경보, 지멘스 PLC 고속카운터(HSC) 유량 계측, HMI 정량 주입(D48 ≥ D38) 제어부터 SCADA·Node-RED·MySQL 연동까지 데이터 흐름 전반을 실습했습니다.</p>
-          <p>둘째, 기아자동차 공장 조립 아르바이트를 통한 현장 프로세스 체득입니다. 다양한 자동화 설비와 컨베이어 라인이 움직이는 현장에서 직접 몸으로 부딪히며 공정의 흐름을 익혔고, 기계가 멈추지 않고 유기적으로 돌아가기 위해 인터락과 제어 시스템이 왜 중요한지 피부로 느꼈습니다.</p>
+          <h5>■ 성격의 장단점 및 직무관련 경험 (설비 이상 원인 추적 사례 및 글로벌 소통)</h5>
+          <p>저의 장점은 설비 이상이나 데이터 오류가 발생했을 때 추측으로 단정 짓지 않고, 물리적 배선부터 PLC 원천 레지스터와 HMI 태그까지 단계별로 대조하며 원인을 찾아내는 꼼꼼함입니다. 실제로 IoT 센서 통합 프로젝트 당시, 지멘스 PLC(S7-1200)로 터빈 유량센서 펄스를 계측해 밸브 릴레이를 구동할 때 신호가 간헐적으로 튀고 SCADA 표시값과 어긋나는 문제가 발생했습니다. 원인을 추적한 결과, 서로 다른 SMPS 전원을 사용하는 기기 간 기준 전위(0V)가 분리되어 있었고 상위 화면에서 소수점 배율이 중복 적용된 것을 확인했습니다. 즉시 두 SMPS의 0V(GND) 단자를 공통으로 묶어 신호를 안정화하고, PLC 정수 레지스터(÷100, ÷1000)와 실수 태그의 환산 규칙을 통일하여 문제를 해결했습니다. 동료의 요청을 거절하지 못해 제 일정이 밀릴 수 있던 단점은, 본래 업무의 마감 시간과 우선순위를 먼저 확인한 뒤 협조 가능 시간을 명확히 공유하는 방식으로 개선하여 팀 일정을 차질 없이 마쳤습니다.</p>
+          <p>직무 관련 경험으로는 첫째, 미쓰비시 MELSEC(주력)과 지멘스 TIA Portal(기초·고속카운터 계측) 기반의 설비 운전·모니터링 실습입니다. ASRS 자동창고 프로젝트에서는 바코드 스캔 데이터(D732)와 목표 번호(D140) 불일치 시 황색 알람등(Y16) 점등과 함께 서보 기동을 차단하고 수동 리셋(M402/M800)으로 복구하는 인터록을 구현했으며, 서보 BUSY(X4C) 및 실린더 센서(CS1~CS4) 완료 신호를 확인하는 M코드 연계운전을 수행했습니다. IoT 프로젝트에서는 5대 물리량 모니터링과 함께 배선 단선 알람(AD < -50)과 공정 임계값 초과 알람(PV ≥ SV)을 분리하고, 목표 유량 도달 미검출을 막는 이상 비교(D48 ≥ D38) 정량 제어 및 MySQL DB 기록을 실습했습니다.</p>
+          <p>둘째, 유럽 체류와 외국인 친구들과의 교류를 통해 쌓은 기본적인 영어 의사소통 경험입니다. 실습 중에도 영문 데이터시트(센서 입출력 사양, MAX3232 핀맵 등)와 장비 매뉴얼을 직접 확인하며 과제를 수행했으며, OPIc 학습을 병행하며 현지 작업자와의 업무 소통 능력을 지속적으로 향상하고 있습니다.</p>
         </div>
 
         <div class="essay-box">
-          <h5>■ 지원동기 및 입사 후 포부</h5>
-          <p>제가 PLC 및 공정 자동화 제어 직무에 지원하게 된 이유는, 산업 현장의 모든 설비가 유기적이고 안전하게 움직이도록 만드는 '제어 기술의 직관적인 매력'에 매료되었기 때문입니다. 다양한 아르바이트와 자동차 공장 조립 라인을 경험하며 자동화 설비가 제조 현장에 미치는 영향력을 피부로 체득했습니다. 이후 제어 엔지니어라는 목표를 세운 뒤 전기기능사 필기시험에 7일 만에 집중 몰입하여 합격했고, 교육 프로젝트를 통해 미쓰비시 MELSEC과 지멘스 TIA Portal PLC 시퀀스 제어, 서보·공압 인터록, HMI/SCADA 모니터링 기초를 체계적으로 다졌습니다. 목표를 정하면 빠르게 흡수하고 현장에 적용해 내는 강점을 바탕으로, 생산 설비가 차질 없이 가동되도록 기여하고자 지원했습니다.</p>
-          <p>입사 초기에는 사업장의 표준작업절차와 안전 규정, 설비 매뉴얼을 철저히 숙지하겠습니다. 알람 발생 시 설비 상태와 인터록 조건을 확인하고, 정해진 절차에 따라 보고·대응하며, 교대 인수인계와 생산 실적 기록의 정확성을 높이겠습니다. 이를 바탕으로 담당 설비에 대한 이해도를 높여 안정적인 생산 운영에 기여하겠습니다.</p>
-          <p>나아가 현장 경험을 쌓으며 미쓰비시와 지멘스 PLC 환경에서 설비 이상 원인을 신속히 추적하고 예방할 수 있는 엔지니어로 성장하겠습니다. 도면과 로직을 꼼꼼하게 점검하여 돌발 정지 시간을 줄이고, 지속적으로 향상하고 있는 영어 의사소통 역량을 바탕으로 해외 생산설비 운영 및 현지 작업자와의 협업에서도 안정적으로 역할을 수행하겠습니다.</p>
+          <h5>■ 지원동기 및 입사 후 포부 (표준절차 준수 · 알람/인터록 대응 · 정확한 기록과 인수인계)</h5>
+          <p>대규모 자동화 생산라인에서 생산 조건(Recipe)을 정확히 관리하고 HMI와 PLC 시퀀스를 모니터링하며 설비의 안정적인 연속 가동을 뒷받침하는 PLC Operator 직무에 매력을 느껴 지원했습니다. 교육 프로젝트에서 직접 시운전용 에러 주입 회로(D20·D22)와 인터록 조건을 구성해 시그널타워 알람 및 복구 절차를 반복 검증해 본 경험, 그리고 기아자동차 조립 라인 근무로 다진 현장 적응력을 바탕으로 해외 생산 거점의 안정적인 라인 운영에 기여하고자 합니다.</p>
+          <p>입사 초기에는 사업장의 표준작업절차(SOP)와 환경·안전 규정, 5S 활동 및 설비 매뉴얼을 철저히 숙지하겠습니다. HMI 화면을 통해 생산 조건(Recipe) 적용 상태와 공정 간 인터록·시퀀스 연계운전을 면밀히 모니터링하고, 알람이나 공정 이상 발생 시 설비 상태와 인터록 조건을 확인하여 정해진 절차에 따라 즉시 보고·리셋·복구하겠습니다. 또한 LOT 트랙 IN/OUT, 주요 운전조건 일지, 엑셀 및 MES 생산 실적 데이터를 정확히 기록하고, 교대 시 명확한 인수인계를 수행하겠습니다.</p>
+          <p>나아가 현장 경험을 꾸준히 축적하여 담당 설비의 PLC 로직과 보전 포인트를 깊이 있게 파악하고, 반복되는 알람 요인을 사전에 점검해 생산성 향상 활동과 안정적인 설비 운영에 기여하는 글로벌 PLC Operator로 성장하겠습니다.</p>
         </div>
       </div>
     </div>
@@ -2892,18 +2885,14 @@
       }
     });
 
-    /* 3. IoT 비디오 플레이어 */
+    /* 3. IoT 비디오 플레이어 (에러 발생 시에만 동적으로 안내 DOM 생성하여 크롤러 오인 방지) */
     const iotVideo = document.getElementById('iot-video');
     const iotNotice = document.getElementById('iot-vid-notice');
-    const iotFilenameTxt = document.getElementById('iot-vid-filename');
-    const iotDirectLink = document.getElementById('iot-direct-link');
     let triedUpperCaseFallback = false;
 
     function changeIotVideo(src, shouldScroll) {
       triedUpperCaseFallback = false;
-      iotNotice.style.display = 'none';
-      iotFilenameTxt.textContent = src;
-      iotDirectLink.href = src;
+      hideIotVideoNotice();
 
       iotVideo.pause();
       iotVideo.muted = true;
@@ -2930,20 +2919,28 @@
         triedUpperCaseFallback = true;
         const upperSrc = currentSrc.replace(/\.mp4$/, '.MP4');
         iotVideo.src = upperSrc;
-        iotDirectLink.href = upperSrc;
         iotVideo.load();
         iotVideo.play().catch(() => {});
         return;
       }
-      showIotVideoNotice();
+      showIotVideoNotice(currentSrc);
     });
 
-    function showIotVideoNotice() {
+    function showIotVideoNotice(srcName) {
+      iotNotice.innerHTML = `
+        <div style="font-size:1.7rem; margin-bottom:0.4rem;">🎥</div>
+        <strong style="color:#fbbf24; margin-bottom:0.35rem;">${srcName}</strong>
+        <p style="color:#d6d3d1; max-width:390px; line-height:1.5;">선택하신 시연 영상을 준비 중입니다. 아래 시뮬레이터와 확대 이미지를 먼저 확인해 보세요.</p>
+        <div style="display:flex; gap:0.5rem; margin-top:0.75rem; flex-wrap:wrap; justify-content:center;">
+          <button class="ts-mini-btn" onclick="hideIotVideoNotice()">실습 화면 이미지 보기</button>
+        </div>
+      `;
       iotNotice.style.display = 'flex';
     }
 
     function hideIotVideoNotice() {
       iotNotice.style.display = 'none';
+      iotNotice.innerHTML = '';
     }
 
     /* 4. 인터랙티브 시뮬레이터 1 : 초록색 팔레트(로드리스 실린더) 출발 ➔ XY 서보 픽업 ➔ 8-Bay 창고 이송 */
@@ -3016,7 +3013,7 @@
 
     function runAsrsSim(bayNum, mode) {
       if (asrsInterlocked) {
-        showToast('설비 인터록(Interlock) 상태입니다! 먼저 [작업자 리셋] 버튼을 눌러주세요.');
+        showToast('설비 인터록(Interlock) 상태입니다! 먼저 [알람 확인·리셋 복구] 버튼을 눌러주세요.');
         return;
       }
       clearAllAsrsTimers();
@@ -3041,8 +3038,8 @@
         moveServoAxes('-36px', '8%');
 
         laser.classList.add('scanning');
-        bTxt.textContent = `ID: BAY-0${bayNum} (입고 스캔)`;
-        log.textContent = `[1/7 출발대 바코드 판독] 좌측 로드리스 실린더(CS1/X00)의 초록색 팔레트 바코드 스캔(Y12 ON) → D732 == D140(Bay ${bayNum}) 일치!`;
+        bTxt.textContent = `LOT: BAY-0${bayNum} (Track IN)`;
+        log.textContent = `[1/7 LOT 바코드 판독] 좌측 로드리스 실린더(CS1/X00)의 초록색 팔레트 바코드 스캔(Y12 ON) → D732 == D140(Bay ${bayNum}) 일치!`;
 
         asrsTimers.push(setTimeout(() => {
           laser.classList.remove('scanning');
@@ -3096,18 +3093,18 @@
           setRoadlessStation('CS1', true);
           posTxt.textContent = `X: 0 μm | Y: 0 μm | 작업대기 복귀`;
           brkTxt.textContent = 'Y14 ON(대기)';
-          log.textContent = `[7/7 M코드 60 완료] 입고(AS) 종료 및 XY 서보 대기위치 복귀 완료! (초록 팔레트 출발 ➔ M10 ➔ M20 ➔ M30 ➔ M40 ➔ M60 검증 완료)`;
+          log.textContent = `[7/7 M코드 60 완료] 입고(Track IN) 완료 및 HMI 재고 현황 업데이트 완료! (초록 팔레트 출발 ➔ M10 ➔ M20 ➔ M30 ➔ M40 ➔ M60)`;
         }, 7600));
 
       } else {
         setRoadlessStation('CS1', false);
         carriedPallet.classList.remove('carrying');
 
-        bTxt.textContent = `ID: BAY-0${bayNum} (출고 요청)`;
+        bTxt.textContent = `LOT: BAY-0${bayNum} (Track OUT)`;
         brkTxt.textContent = 'Y14 해제(보간이송중)';
         moveServoAxes(c.left, c.bottom);
         posTxt.textContent = `X: ${c.xUm} μm | Y: ${c.yUm} μm | BUSY: ON`;
-        log.textContent = `[1/6 출고 Bay 이동] 출고 명령 확인 → XY 2축 서보가 창고 Bay ${bayNum} 위치로 직선보간 이동합니다.`;
+        log.textContent = `[1/6 출고 Bay 이동] 출고(Track OUT) 명령 확인 → XY 2축 서보가 창고 Bay ${bayNum} 위치로 직선보간 이동합니다.`;
 
         asrsTimers.push(setTimeout(() => {
           posTxt.textContent = `X: ${c.xUm} μm | Y: ${c.yUm} μm | BUSY: OFF`;
@@ -3152,7 +3149,7 @@
         asrsTimers.push(setTimeout(() => {
           activateMcode('70', ['10', '20', '30', '40']);
           brkTxt.textContent = 'Y14 ON(대기)';
-          log.textContent = `[6/6 M코드 70 완료] 출고(RS) 종료 신호 처리 완료! (M10 ➔ M20 ➔ M30 ➔ M40 ➔ M70 전 과정 검증 완료)`;
+          log.textContent = `[6/6 M코드 70 완료] 출고(Track OUT) 종료 및 실적 반영 완료! (M10 ➔ M20 ➔ M30 ➔ M40 ➔ M70 연계운전 완료)`;
         }, 6800));
       }
     }
@@ -3166,14 +3163,14 @@
 
       if (type === 'BARCODE') {
         crane.style.borderColor = '#f59e0b';
-        bTxt.textContent = '불일치! (D732 ≠ D140)';
+        bTxt.textContent = '불일치 알람! (D732≠D140)';
         bTxt.style.color = '#f59e0b';
-        setPatlite(false, true, false, 'Y16(OL) 황색 경고 점등', '#f59e0b');
-        log.textContent = `[INTERLOCK 작동] 로드리스 출발대 스캔 바코드(D732) <> 목표 번호(D140) 불일치 감지! Y16 황색 경고등 점등 및 서보 기동 차단. (M402/M800 리셋 필요)`;
+        setPatlite(false, true, false, 'Y16(OL) 황색 알람 점등', '#f59e0b');
+        log.textContent = `[알람 발생 & 인터록 차단] 출발대 스캔 바코드(D732) <> 목표 번호(D140) 불일치! Y16 황색 알람등 점등 및 서보 기동 차단. 확인 후 [알람 확인·리셋 복구]를 눌러주세요.`;
       } else {
         crane.style.borderColor = '#ef4444';
-        setPatlite(true, false, false, 'Y15(RL) 적색 점멸·부저', '#ef4444');
-        log.textContent = `[EMERGENCY INTERLOCK] 공압 이상 / HMI 강제 에러(D20=104) 감지! 설비 즉시 정지 및 Y15 적색 패트라이트 점멸·부저 출력!`;
+        setPatlite(true, false, false, 'Y15(RL) 적색 알람·부저', '#ef4444');
+        log.textContent = `[설비 이상 즉시 정지] 공압 이상 / 시운전 에러 주입(D20=104) 발생! 설비 인터록 정지 및 Y15 적색 패트라이트 점멸·부저 출력! 원인 확인 후 리셋 복구하세요.`;
       }
     }
 
@@ -3189,10 +3186,10 @@
       document.getElementById('crane-fork-arm').style.width = '16px';
       document.getElementById('fork-y11-status').textContent = '포크(Y11): CS3 후진';
       const bTxt = document.getElementById('sim-barcode-txt');
-      bTxt.textContent = '대기중 (리셋 완료)';
+      bTxt.textContent = '대기중 (리셋·복구 완료)';
       bTxt.style.color = '#fbbf24';
-      setPatlite(false, false, true, 'Y17(GL) 정상 점등', '#4ade80');
-      document.getElementById('asrs-sim-log').textContent = `[RESET COMPLETE] 작업자 리셋(M402/M800) 입력 확인 → 에러 클리어 및 좌측 로드리스 초록 팔레트(CS1) 원위치 복귀 완료!`;
+      setPatlite(false, false, true, 'Y17(GL) 정상 운전', '#4ade80');
+      document.getElementById('asrs-sim-log').textContent = `[리셋 및 복구 완료] 운영자 리셋(M402/M800) 입력 확인 → 알람 클리어 및 좌측 로드리스 초록 팔레트(CS1) 정상 대기 복구 완료!`;
     }
 
     /* 5. 인터랙티브 시뮬레이터 2 : IoT 물탱크 정량주입 */
@@ -3218,18 +3215,18 @@
         if (currentD48 >= targetD38) {
           currentD48 = targetD38;
           clearInterval(tankInterval);
-          y10Txt.textContent = 'OFF (자동 차단)';
+          y10Txt.textContent = 'OFF (정량 도달 차단)';
           y10Txt.style.color = '#ef4444';
           statusEl.innerHTML = `
-            • <b style="color:#4ade80;">정량 도달 완료 (D48 ≥ D38):</b> 50.000L 도달 즉시 <code>RST M2</code> 작동!<br>
-            • <b>전자밸브(Y10):</b> 자동 차단 완료 (오버슈트 방지)<br>
-            • <b>MySQL (iot_sensor):</b> 5초 주기 최신 행 INSERT 정상
+            • <b style="color:#4ade80;">운전 조건 도달 (D48 ≥ D38):</b> 50.000L 이상 도달 즉시 <code>RST M2</code> 작동!<br>
+            • <b>전자밸브(Y10):</b> 스캔 초과 미검출 없이 자동 차단 완료<br>
+            • <b>데이터 기록(MySQL):</b> 5초 주기 6개 계측 항목 INSERT 완료
           `;
         } else {
           statusEl.innerHTML = `
-            • <b style="color:#38bdf8;">운전 요청(M2 ON):</b> 전자밸브(Y10) 개방 및 유량 적산 중...<br>
-            • <b>실시간 연산:</b> <code>D44 = D24(3000) × D40 ÷ 60</code><br>
-            • <b>비교 감시:</b> D48(${currentD48}) < D38(${targetD38})
+            • <b style="color:#38bdf8;">운전 가동(M2 ON):</b> 전자밸브(Y10) 개방 및 실시간 유량 모니터링 중...<br>
+            • <b>실적 연산:</b> <code>D44 = D24(3000) × D40 ÷ 60</code><br>
+            • <b>인터록 감시:</b> 실적 D48(${currentD48}) < 설정조건 D38(${targetD38})
           `;
         }
         const pct = (currentD48 / 100000) * 100;
@@ -3240,14 +3237,14 @@
 
     function triggerSensorFault() {
       clearInterval(tankInterval);
-      document.getElementById('valve-y10-txt').textContent = 'OFF (인터록 차단)';
+      document.getElementById('valve-y10-txt').textContent = 'OFF (이상 정지)';
       document.getElementById('valve-y10-txt').style.color = '#ef4444';
-      document.getElementById('iot-val-temp').textContent = 'ERR (D0: -120)';
+      document.getElementById('iot-val-temp').textContent = 'ALRM (D0: -120)';
       document.getElementById('iot-val-temp').style.color = '#ef4444';
       document.getElementById('iot-sim-status').innerHTML = `
-        • <b style="color:#ef4444;">🚨 센서 고장 감지 (M11 ON):</b> CH1 AD 원시값(D0) < K-50 단선 판별!<br>
-        • <b>안전 조치:</b> <code>AD_Conv_1</code> 블록에서 M11 비트 즉시 출력 및 HMI 경보 램프 점등<br>
-        • <b>복구 방법:</b> 우측 [누적 데이터 초기화 (M1)] 버튼을 눌러 복구하세요.
+        • <b style="color:#ef4444;">🚨 센서 단선 알람 확인 (M11 ON):</b> CH1 AD 원시값(D0) < K-50 단선 감지!<br>
+        • <b>즉시 대응:</b> 공정 임계값(M10)과 분리된 단선 알람(M11) 확인 및 보고<br>
+        • <b>복구 절차:</b> 점검 완료 후 우측 [알람 리셋 · 실적 초기화 (M1)] 버튼을 누르세요.
       `;
     }
 
@@ -3262,9 +3259,9 @@
       tempEl.textContent = '50.17 ℃';
       tempEl.style.color = '#fbbf24';
       document.getElementById('iot-sim-status').innerHTML = `
-        • <b>데이터 초기화(M1 ON):</b> <code>FMOV K0 D40 K14</code> 실행 완료 (D48 = 0)<br>
-        • <b>센서 상태:</b> 전 채널 정상 복귀 (M11~M17 OFF / 저수위 M6 ON)<br>
-        • <b>대기 상태:</b> [정량 주입 시작] 버튼을 눌러 시뮬레이션을 실행하세요.
+        • <b>알람 리셋 및 초기화(M1 ON):</b> <code>FMOV K0 D40 K14</code> 실행 완료 (D48 = 0)<br>
+        • <b>공정 모니터링:</b> 전 채널 정상 복구 완료 (M11~M17 OFF)<br>
+        • <b>대기 상태:</b> [정량 운전 시작] 버튼을 눌러 시뮬레이션을 실행하세요.
       `;
     }
 
