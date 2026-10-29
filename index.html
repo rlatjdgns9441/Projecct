@@ -1663,26 +1663,22 @@
 
     .ladder-img-viewport {
       width: 100%;
-      min-height: 480px; /* 뷰어 기본 높이를 대폭 상향 */
-      max-height: 70vh;  /* 화면의 70%까지 시원하게 차지하도록 변경 */
+      min-height: 550px;
+      max-height: 75vh;
       background: #ffffff;
       border: 1px solid var(--border-strong);
       border-radius: 0.65rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: auto;
+      display: block; /* flex 해제하여 세로 크기 보존 */
+      overflow: auto; /* 세로/가로 스크롤바가 자연스럽게 생기도록 설정 */
       position: relative;
-      padding: 0.75rem;
+      padding: 1rem;
     }
-
+    
     .ladder-img-viewport img {
-      width: auto;       /* 가로 자동 조절 */
-      height: 100%;      /* 뷰어 높이에 딱 맞춰 세로 잘림 방지 */
-      max-height: 65vh;  /* 최대 높이 제한 */
-      object-fit: contain;
+      width: 100%;       /* 모달 가로 폭에 시원하게 채우기 */
+      height: auto;      /* 비율 유지하여 글씨가 찌그러지지 않음 */
+      max-width: none;   /* 크기 제한 해제 */
       display: block;
-      margin: 0 auto;    /* 중앙 정렬 */
     }
     
     .ladder-img-fallback {
