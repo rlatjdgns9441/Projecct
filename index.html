@@ -1579,9 +1579,9 @@
       background: var(--bg-card);
       border: 1px solid var(--border-strong);
       border-radius: 0.95rem;
-      width: 100%;
-      max-width: 920px;
-      max-height: 90vh;
+      width: 95%;
+      max-width: 1100px; /* 모달창 가로 폭을 더 넓게 확장 */
+      max-height: 95vh;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -1663,8 +1663,8 @@
 
     .ladder-img-viewport {
       width: 100%;
-      min-height: 320px;
-      max-height: 55vh;
+      min-height: 480px; /* 뷰어 기본 높이를 대폭 상향 */
+      max-height: 70vh;  /* 화면의 70%까지 시원하게 차지하도록 변경 */
       background: #ffffff;
       border: 1px solid var(--border-strong);
       border-radius: 0.65rem;
@@ -1673,16 +1673,17 @@
       justify-content: center;
       overflow: auto;
       position: relative;
-      padding: 0.5rem;
+      padding: 0.75rem;
     }
 
     .ladder-img-viewport img {
-      max-width: 100%;
-      max-height: 52vh;
+      width: 100%;       /* 가로 폭에 꽉 차게 맞춰 가독성 극대화 */
+      height: auto;
       object-fit: contain;
       display: block;
+      cursor: zoom-in;
     }
-
+    
     .ladder-img-fallback {
       display: none;
       padding: 2rem 1.5rem;
