@@ -1677,11 +1677,12 @@
     }
 
     .ladder-img-viewport img {
-      width: 100%;       /* 가로 폭에 꽉 차게 맞춰 가독성 극대화 */
-      height: auto;
+      width: auto;       /* 가로 자동 조절 */
+      height: 100%;      /* 뷰어 높이에 딱 맞춰 세로 잘림 방지 */
+      max-height: 65vh;  /* 최대 높이 제한 */
       object-fit: contain;
       display: block;
-      cursor: zoom-in;
+      margin: 0 auto;    /* 중앙 정렬 */
     }
     
     .ladder-img-fallback {
