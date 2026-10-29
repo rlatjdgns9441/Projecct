@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- 검색엔진 무분별 수집 방지 (채용담당자 링크 열람 전용) -->
   <meta name="robots" content="noindex, nofollow" />
-  <title>김성훈 포트폴리오 | PLC · HMI 설비 모니터링 및 제어</title>
+  <title>김성훈 포트폴리오 | PLC · HMI 설비 모니터링 및 자동화 제어</title>
   <style>
     :root {
       /* 따뜻하고 가독성 높은 웜 아이보리 & 테라코타 엔지니어링 테마 */
@@ -179,7 +179,7 @@
       max-width: 780px;
       margin: 0 auto 1.6rem;
       font-weight: 500;
-      word-keep-all: keep-all;
+      word-break: keep-all;
     }
 
     .tag-list {
@@ -531,6 +531,205 @@
       font-size: 0.95rem;
     }
 
+    /* =====================================================
+       신규 추가: 각 프로젝트 내부 인라인 핵심 래더 토글 버튼 & 드로어(Drawer)
+       ===================================================== */
+    .project-ladder-action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      background: linear-gradient(90deg, var(--accent-soft), #fef3c7);
+      border: 1.5px solid #fdba74;
+      border-radius: 0.85rem;
+      padding: 0.95rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-ladder-action-bar .bar-info {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .project-ladder-action-bar .bar-info span.badge-hot {
+      background: var(--accent-warm);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-toggle-ladder {
+      background: linear-gradient(135deg, var(--accent-warm), var(--accent-amber));
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.15rem;
+      border-radius: 0.55rem;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 4px 12px rgba(194, 65, 12, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .btn-toggle-ladder:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(194, 65, 12, 0.38);
+    }
+
+    .btn-toggle-ladder.open {
+      background: #1c1917;
+      color: #fbbf24;
+    }
+
+    .inline-ladder-drawer {
+      display: none;
+      background: var(--bg-card-sub);
+      border: 2px solid var(--accent-warm);
+      border-radius: 0.95rem;
+      padding: 1.4rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 10px 26px rgba(194, 65, 12, 0.12);
+      animation: fadeSlideDown 0.28s ease-out;
+    }
+
+    .inline-ladder-drawer.open {
+      display: block;
+    }
+
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .drawer-top-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    .drawer-top-head h4 {
+      font-size: 1.06rem;
+      font-weight: 800;
+      color: var(--accent-warm);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .drawer-close-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      color: var(--text-body);
+      padding: 0.32rem 0.75rem;
+      border-radius: 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .drawer-close-btn:hover {
+      background: var(--accent-warm);
+      color: #fff;
+      border-color: var(--accent-warm);
+    }
+
+    .drawer-sub-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+    }
+
+    .drawer-tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      color: var(--text-body);
+      padding: 0.52rem 0.95rem;
+      border-radius: 0.5rem;
+      font-size: 0.83rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .drawer-tab-btn.active,
+    .drawer-tab-btn:hover {
+      background: var(--accent-warm);
+      color: #fff;
+      border-color: var(--accent-warm);
+    }
+
+    .drawer-pane {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+    }
+
+    .drawer-pane.active {
+      display: block;
+    }
+
+    .drawer-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      margin-top: 0.95rem;
+    }
+
+    @media (max-width: 720px) {
+      .drawer-meta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .drawer-meta-box {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      border-radius: 0.6rem;
+      padding: 0.85rem 1rem;
+      font-size: 0.86rem;
+      color: var(--text-body);
+    }
+
+    .drawer-meta-box h5 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--accent-warm);
+      margin-bottom: 0.4rem;
+    }
+
+    .drawer-meta-box ul {
+      padding-left: 1.1rem;
+    }
+
+    .drawer-meta-box li {
+      margin-bottom: 0.3rem;
+    }
+
     .interview-qa-details {
       background: var(--bg-card-sub);
       border: 1px solid var(--border-strong);
@@ -680,6 +879,17 @@
 
     .ts-mini-btn:hover {
       background: var(--accent-warm);
+      color: #fff;
+    }
+
+    .ts-mini-btn.ladder-link {
+      background: #fffbeb;
+      border-color: var(--accent-amber);
+      color: #b45309;
+    }
+
+    .ts-mini-btn.ladder-link:hover {
+      background: var(--accent-amber);
       color: #fff;
     }
 
@@ -1748,7 +1958,6 @@
       margin-bottom: 0;
     }
 
-    /* 4번 완벽 해결: 인쇄 시 메인 포트폴리오 DOM 높이를 제거(display: none)해 13페이지 빈 종이 생성을 막고 3쪽으로 압축 */
     @media print {
       @page {
         size: A4;
@@ -1874,7 +2083,7 @@
       <div class="nav-links">
         <a href="#asrs">ASRS 프로젝트</a>
         <a href="#iot">IoT 센서통합</a>
-        <a href="#ladder">핵심래더·I/O맵</a>
+        <a href="#ladder">통합래더·I/O맵</a>
         <a href="#about">이력·역량</a>
         <a href="#contact">Contact</a>
         <button class="nav-resume-btn" onclick="openResumeModal()">📄 입사지원서 열람</button>
@@ -1885,21 +2094,21 @@
   <div class="container">
     <!-- HERO HEADER -->
     <header>
-      <div class="status-pill">● PLC · HMI 기반 설비 모니터링 및 제어</div>
+      <div class="status-pill">● PLC · HMI 기반 설비 모니터링 및 시퀀스·서보 제어</div>
       <h1>제어 로직을 이해하고, 설비의 이상을 추적하는<br><span>자동화 인재 김성훈</span></h1>
-      <p>MELSEC·Siemens PLC 시퀀스 제어, 서보·공압 인터록, HMI/SCADA 기반 모니터링을 교육 프로젝트에서 실습했습니다. 기아자동차 조립 라인 단기 생산인턴(아르바이트) 경험과 기본적인 영어 의사소통 역량을 바탕으로 해외 생산설비의 안정적인 운영을 지원하겠습니다.</p>
+      <p>MELSEC·Siemens PLC 시퀀스 제어, 서보·공압(M코드) 핸드셰이킹 인터록, HMI/SCADA 기반 모니터링과 DB 로깅을 교육 프로젝트에서 구현했습니다. 기아자동차 조립 라인 단기 생산인턴(아르바이트) 경험과 기본적인 영어 의사소통 역량을 바탕으로 생산설비의 안정적인 운영과 제어를 지원하겠습니다.</p>
       <div class="tag-list">
         <span>#PLC_HMI_로직모니터링</span>
+        <span>#서보_M코드_인터록</span>
         <span>#설정값(SV)_정량제어</span>
-        <span>#인터록_알람리셋복구</span>
+        <span>#알람확인_리셋복구</span>
         <span>#MELSEC_Siemens</span>
-        <span>#운전데이터(DB)_기록</span>
         <span>#전기기능사(11.27실기예정)</span>
       </div>
       <div class="hero-actions">
         <a href="#asrs" class="btn-primary">🚀 대표 프로젝트 & 시뮬레이터 보기</a>
         <button class="btn-outline" onclick="openResumeModal()">📄 입사지원서(이력서·자소서) 바로보기</button>
-        <a href="#ladder" class="btn-outline">🧩 핵심 래더 & I/O 메모리 맵</a>
+        <a href="#ladder" class="btn-outline">🧩 통합 래더 & I/O 메모리 맵</a>
       </div>
     </header>
 
@@ -1947,9 +2156,211 @@
           </div>
         </div>
 
+        <!-- ✨ 신규 추가: ASRS 핵심 래더 바로 열기 액션 바 & 인라인 드로어 -->
+        <div class="project-ladder-action-bar">
+          <div class="bar-info">
+            <span class="badge-hot">CORE LOGIC</span>
+            <span>ASRS 프로젝트의 서보 위치결정(ZP.PSTRT1), M코드(10~70) 공압 핸드셰이킹, 알람·리셋 래더를 바로 확인해 보세요.</span>
+          </div>
+          <button class="btn-toggle-ladder" id="asrs-ladder-toggle-btn" onclick="toggleInlineLadder('asrs')">
+            🧩 ASRS 핵심 래더 다이어그램 열기 ▼
+          </button>
+        </div>
+
+        <div class="inline-ladder-drawer" id="asrs-ladder-drawer">
+          <div class="drawer-top-head">
+            <h4>⚡ [ASRS 프로젝트 핵심 제어 래더] MELSEC Q03UDVCPU + QD77MS4 Simple Motion</h4>
+            <button class="drawer-close-btn" onclick="toggleInlineLadder('asrs')">▲ 래더 접기</button>
+          </div>
+
+          <div class="drawer-sub-tabs" id="asrs-drawer-tabs">
+            <button class="drawer-tab-btn active" onclick="switchDrawerTab('asrs', 0, this)">1. 서보 준비·브레이크 & 위치결정(ZP.PSTRT1)</button>
+            <button class="drawer-tab-btn" onclick="switchDrawerTab('asrs', 1, this)">2. M코드(10·20·30·40·60/70) 공압 동기화</button>
+            <button class="drawer-tab-btn" onclick="switchDrawerTab('asrs', 2, this)">3. 바코드 불일치 & 강제 에러(D20/D22) 검증</button>
+          </div>
+
+          <!-- ASRS Drawer Pane 0 -->
+          <div class="drawer-pane active" data-drawer="asrs">
+            <div class="visual-rung-list">
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 01</span>
+                <div class="ld-contact"><span>M0</span><small>서보ON명령</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact"><span>X40</span><small>모듈Ready</small></div>
+                <span class="ld-wire">──────</span>
+                <div class="ld-coil"><span>(Y41 전체서보 ON) ➔ (Y14 2축 수직브레이크 해제)</span><small>수직축 낙하 방지 브레이크 연동</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 02</span>
+                <div class="ld-contact"><span>M42</span><small>스텝기동</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact"><span>Y41</span><small>서보ON</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact"><span>M30</span><small>원점완료</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact nc"><span>X4C (/)</span><small>1축BUSY(b)</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-coil"><span>[SET M140] ➔ [ZP.PSTRT1 U4 K1 D40 M142]</span><small>정지 상태 확인 후 위치결정 기동</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 03</span>
+                <div class="ld-contact"><span>M4 / M5</span><small>1축JOG역/정</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact nc"><span>Y48 / Y49 (/)</span><small>상호인터록(b)</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact"><span>Y41</span><small>서보ON</small></div>
+                <span class="ld-wire">──────</span>
+                <div class="ld-coil"><span>(Y49 역방향 / Y48 정방향) [2축: Y4B/Y4A]</span><small>정·역 동시 출력 원천 차단</small></div>
+              </div>
+            </div>
+            <div class="ladder-code">(* [ASRS] 서보 ON/브레이크(Y14) 제어, JOG 정역 인터록 및 스텝 운전(ZP.PSTRT1) 기동 래더 *)
+|  SM402(최초1스캔)----------------------------------------------------[MOV K100000 G1518 (JOG속도초기화)]--|
+|  M0(서보ON입력)    X40(QD77준비완료)                                                                      |
+|------| |---------------| |----------------------------------+-------------------( Y41 전축 서보 ON )------|
+|                                                             +-------------------( Y14 2축 브레이크해제 )--|
+|  M42(스텝기동)     Y41(서보ON)     M30(원점완료)     X4C(1축BUSY OFF)                                     |
+|------| |---------------| |-------------| |-------------|/|---+------------------[MOV K1 G1546 (스텝시동)]-|
+|                                                              +------------------[SET M140 (기동요청래치)]-|
+|  M140                                                                                                     |
+|------| |----------------------------------------------------------------[ZP.PSTRT1 U4 K1 D40 M142(완료)]--|
+|  M142(명령완료)    M143(에러없음)                                                                         |
+|------| |---------------|/|------------------------------------------------------[RST M140 (요청자동해제)]-|</div>
+            <div class="drawer-meta-grid">
+              <div class="drawer-meta-box">
+                <h5>📌 핵심 디바이스 및 파라미터</h5>
+                <ul>
+                  <li><b>Y41 / Y14:</b> 서보 앰프(MR-J4W2-22B) 전축 ON 신호 및 2축 수직 브레이크(HG-KR13B) 릴레이 출력</li>
+                  <li><b>X4C / X4D:</b> 1축·2축 운전 중(BUSY) 상태 플래그 (B접점으로 중복 기동 인터록)</li>
+                  <li><b>G1544~G1546 / D30 / D142:</b> 스텝 운전 모드 선택 버퍼메모리 및 기동 스텝 번호</li>
+                </ul>
+              </div>
+              <div class="drawer-meta-box">
+                <h5>💡 엔지니어링 설계 의도</h5>
+                <ul>
+                  <li>수직축(2축)은 전원 차단 시 자중에 의해 낙하할 위험이 있으므로 서보 ON(Y41)과 브레이크(Y14) 타이밍을 연동 설계</li>
+                  <li>위치결정 완료 비트(M142 ON)와 에러 비트(M143 OFF) 확인 후 기동 요청(M140)을 즉시 자기 해제(Self-Reset)하여 안정성 확보</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASRS Drawer Pane 1 -->
+          <div class="drawer-pane" data-drawer="asrs">
+            <div class="visual-rung-list">
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 01</span>
+                <div class="ld-compare"><span>[== D12 K10]</span><small>M코드 10(픽업준비)</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-coil"><span>[SET Y10(로드리스우측)] & [SET Y11(포크전진)]</span><small>실린더 동시 구동</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 02</span>
+                <div class="ld-compare"><span>[== D12 K10]</span><small>M코드 10</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact"><span>X01 (CS2)</span><small>우측끝감지</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact"><span>X03 (CS4)</span><small>전진끝감지</small></div>
+                <span class="ld-wire">──────</span>
+                <div class="ld-coil"><span>[TO U4 G1502 K1 K1]</span><small>물리적 도달 확인 후 M코드 OFF</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 03</span>
+                <div class="ld-compare"><span>[== D12 K20/30/40]</span><small>픽업·적재·복귀</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact"><span>X02(CS3) / X00(CS1)</span><small>후진·좌측끝 확인</small></div>
+                <span class="ld-wire">──────</span>
+                <div class="ld-coil"><span>[M코드 OFF 요청] ➔ 입고종료(M60) / 출고종료(M70)</span><small>포크 간섭 원천 방지</small></div>
+              </div>
+            </div>
+            <div class="ladder-code">(* [ASRS] 서보 위치결정 M코드(10·20·30·40·60/70)와 공압 오토스위치(X00~X03) 동기화 핸드셰이킹 *)
+|  [== D12(현재M코드) K10]----------------------------------+---------------------[SET Y10 (로드리스우측)]--|
+|                                                           +---------------------[SET Y11 (리프트포크전진)]|
+|  [== D12 K10]     X01(CS2 우측끝)     X03(CS4 전진끝)                                                     |
+|-------| |---------------| |-----------------| |---------------------------------[TO U4 G1502 K1 K1(M-OFF)]|
+|  [== D12 K20]-------------------------------------------------------------------[RST Y11 (포크후진픽업)]--|
+|  [== D12 K20]     X02(CS3 후진끝)-----------------------------------------------[TO U4 G1502 K1 K1(M-OFF)]|
+|  [== D12 K40]---------------------------------------------+---------------------[RST Y11 (포크후진복귀)]--|
+|                                                           +---------------------[RST Y10 (로드리스좌측)]--|
+|  [== D12 K40]     X02(CS3 후진끝)     X00(CS1 좌측끝)---------------------------[TO U4 G1502 K1 K1(M-OFF)]|</div>
+            <div class="drawer-meta-grid">
+              <div class="drawer-meta-box">
+                <h5>📌 핵심 디바이스 및 센서 매핑</h5>
+                <ul>
+                  <li><b>X00(CS1) / X01(CS2):</b> 로드리스 실린더(CDY1S15H-250) 좌·우 끝단 오토스위치</li>
+                  <li><b>X02(CS3) / X03(CS4):</b> 듀얼로드 포크 실린더(CXSM10-80) 후진·전진 끝단 오토스위치</li>
+                  <li><b>M코드 10·20·30·40·60·70:</b> 픽업준비(10) → 픽업후진(20) → 베이적재(30) → 원위치복귀(40) → 입고종료(60)/출고종료(70)</li>
+                </ul>
+              </div>
+              <div class="drawer-meta-box">
+                <h5>💡 엔지니어링 설계 의도</h5>
+                <ul>
+                  <li>단순 타이머 딜레이에 의존하지 않고, 오토스위치(X00~X03)의 물리적 도달 신호가 들어와야만 M코드 OFF 신호(G1502)를 출력</li>
+                  <li>포크가 완전히 후진(X02 ON)하기 전에는 XY 서보가 절대 다음 좌표로 이동하지 못하도록 기계적 충돌 인터록 완성</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASRS Drawer Pane 2 -->
+          <div class="drawer-pane" data-drawer="asrs">
+            <div class="visual-rung-list">
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 01</span>
+                <div class="ld-contact"><span>M200</span><small>바코드판독</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-compare"><span>[<> D732 D140]</span><small>스캔ID ≠ 목표Bay</small></div>
+                <span class="ld-wire">──────</span>
+                <div class="ld-coil"><span>[SET M902] ➔ (Y16 황색알람 & 서보기동 인터록 차단)</span><small>오입고·오출고 원천 차단</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 02</span>
+                <div class="ld-compare"><span>[== D20 K104] OR [== D22 K105]</span><small>HMI 테스트 에러 주입 / 축 에러</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact"><span>SM412</span><small>1초클록</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-coil"><span>[SET M901] ➔ (Y15 적색점멸 & 부저 출력)</span><small>Fault Injection 검증</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 03</span>
+                <div class="ld-contact nc"><span>M901 (/)</span><small>축에러없음</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact nc"><span>M902 (/)</span><small>불일치없음</small></div>
+                <span class="ld-wire">──────</span>
+                <div class="ld-coil"><span>(Y17 녹색 정상운전 램프 ON)</span><small>리셋(M402/M800) 시 즉시 복구</small></div>
+              </div>
+            </div>
+            <div class="ladder-code">(* [ASRS] 바코드 품목 불일치 인터록(D732 <> D140) 및 HMI 강제 에러 주입(D20/D22) 시그널타워 제어 *)
+|  M200(바코드판독)   [ <> D732(수신품목ID)  D140(목표Bay번호) ]-------------------[SET M902 (불일치알람)]--|
+|  M902(불일치알람)   M402(입고리셋)    M800(출고리셋)                                                      |
+|-------| |----------------|/|---------------|/|-----------------------------------( Y16 황색경고등 점등 )--|
+|  [== D20 K104] OR [== D22 K105] (104/105 에러 판정)------------------------------[SET M901 (중대에러)]----|
+|  M901               SM412(1초클록)                                                                        |
+|---| |--------------------| |-----------------------------------------------------( Y15 적색점멸 & 부저 )--|
+|  M901               M902                                                                                  |
+|---|/|----------------|/|---------------------------------------------------------( Y17 녹색정상등 점등 )--|</div>
+            <div class="drawer-meta-grid">
+              <div class="drawer-meta-box">
+                <h5>📌 핵심 디바이스 및 알람 코드</h5>
+                <ul>
+                  <li><b>D732 / D140:</b> QJ71C24N 시리얼 모듈로 수신한 바코드 품목 번호 및 HMI 입출고 지시 번호</li>
+                  <li><b>D20 / D22:</b> HMI 에러 테스트 값 입력 및 축 에러(104·105) 판별 레지스터</li>
+                  <li><b>Y15(RL) / Y16(OL) / Y17(GL):</b> PATLITE 3색 시그널 타워(LR6-302PJB) 출력</li>
+                </ul>
+              </div>
+              <div class="drawer-meta-box">
+                <h5>💡 엔지니어링 설계 의도</h5>
+                <ul>
+                  <li>실제 설비를 물리적으로 충돌시키지 않고도 안전 시퀀스를 검증하기 위해 HMI에서 D20·D22에 에러를 강제 주입(Fault Injection)하는 테스트 회로 구축</li>
+                  <li>작업자가 현장을 육안 확인한 뒤 수동 리셋(M402/M800)을 눌러야만 인터록이 해제되도록 안전 절차 표준화</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="ts-section-label">
           <div>🛠️ 핵심 엔지니어링 트러블슈팅 (알람 확인 · 인터록 차단 · 리셋 및 복구)</div>
-          <span>💡 각 카드의 [▶ 영상 보기] 버튼을 누르면 위 동영상 플레이어로 자동 이동하여 즉시 재생됩니다.</span>
+          <span>💡 각 카드의 버튼을 누르면 위 동영상 재생 또는 핵심 래더 탭이 즉시 열립니다.</span>
         </div>
 
         <div class="ts-grid">
@@ -1963,6 +2374,7 @@
               <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_ts1.mp4', true)">▶ 영상1: 오입고 방지</button>
               <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_ts2.mp4', true)">▶ 영상2: 전구간 인터록</button>
               <button class="ts-mini-btn" onclick="playAsrsBarcodeSequential(true)">▶ 1+2 연속재생</button>
+              <button class="ts-mini-btn ladder-link" onclick="openInlineLadderAt('asrs', 2)">🧩 관련 래더 보기</button>
             </div>
           </div>
 
@@ -1973,7 +2385,9 @@
               <p><b>해결:</b> 서보 BUSY(<code>X4C</code>) OFF 및 원점복귀(<code>M30</code>) 인터록 조건을 확인하고, 각 M코드(입고 <code>10→20→30→40→60</code> / 출고 <code>10→20→30→40→70</code>)마다 실린더 센서(<code>CS1~CS4</code>, <code>X00~X03</code>) 입력 확인 후 다음 공정으로 넘어가는 연계운전 구현</p>
             </div>
             <div class="ts-inline-btns">
-              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_total.mp4', true)">▶ 전체 연계운전 영상으로 이동</button>
+              <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_total.mp4', true)">▶ 전체 연계운전 영상</button>
+              <button class="ts-mini-btn ladder-link" onclick="openInlineLadderAt('asrs', 0)">🧩 기동 인터록 래더</button>
+              <button class="ts-mini-btn ladder-link" onclick="openInlineLadderAt('asrs', 1)">🧩 M코드 동기화 래더</button>
             </div>
           </div>
 
@@ -1986,6 +2400,7 @@
             <div class="ts-inline-btns">
               <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_signal.mp4', true)">▶ 알람 테스트 영상</button>
               <button class="ts-mini-btn" onclick="changeAsrsVideo('asrs_ts3.mp4', true)">▶ 공압 인터록·복구 영상</button>
+              <button class="ts-mini-btn ladder-link" onclick="openInlineLadderAt('asrs', 2)">🧩 알람 검증 래더 보기</button>
             </div>
           </div>
         </div>
@@ -2201,9 +2616,196 @@
           </div>
         </div>
 
+        <!-- ✨ 신규 추가: IoT 핵심 래더 바로 열기 액션 바 & 인라인 드로어 -->
+        <div class="project-ladder-action-bar">
+          <div class="bar-info">
+            <span class="badge-hot">CORE LOGIC</span>
+            <span>IoT 프로젝트의 공통 스케일링 함수 블록(AD_Conv FB), 물탱크 정량주입(D48≥D38), 지멘스 HSC 및 전력량 적산 래더를 바로 확인해 보세요.</span>
+          </div>
+          <button class="btn-toggle-ladder" id="iot-ladder-toggle-btn" onclick="toggleInlineLadder('iot')">
+            🧩 IoT 핵심 래더 & FB 로직 열기 ▼
+          </button>
+        </div>
+
+        <div class="inline-ladder-drawer" id="iot-ladder-drawer">
+          <div class="drawer-top-head">
+            <h4>⚡ [IoT 센서통합 프로젝트 핵심 제어 래더] MELSEC Q03UDE(Q64AD) + Siemens S7-1200(TIA Portal)</h4>
+            <button class="drawer-close-btn" onclick="toggleInlineLadder('iot')">▲ 래더 접기</button>
+          </div>
+
+          <div class="drawer-sub-tabs" id="iot-drawer-tabs">
+            <button class="drawer-tab-btn active" onclick="switchDrawerTab('iot', 0, this)">1. 4채널 공통 스케일링 FB (AD_Conv) & 단선 감지</button>
+            <button class="drawer-tab-btn" onclick="switchDrawerTab('iot', 1, this)">2. 유량 적산(Q×Δt) & 물탱크 정량 주입(D48≥D38)</button>
+            <button class="drawer-tab-btn" onclick="switchDrawerTab('iot', 2, this)">3. S7-1200 고속카운터(HSC) & 적산전력량(Wh)</button>
+          </div>
+
+          <!-- IoT Drawer Pane 0 -->
+          <div class="drawer-pane active" data-drawer="iot">
+            <div class="visual-rung-list">
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 01</span>
+                <div class="ld-contact"><span>SM400</span><small>상시ON</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-compare"><span>[FLT 현재값_AI] ➔ [E* E100] ➔ [E/ E4000] ➔ [E* 스케일] ➔ [INT HMI_정수_PV]</span><small>부동소수점 정밀 환산 후 정수화</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-coil"><span>[FB: AD_Conv_1~4]</span><small>D20·D22·D24·D26 출력</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 02</span>
+                <div class="ld-contact"><span>SM400</span><small>상시ON</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-compare"><span>[>= HMI_정수_PV  HMI_설정값_SV]</span><small>설정 임계치 도달/초과</small></div>
+                <span class="ld-wire">──────</span>
+                <div class="ld-coil"><span>(임계값_초과 알람: M10 · M12 · M14 · M16)</span><small>공정 과열·과압·과전류 경보</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 03</span>
+                <div class="ld-contact"><span>SM400</span><small>상시ON</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-compare"><span>[< 현재값_AI  K-50]</span><small>입력 전류/전압 상실</small></div>
+                <span class="ld-wire">──────</span>
+                <div class="ld-coil"><span>(센서고장 알람: M11 · M13 · M15 · M17)</span><small>배선 단선 및 루프 이상 즉시 판별</small></div>
+              </div>
+            </div>
+            <div class="ladder-code">(* [IoT] 아날로그 4채널 공통 스케일링 함수 블록 (FB/FUN: AD_Conv) 내부 로직 *)
+|  SM400(상시ON)---+---------------------------------------------[FLT  현재값_AI    현재값_실수  ]--|
+|                  +---------------------------------------------[FLT  스케일_정수  스케일_실수  ]--|
+|                  +---------------------------------------------[E*   현재값_실수  E100  현재값_x100]|
+|                  +---------------------------------------------[E/   현재값_x100  E4000 실수_PV    ]|
+|                  +---------------------------------------------[E*   실수_PV  스케일_실수 HMI_실수 ]|
+|                  +---------------------------------------------[INT  HMI_실수     HMI_정수_PV  ]--|
+|                  |                                                                                |
+|                  +---[ >=  HMI_정수_PV   HMI_설정값_SV ]--------------------( 임계값_초과 M10~16 )-|
+|                  +---[ <   현재값_AI     K-50          ]--------------------( 센서고장_단선 M11~17)|</div>
+            <div class="drawer-meta-grid">
+              <div class="drawer-meta-box">
+                <h5>📌 핵심 디바이스 및 채널 매핑</h5>
+                <ul>
+                  <li><b>D0~D3 (입력) / D20·22·24·26 (출력):</b> CH1 온도(÷100 ℃), CH2 압력(÷1000 MPa), CH3 순간유량률(÷100 LPM), CH4 전류(÷1000 A)</li>
+                  <li><b>D30~D33:</b> 채널별 소수점 자릿수 매칭용 스케일 배율 상수 (100 또는 10)</li>
+                  <li><b>M10~M17:</b> 채널별 임계값 초과 알람(짝수 M) 및 센서 단선 고장 알람(홀수 M)</li>
+                </ul>
+              </div>
+              <div class="drawer-meta-box">
+                <h5>💡 엔지니어링 설계 의도</h5>
+                <ul>
+                  <li>4개 아날로그 채널의 반복 연산을 단일 Function Block(AD_Conv)으로 표준화하여 코드 재사용성 및 유지보수성 확보</li>
+                  <li>정수 나눗셈 시 소수점이 버려지는 오차를 막기 위해 실수(FLT) 변환 후 연산하고, K-50 미만 비교로 단선 고장을 분리 검출</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- IoT Drawer Pane 1 -->
+          <div class="drawer-pane" data-drawer="iot">
+            <div class="visual-rung-list">
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 01</span>
+                <div class="ld-contact"><span>SM402 / SM400</span><small>초기화·제한</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-compare"><span>[DMOV K50000 D38] ➔ [DLIMIT K1 K100000 D38 D38]</span><small>기본 50.000L 세팅 및 0.001~100.000L 제한</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 02</span>
+                <div class="ld-contact"><span>Y10</span><small>전자밸브ON</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-compare"><span>(T1 K1000) ➔ [MOV T1 D40] ➔ [D* D52 D40 D42] ➔ [D/ D42 K60 D44]</span><small>회차 유량(D44) = 유량률×시간÷60</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">Rung 03</span>
+                <div class="ld-compare"><span>[D>= D48(누적량) D38(목표량)] OR [D>= D48 K100000(만수위 M7)]</span><small>목표 도달/만수위</small></div>
+                <span class="ld-wire">──────</span>
+                <div class="ld-coil"><span>[RST M2] ➔ (M3 해제 · Y10 밸브 차단)</span><small>오버슈트 미검출 방지</small></div>
+              </div>
+            </div>
+            <div class="ladder-code">(* [IoT] 유량 적산(D44 = D24 * D40 / 60) 및 물탱크 정량 주입(D48 >= D38) 자동 차단 시퀀스 *)
+|  SM402(1스캔ON)---------------------------------------------------------[DMOV K50000 D38 (초기50L)]--|
+|  SM400(상시ON)----------------------------------------------------[DLIMIT K1 K100000 D38 D38(상하한)]|
+|  M2(HMI물탱크버튼)----------------------------------------------------------------( M3 물탱크밸브요청 )|
+|  X0 / M0 / M3 (밸브요청합산)------------------------------------------------------( Y10 전자밸브출력 )-|
+|  Y10(밸브ON)----+-----------------------------------------------------------------( T1 K1000 0.1초타이머)|
+|                 +---[MOV T1 D40] -> [* D24 K1 D52] -> [D* D52 D40 D42] -> [D/ D42 K60 D44(회차부피)]-|
+|                 +-------------------------------------------------------[D+ D44 D50 D48 (누적부피합산)]|
+|  [D>= D48(누적량) D38(목표량)]----------------------------------------------------[RST M2 (정량정지)]--|</div>
+            <div class="drawer-meta-grid">
+              <div class="drawer-meta-box">
+                <h5>📌 핵심 디바이스 및 연산 구조</h5>
+                <ul>
+                  <li><b>D38 / D48:</b> 목표 주입 부피(SV) 및 누적 주입 부피(PV, 0.001L 단위 32비트 정수)</li>
+                  <li><b>T1(D40) / D44 / D50:</b> 밸브 개방 시간(0.1초 단위), 이번 회차 주입량(D44), 이전 회차까지의 누적량 백업(D50)</li>
+                  <li><b>M6 / M7:</b> 저수위(D48 ≤ 0) 및 만수위(D48 ≥ 100,000 / 100.000L) 상태 비트</li>
+                </ul>
+              </div>
+              <div class="drawer-meta-box">
+                <h5>💡 엔지니어링 설계 의도</h5>
+                <ul>
+                  <li>작업자의 오입력 실수를 방지하기 위해 DLIMIT 명령어로 설정 가능한 목표 유량 범위를 0.001~100.000L로 하드 코딩 제한</li>
+                  <li>스캔 타임 사이 유량값이 목표치를 훌쩍 넘어버려도 놓치지 않도록 단순 일치(==) 대신 이상(D>=) 비교를 적용</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- IoT Drawer Pane 2 -->
+          <div class="drawer-pane" data-drawer="iot">
+            <div class="visual-rung-list">
+              <div class="visual-rung">
+                <span class="rung-step-num">Siemens</span>
+                <div class="ld-contact"><span>%ID1004</span><small>HSC_2 펄스</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-compare"><span>[MOVE ➔ %DB1.DBW0] & [CONV DInt to Real ➔ #펄스_실수]</span><small>터빈 유량 고속 카운트</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-coil"><span>[CALCULATE: IN1*IN2*0.1 ➔ %DB1.DBD12]</span><small>실수/정수 유량 환산</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">MELSEC</span>
+                <div class="ld-contact nc"><span>M4 (/)</span><small>초기화해제</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-compare"><span>[FLT D26 D56] ➔ [E* E224.5 D58] ➔ [E* E0.95 D60] ➔ [DINT D60 D62]</span><small>유효전력 P = 224.5×I×0.95 [W]</small></div>
+              </div>
+              <div class="visual-rung">
+                <span class="rung-step-num">MELSEC</span>
+                <div class="ld-contact nc"><span>M4 (/)</span><small>초기화해제</small></div>
+                <span class="ld-wire">──</span>
+                <div class="ld-contact"><span>SM412 [↓]</span><small>1초클록 하강에지</small></div>
+                <span class="ld-wire">──────</span>
+                <div class="ld-coil"><span>[E/ D60 E3600 D64] ➔ [E* E10 D66] ➔ [E+ D66 D68 D68] ➔ [DINT D68 D70]</span><small>1초 주기 적산전력량[Wh] 누적</small></div>
+              </div>
+            </div>
+            <div class="ladder-code">(* [1] Siemens S7-1200 (TIA Portal V18) : 터빈 유량센서(I0.3) 고속카운터(HSC_2) 및 리터 환산 *)
+Network 1: %M1.1("밸브_ON") --------( %Q0.2 "솔밸브" )  |  %I0.3("유량_펄스") --------( %Q0.5 "유량_램프" )
+Network 2: [MOVE: %ID1004 -> %DB1.DBW0("HMI".유량_COUNT)] -> [CTRL_HSC: HSC=258(Local~HSC_2), CV=%M1.0(초기화)]
+Network 3: [CONV DInt to Real: %ID1004 -> #펄스_실수] -> [CALCULATE: #펄스_실수 * %DB1.DBW6 * 0.1 -> %DB1.DBD12]
+
+(* [2] MELSEC Q03UDE : 전류(CH4) 기반 유효전력(W) 및 1초 클록 하강에지(SM412↓) 적산전력량(Wh) 연산 *)
+|  M4(초기화)----+-------------------------------------------------[FLT D26 D56] -> [E* D56 E224.5 D58]--|
+|  ---|/|        +-------------------------------------------------[E* D58 E0.95 D60] -> [DINT D60 D62(W)]|
+|  M4     SM412(1초클록↓)                                                                                 |
+|--|/|-------|↓|--+------------------------------------------------[E/ D60 E3600 D64] -> [E* D64 E10 D66]-|
+|                 +------------------------------------------------[E+ D66 D68 D68] -> [DINT D68 D70(Wh)]-|</div>
+            <div class="drawer-meta-grid">
+              <div class="drawer-meta-box">
+                <h5>📌 핵심 디바이스 및 통신 태그</h5>
+                <ul>
+                  <li><b>%ID1004 / %DB1.DBW0·DBW2·DBD12:</b> 지멘스 S7-1200 HSC2 카운트 원시값 및 HMI/Node-RED 연동용 유량 데이터 블록</li>
+                  <li><b>D60·D62 / D68·D70:</b> 단상 유효전력(W, 소수점 3자리) 및 적산전력량(Wh, 소수점 4자리)</li>
+                  <li><b>SM412 (하강 에지 |↓|):</b> 1초 주기 클록 펄스 트리거</li>
+                </ul>
+              </div>
+              <div class="drawer-meta-box">
+                <h5>💡 엔지니어링 설계 의도</h5>
+                <ul>
+                  <li>전력량(Wh) 적산 시 매 스캔마다 중복 덧셈이 일어나는 것을 막기 위해 SM412(1초 클록)의 하강 에지(|↓|)를 사용해 정확히 1초당 에너지(P÷3600)만 누적</li>
+                  <li>Node-RED에서 지멘스 실수 태그(유량_PV_실수)를 읽을 때 HMI용 정수 배율(÷100)이 중복 적용되지 않도록 경로 분리</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="ts-section-label">
           <div>🛠️ 핵심 엔지니어링 트러블슈팅 (이상 알람 분리 · 공통 GND 및 배율 통일 · 정량 도달 미검출 방지)</div>
-          <span>💡 각 카드의 [▶ 영상 보기] 버튼을 누르면 위 동영상 플레이어로 자동 이동하여 재생됩니다.</span>
+          <span>💡 각 카드의 버튼을 누르면 위 동영상 재생 또는 핵심 래더 탭이 즉시 열립니다.</span>
         </div>
 
         <div class="ts-grid">
@@ -2214,7 +2816,8 @@
               <p><b>해결:</b> Q64AD 채널별 전류·전압 쇼트바 매칭 및 CT 2회 관통 감도 보정(20A→10A)을 수행하고, 공통 FB(<code>AD_Conv</code>)에서 설정값 초과 알람(<code>PV ≥ SV</code>, <code>M10·12·14·16</code>)과 센서 단선 알람(<code>AD < K-50</code>, <code>M11·13·15·17</code>)을 분리하여 즉시 원인을 파악할 수 있도록 구현</p>
             </div>
             <div class="ts-inline-btns">
-              <button class="ts-mini-btn" onclick="changeIotVideo('iot_total.mp4', true)">▶ 전체 센서 통합 시연 보기</button>
+              <button class="ts-mini-btn" onclick="changeIotVideo('iot_total.mp4', true)">▶ 전체 센서 통합 시연</button>
+              <button class="ts-mini-btn ladder-link" onclick="openInlineLadderAt('iot', 0)">🧩 AD_Conv FB 래더 보기</button>
             </div>
           </div>
 
@@ -2225,7 +2828,8 @@
               <p><b>해결:</b> ① 두 SMPS의 <code>-(0V/GND)</code> 단자를 공통으로 묶어 신호 기준 전위를 안정화하고, ② PLC 정수 레지스터(<code>D20÷100</code>, <code>D22÷1000</code>, <code>D24÷100</code>, <code>D26÷1000</code>)와 지멘스 유량 태그(<code>DB1.DBW2÷100</code>)의 환산 배율을 통일하여 표시·저장 오차를 해소</p>
             </div>
             <div class="ts-inline-btns">
-              <button class="ts-mini-btn" onclick="changeIotVideo('iot_scada.mp4', true)">▶ X-SCADA & DB 저장 영상 보기</button>
+              <button class="ts-mini-btn" onclick="changeIotVideo('iot_scada.mp4', true)">▶ X-SCADA & DB 영상</button>
+              <button class="ts-mini-btn ladder-link" onclick="openInlineLadderAt('iot', 2)">🧩 S7-1200 HSC & 전력량 래더</button>
             </div>
           </div>
 
@@ -2236,7 +2840,8 @@
               <p><b>해결:</b> <code>DLIMIT K1 K100000 D38 D38</code>로 HMI 설정값 입력 범위를 0.001~100.000L로 제한하고, 이상 비교(<code>D48 ≥ D38</code>) 및 만수위 인터록(<code>M7</code>)을 적용해 목표 도달 미검출로 인한 연속 주입을 방지함 (밸브 응답 지연에 따른 미세 편차는 실측으로 확인)</p>
             </div>
             <div class="ts-inline-btns">
-              <button class="ts-mini-btn" onclick="changeIotVideo('iot_tank.mp4', true)">▶ HMI 물탱크 정량제어 영상 보기</button>
+              <button class="ts-mini-btn" onclick="changeIotVideo('iot_tank.mp4', true)">▶ HMI 정량제어 영상</button>
+              <button class="ts-mini-btn ladder-link" onclick="openInlineLadderAt('iot', 1)">🧩 정량주입 인터록 래더</button>
             </div>
           </div>
         </div>
@@ -2378,8 +2983,8 @@
 
     <!-- CORE LADDER LOGIC & I/O MEMORY MAP SNIPPETS -->
     <section id="ladder">
-      <h2 class="section-title">🧩 핵심 제어 래더 다이어그램 및 통합 I/O 메모리 맵 (Core Logic)</h2>
-      <p class="section-desc">설비 인터록 확인, 알람 리셋·복구, 목표 설정값(SV) 비교를 위한 핵심 래더 로직과 디바이스 주소 맵입니다.</p>
+      <h2 class="section-title">🧩 통합 제어 래더 다이어그램 및 I/O 메모리 맵 요약 (Quick Reference)</h2>
+      <p class="section-desc">두 프로젝트의 핵심 인터록 래더와 전체 입출력(I/O)·데이터 레지스터 할당표를 한눈에 비교할 수 있는 섹션입니다.</p>
 
       <div class="ladder-tabs">
         <button class="ladder-tab-btn active" onclick="openLadderTab(0, this)">1. [ASRS] 연계운전 & M코드(10~70) 인터록</button>
@@ -2402,7 +3007,7 @@
             <span class="ld-wire">──</span>
             <div class="ld-contact nc"><span>X4C (/)</span><small>1축BUSY(b)</small></div>
             <span class="ld-wire">──────</span>
-            <div class="ld-coil"><span>[SET M140] ➔ [ZP.PSTRT1 U4 K1 D40 M141]</span><small>인터록 조건 확인 후 2축 위치결정 기동</small></div>
+            <div class="ld-coil"><span>[SET M140] ➔ [ZP.PSTRT1 U4 K1 D40 M142]</span><small>인터록 조건 확인 후 2축 위치결정 기동</small></div>
           </div>
           <div class="visual-rung">
             <span class="rung-step-num">Rung 02</span>
@@ -2423,9 +3028,9 @@
           <div class="ladder-code">(* [ASRS] 스텝 기동 인터록 및 QD77MS4 위치결정 실행 / M코드(10·20·30·40·60/70) 공압 완료 확인 *)
 |   M42(기동요청)    Y41(서보ON)    M30(원점완료)    X4C(1축BUSY)                                   |
 |-------| |------------| |------------| |------------|/|-------------------[SET M140 (기동플래그)]--|
-|   M140                                                                                           |
-|-------| |------------------------------------------------------------[ZP.PSTRT1 U4 K1 D40 M141]--|
-|  [D12 == K10]           X01(CS2 우이동끝)    X03(CS4 전진끝)             [TO U4 G1502 K1 K1]     |
+|   M140                                                                                            |
+|-------| |------------------------------------------------------------[ZP.PSTRT1 U4 K1 D40 M142]--|
+|  [D12 == K10]           X01(CS2 우이동끝)    X03(CS4 전진끝)             [TO U4 G1502 K1 K1]      |
 |-------| |--------------------| |------------------| |--------------------(M코드 OFF 완료신호)----|</div>
         </details>
       </div>
@@ -2593,12 +3198,12 @@
     <!-- CORE COMPETENCIES & QUALIFICATIONS -->
     <section id="about">
       <h2 class="section-title">⚡ 핵심 직무 역량 및 이력·자격 (Competencies & Spec)</h2>
-      <p class="section-desc">PLC·HMI 설비 운영(Operator)에 필요한 모니터링·인터록·데이터 기록 실습 역량과 현장·어학 경험입니다.</p>
+      <p class="section-desc">PLC·HMI 설비 운영 및 자동화 제어에 필요한 모니터링·인터록·데이터 기록 실습 역량과 현장·어학 경험입니다.</p>
 
       <div class="comp-grid" style="margin-bottom: 1.5rem;">
         <div class="comp-card">
           <h3>⚙️ 공정 간 인터록·시퀀스 연계운전</h3>
-          <p>미쓰비시(Q03UDV/UDE 주력) 및 지멘스(S7-1200 기초·HSC 계측) 로직 해독, 서보 위치결정(QD77MS4)·공압 실린더(M코드·오토스위치) 인터록 확인 및 알람 리셋·복구 실습</p>
+          <p>미쓰비시(Q03UDV/UDE 주력) 및 지멘스(S7-1200 기초·HSC 계측) 로직 구현 및 해독, 서보 위치결정(QD77MS4)·공압 실린더(M코드·오토스위치) 인터록 확인 및 알람 리셋·복구 실습</p>
         </div>
         <div class="comp-card">
           <h3>📊 HMI 공정 모니터링 & 운전 데이터 기록</h3>
@@ -2623,7 +3228,7 @@
           <h3>🪪 보유 자격 및 시험·근무 조건</h3>
           <ul>
             <li><b>국가기술자격:</b> 전기기능사 (필기 합격 / <b>2026.11.27 실기 시험 예정</b>)</li>
-            <li><b>어학사항:</b> 영어 기본 의사소통 가능 (<b>2026.11.07 OPIc 응시 예정</b> · 목표 등급 IH)</li>
+            <li><b>어학사항:</b> 영어 기본 의사소통 가능 (<b>2026.11.09 OPIc 응시 예정</b> · 목표 등급 IH)</li>
             <li><b>근무조건:</b> 제조업 교대근무 및 해외 장기 근무 가능 / 1종 보통 운전면허</li>
           </ul>
         </div>
@@ -2642,7 +3247,7 @@
     <footer id="contact">
       <h2 class="section-title" style="justify-content:center;">📬 Contact & Resume</h2>
       <p style="color:var(--text-body); max-width:680px; margin:0.5rem auto 0; font-weight:500;">
-        교육 프로젝트에서 다진 PLC·HMI 모니터링 기본기와 기아자동차 조립 라인 단기 생산인턴(아르바이트) 경험, 기본적인 영어 의사소통 역량을 바탕으로 해외 생산설비의 안정적인 운영을 지원하겠습니다.
+        교육 프로젝트에서 다진 PLC·HMI 모니터링 및 제어 기본기와 기아자동차 조립 라인 단기 생산인턴(아르바이트) 경험, 기본적인 영어 의사소통 역량을 바탕으로 생산설비의 안정적인 운영을 지원하겠습니다.
       </p>
 
       <div class="contact-cards">
@@ -2710,12 +3315,12 @@
               <th>주 소</th>
               <td id="res-addr">경기도 광명시 <span style="font-size:0.75rem; color:#64748b;">(인쇄 시 상세 표시)</span></td>
               <th>지원분야</th>
-              <td><b>생산팀 PLC Operator (설비 운전 · 모니터링)</b></td>
+              <td><b>생산팀 PLC Operator / 자동화 설비 제어·운전</b></td>
             </tr>
           </tbody>
         </table>
 
-        <!-- 2. 학력 및 교육사항 (1번 요청: 수료 예정으로 반영) -->
+        <!-- 2. 학력 및 교육사항 -->
         <h4 class="resume-section-h4">2. 학력 및 전문 교육사항</h4>
         <table class="resume-table">
           <thead>
@@ -2750,7 +3355,7 @@
               <th>자격 / 어학</th>
               <td colspan="3">
                 • <b>전기기능사</b> (필기합격 / <b>2026.11.27 실기 시험 예정</b> · 한국산업인력공단)<br>
-                • <b>영어 기본 의사소통 가능</b> (<b>2026.11.07 OPIc 응시 예정</b> · 목표 등급 IH)<br>
+                • <b>영어 기본 의사소통 가능</b> (<b>2026.11.09 OPIc 응시 예정</b> · 목표 등급 IH)<br>
                 • <b>운전면허증 1종 보통</b> (2015.02 · 경찰청)
               </td>
             </tr>
@@ -2762,7 +3367,7 @@
             </tr>
             <tr>
               <th>병역 / 근무</th>
-              <td colspan="3">육군 병장 만기전역 (2015.03 ~ 2016.12)  |  <b>제조업 교대근무 및 해외 장기 근무 가능</b></td>
+              <td colspan="3">육군 병장 만기전역 (2015.03 ~ 2016.12)  |  <b>제조업 교대근무 및 해외 장기 근무 가능</b></td>
             </tr>
           </tbody>
         </table>
@@ -2788,28 +3393,28 @@
           <p><b>[수행 역량 및 강점]</b> 설비 도면과 I/O 맵을 해독하여 접점 신호 상태와 배선 단선 여부를 추적·점검할 수 있습니다. 기아자동차 조립 라인 단기 생산인턴(아르바이트) 당시 체득한 현장 안전수칙과 5S 활동을 철저히 준수하며, 입사 후 담당 라인의 제어 계통도와 설비 운영 절차를 빠르게 익혀 안정적인 라인 가동을 지원하겠습니다.</p>
         </div>
 
-        <!-- 5. 자기소개서 (2번·3번 반영: 파편적 개월 수 덧셈 유발 문구 제거 + 연속된 흐름으로 자연스럽게 연결 + 기아차 명칭 통일) -->
+        <!-- 5. 자기소개서 -->
         <h4 class="resume-section-h4">5. 자기소개서</h4>
 
         <div class="essay-box">
           <h5>■ 성장과정 (직무 전환 계기 및 제조 현장 5S·안전수칙 체득)</h5>
           <p>대학(한국사학과) 졸업 후 박물관 도슨트로 근무하며 관람객의 눈높이에 맞춰 명확하게 소통하는 법을 익혔고, 이후 어학원에서 토익 공부를 하던 중 성실함을 인정받아 토익 학원 조교로 발탁되어 수강생 관리와 데이터 정리 업무를 수행했습니다. 그 후 공직을 목표로 수험 생활에 매진하는 한편 편의점 근무 등 단기 아르바이트로 학업과 생계를 병행했습니다. 비록 수험 생활에서 원하던 결과는 얻지 못했지만, 이 시기는 목표를 향해 흔들림 없이 파고드는 집중력과 책임감을 기르는 자양분이 되었습니다.</p>
           <p>이후 진로를 재점검하며 기아자동차 공장 조립 라인에서 단기 생산인턴(아르바이트)으로 근무한 경험이 제 인생의 전환점이 되었습니다. 수많은 컨베이어와 로봇, 자동화 설비가 시퀀스 로직과 인터록에 의해 한 치의 오차 없이 맞물려 돌아가는 현장에서 직접 땀 흘리며, 설비의 두뇌 역할을 하는 PLC 제어 분야에 큰 매력을 느꼈습니다. 또한 조립 라인에서 볼트나 공구 하나만 정해진 위치를 벗어나도 작업 지연과 불량으로 직결된다는 것을 체감하며, 작업 전후 부품·공구 정위치 정리(5S)와 표준작업절차(SOP)를 철저히 지키는 습관을 몸에 익혔습니다.</p>
-          <p>책상 앞이 아닌 현장에서 설비를 다루는 기술 인재가 되기로 결심한 뒤, 미련 없이 수험 생활을 갈무리하고 스마트팩토리 PLC·HMI·서보제어 실무 교육(108일, 860시간, 11월 6일 수료 예정)에 입과했습니다. 교육 초기 7일간의 집중 학습으로 전기기능사 필기시험에 합격(11월 27일 실기 시험 예정)하며 기초를 다졌고, 제어반 실습에서도 전선 라벨링과 단자대 정리를 철저히 수행하며 해외 생산 현장의 PLC Operator로 빠르게 적응할 준비를 마쳤습니다.</p>
+          <p>책상 앞이 아닌 현장에서 설비를 다루는 기술 인재가 되기로 결심한 뒤, 미련 없이 수험 생활을 갈무리하고 스마트팩토리 PLC·HMI·서보제어 실무 교육(108일, 860시간, 11월 6일 수료 예정)에 입과했습니다. 교육 초기 7일간의 집중 학습으로 전기기능사 필기시험에 합격(11월 27일 실기 시험 예정)하며 기초를 다졌고, 제어반 실습에서도 전선 라벨링과 단자대 정리를 철저히 수행하며 생산 현장의 PLC 제어 및 운영 인재로 빠르게 적응할 준비를 마쳤습니다.</p>
         </div>
 
         <div class="essay-box">
           <h5>■ 성격의 장단점 및 직무관련 경험 (단계별 이상 원인 추적 사례 및 글로벌 소통)</h5>
           <p>저의 장점은 설비 이상이나 데이터 오류가 발생했을 때 추측으로 단정 짓지 않고, 물리적 배선과 PLC 프로그램을 구분하여 단계별로 원인을 추적하는 꼼꼼함입니다. IoT 센서 통합 프로젝트 당시 두 가지 문제를 구분해 해결한 경험이 있습니다. 첫째로 지멘스 PLC의 유량 펄스 신호로 밸브 릴레이를 구동할 때 신호가 간헐적으로 흔들리는 하드웨어 문제가 있었는데, 조원들과 배선을 점검하여 서로 다른 SMPS 전원의 0V(GND)가 분리되어 전위차가 발생한 것을 찾아내고 공통 GND를 결선해 신호를 안정화했습니다. 둘째로 제가 주도한 HMI·SCADA 작화 과정에서 화면 표시값이 실제 물리량과 어긋나는 소프트웨어 문제가 있었는데, PLC 래더에서 소수점 표현을 위해 이미 100을 곱해둔 정수 레지스터와 상위 시스템의 실수 태그에 배율을 중복 적용한 것을 확인하고 태그별 환산 배율(÷100, ÷1000) 규칙을 통일하여 해결했습니다. 한편 동료의 요청에 제 일정이 밀릴 수 있던 단점은, 본래 업무의 마감 시간과 우선순위를 먼저 확인한 뒤 협조 가능 시간을 명확히 공유하는 방식으로 개선하여 팀 일정을 차질 없이 마쳤습니다.</p>
           <p>직무 관련 경험으로는 첫째, 미쓰비시 MELSEC(주력)과 지멘스 TIA Portal(기초·고속카운터 계측) 기반의 설비 운전·모니터링 실습입니다. ASRS 자동창고 프로젝트에서는 가상 물품 바코드 스캔 번호(D732)와 목표 번호(D140) 불일치 시 황색 알람등(Y16) 점등과 함께 서보 기동을 차단하고 수동 리셋(M402/M800)으로 복구하는 인터록을 구현했으며, 서보 BUSY(X4C) 및 실린더 센서(CS1~CS4) 완료 신호를 확인하는 M코드 연계운전을 수행했습니다. IoT 프로젝트에서는 5대 물리량 모니터링과 함께 배선 단선 알람(AD < -50)과 임계값 초과 알람(PV ≥ SV)을 분리하고, 목표 유량 도달 미검출을 막는 이상 비교(D48 ≥ D38) 정량 제어 및 MySQL DB 기록을 실습했습니다.</p>
-          <p>둘째, 유럽 체류와 외국인 친구들과의 교류를 통해 쌓은 기본적인 영어 의사소통 경험입니다. 실습 중에도 영문 센서 데이터시트와 통신 모듈 핀맵을 확인하며 과제를 수행했으며, 오는 11월 7일 OPIc 시험 응시(목표 등급 IH)를 앞두고 현지 작업자와의 업무 소통 능력을 지속적으로 향상하고 있습니다.</p>
+          <p>둘째, 유럽 체류와 외국인 친구들과의 교류를 통해 쌓은 기본적인 영어 의사소통 경험입니다. 실습 중에도 영문 센서 데이터시트와 통신 모듈 핀맵을 확인하며 과제를 수행했으며, 오는 11월 9일 OPIc 시험 응시(목표 등급 IH)를 앞두고 현지 작업자와의 업무 소통 능력을 지속적으로 향상하고 있습니다.</p>
         </div>
 
         <div class="essay-box">
           <h5>■ 지원동기 및 입사 후 포부 (표준절차 준수 · 알람/인터록 대응 · 정확한 기록과 인수인계)</h5>
-          <p>자동화 생산라인에서 운전 설정값을 정확히 관리하고 HMI와 PLC 시퀀스를 모니터링하며 설비의 안정적인 가동을 뒷받침하는 PLC Operator 직무에 매력을 느껴 지원했습니다. 교육 프로젝트에서 시운전용 에러 주입 회로(D20·D22)와 인터록 조건을 구성해 시그널타워 알람 및 리셋 복구 절차를 반복 검증해 본 경험, 그리고 기아자동차 조립 라인 단기 생산인턴(아르바이트) 근무로 다진 뚝심과 현장 적응력을 바탕으로 해외 생산 거점의 안정적인 라인 운영에 기여하고자 합니다.</p>
+          <p>자동화 생산라인에서 운전 설정값을 정확히 관리하고 HMI와 PLC 시퀀스를 모니터링하며 설비의 안정적인 가동을 뒷받침하는 자동화 설비 운영·제어 직무에 매력을 느껴 지원했습니다. 교육 프로젝트에서 시운전용 에러 주입 회로(D20·D22)와 인터록 조건을 구성해 시그널타워 알람 및 리셋 복구 절차를 반복 검증해 본 경험, 그리고 기아자동차 조립 라인 단기 생산인턴(아르바이트) 근무로 다진 뚝심과 현장 적응력을 바탕으로 생산 거점의 안정적인 라인 운영에 기여하고자 합니다.</p>
           <p>입사 초기에는 사업장의 표준작업절차(SOP)와 환경·안전 규정, 5S 활동 및 설비 매뉴얼을 철저히 숙지하겠습니다. 교육에서 익힌 설정값(SV) 적용과 바코드 대조 원리를 바탕으로 현장의 생산 조건(Recipe) 관리와 출하 이력 관리, MES 및 엑셀 실적 기록 업무를 빠르게 익히겠습니다. 또한 알람이나 공정 이상 발생 시 설비 상태와 인터록 조건을 신속히 확인하여 정해진 절차에 따라 보고·리셋·복구하고, 작업 교대 시 정확한 인수인계를 수행하겠습니다.</p>
-          <p>나아가 현장 경험을 꾸준히 축적하여 담당 설비의 PLC 로직과 보전 포인트를 깊이 있게 파악하고, 반복되는 알람 요인을 사전에 점검해 설비 가동률과 안정적인 생산 운영에 기여하는 글로벌 PLC Operator로 성장하겠습니다.</p>
+          <p>나아가 현장 경험을 꾸준히 축적하여 담당 설비의 PLC 로직과 보전 포인트를 깊이 있게 파악하고, 반복되는 알람 요인을 사전에 점검해 설비 가동률과 안정적인 생산 운영에 기여하는 전문 기술 인재로 성장하겠습니다.</p>
         </div>
       </div>
     </div>
@@ -2839,6 +3444,57 @@
       box.scrollIntoView({ behavior: 'smooth', block: 'center' });
       box.classList.add('highlight-pulse');
       setTimeout(() => box.classList.remove('highlight-pulse'), 1400);
+    }
+
+    /* ✨ 신규 추가: 각 프로젝트 내부 인라인 핵심 래더 드로어(Drawer) 제어 함수 */
+    function toggleInlineLadder(projectKey) {
+      const drawer = document.getElementById(projectKey + '-ladder-drawer');
+      const btn = document.getElementById(projectKey + '-ladder-toggle-btn');
+      if (!drawer || !btn) return;
+
+      const isOpen = drawer.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+
+      if (projectKey === 'asrs') {
+        btn.innerHTML = isOpen
+          ? '🧩 ASRS 핵심 래더 다이어그램 접기 ▲'
+          : '🧩 ASRS 핵심 래더 다이어그램 열기 ▼';
+      } else {
+        btn.innerHTML = isOpen
+          ? '🧩 IoT 핵심 래더 & FB 로직 접기 ▲'
+          : '🧩 IoT 핵심 래더 & FB 로직 열기 ▼';
+      }
+    }
+
+    function switchDrawerTab(projectKey, tabIdx, btnEl) {
+      const tabContainer = document.getElementById(projectKey + '-drawer-tabs');
+      if (tabContainer) {
+        tabContainer.querySelectorAll('.drawer-tab-btn').forEach((b, idx) => {
+          b.classList.toggle('active', idx === tabIdx);
+        });
+      }
+      const panes = document.querySelectorAll(`.drawer-pane[data-drawer="${projectKey}"]`);
+      panes.forEach((pane, idx) => {
+        pane.classList.toggle('active', idx === tabIdx);
+      });
+    }
+
+    function openInlineLadderAt(projectKey, tabIdx) {
+      const drawer = document.getElementById(projectKey + '-ladder-drawer');
+      const btn = document.getElementById(projectKey + '-ladder-toggle-btn');
+      if (!drawer) return;
+
+      if (!drawer.classList.contains('open')) {
+        drawer.classList.add('open');
+        if (btn) {
+          btn.classList.add('open');
+          btn.innerHTML = projectKey === 'asrs'
+            ? '🧩 ASRS 핵심 래더 다이어그램 접기 ▲'
+            : '🧩 IoT 핵심 래더 & FB 로직 접기 ▲';
+        }
+      }
+      switchDrawerTab(projectKey, tabIdx);
+      drawer.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     /* 입사지원서 모달 열기/닫기 및 개인정보(주소·생년월일) 보호 토글 */
@@ -3307,7 +3963,7 @@
       `;
     }
 
-    /* 6. 핵심 래더 탭 전환 */
+    /* 6. 하단 통합 래더 탭 전환 */
     function openLadderTab(idx, btnEl) {
       document.querySelectorAll('.ladder-tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.ladder-pane').forEach(p => p.classList.remove('active'));
