@@ -3077,29 +3077,28 @@
       },
       iot: {
         
-        title: 'IoT 필드 센서 계측 및 정량제어 핵심 래더 (GX Works2 / TIA Portal)',
+        title: 'IoT 필드 센서 계측 및 정량제어 핵심 래더 (GX Works2 / TIA Portal 원본)',
         pages: [
           {
-            pill: '1p. AD_Conv 공통 FB & 단선 분리',
+            pill: '1p. [MELSEC] AD 공통 FB',
             src: 'iot_ladder1.png',
-            title: '[Step 1] Q64AD 4채널 아날로그 스케일링(AD_Conv FB) 및 임계초과/단선 알람 분리',
-            desc: '온도(℃)·압력(MPa)·유속(LPM)·전류(A) 원시 AD값(D0~D3)을 공학 단위로 환산하며, 설정 임계값 초과 시 공정 알람(M10·12·14·16)을, 배선 단선으로 원시 AD값이 -50 미만으로 떨어질 때 센서 고장 알람(M11·13·15·17)을 분리 출력합니다.'
+            title: '[Step 1] MELSEC Q03UDVCPU : AD 변환 공통 FB 실수 스케일링 및 센서고장 판별',
+            desc: '아날로그 원시값(현재값_AI)을 실수(FLT)로 변환해 백분율(E/ E4000)과 스케일 값을 곱한 뒤 정수(HMI_정수_PV)로 출력합니다. 하단에서는 설정값 이상(>= HMI_설정값_SV) 시 임계값_초과를, 원시값이 K-50 미만(< K-50)일 때 센서고장 비트를 출력합니다.'
           },
           {
-            pill: '2p. 물탱크 SV 정량제어 (D48≥D38)',
+            pill: '2p. [MELSEC] 정량제어 차단',
             src: 'iot_ladder2.png',
-            title: '[Step 2] HMI 설정값 범위 제한(DLIMIT) 및 누적유량 이상 비교(D48 ≥ D38) 자동 차단',
-            desc: 'DLIMIT 명령어로 HMI 목표 유량(D38) 입력 범위를 제한하고, 스캔 주기 사이 목표값 초과 미검출을 방지하기 위해 이상 비교(D48 ≥ D38) 조건으로 솔레노이드 밸브(Y10)를 즉시 차단(RST M2)합니다.'
+            title: '[Step 2] MELSEC Q03UDVCPU : 설정유량 제한(DLIMIT) 및 목표 유량 도달 밸브 차단',
+            desc: '초기 설정유량(D38) 입력 범위를 DLIMIT(K1~K100000)으로 제한하여 오입력을 막고, 누적유량(D48)이 설정유량(D38) 이상(D>=)이거나 만수위(M7) 도달 시 즉시 밸브 버튼(RST M2)을 차단하여 연속 과주입을 방지합니다.'
           },
           {
-            pill: '3p. S7-1200 HSC 유량 & 전력 적산',
+            pill: '3p. [Siemens] HSC 유량 계측',
             src: 'iot_ladder3.png',
-            title: '[Step 3] Siemens S7-1200 고속카운터(HSC2) 유량 계측 및 1초 주기 전력량(Wh) 누적',
-            desc: '터빈 유량계 홀센서 펄스(I0.3)를 고속카운터로 집계해 DB1.DBW2로 전송하고, MELSEC Q03UDVCPU 측에서는 SM412(1초 클록)마다 추정 전력(P = 224.5V × I × 0.95)을 3600으로 나누어 적산전력량(D70)을 산출합니다.'
+            title: '[Step 3] Siemens S7-1200 : 고속 카운터(CTRL_HSC) 펄스 집계 및 HMI 데이터 변환',
+            desc: '터빈 유량계의 펄스 신호(%I0.3)를 고속 카운터 블록(CTRL_HSC)으로 수신합니다. 누적된 펄스 정수 데이터(DINT)를 실수(REAL)로 변환하고, 계산 블록(CALCULATE)에서 배율을 곱해 HMI 및 상위 DB 저장용 유량 데이터(%DB1.DBD12)로 가공하여 통신합니다.'
           }
         ]
       }
-    };
 
     let currentLadderKey = 'asrs';
     let currentLadderIdx = 0;
