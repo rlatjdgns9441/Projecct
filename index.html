@@ -1580,7 +1580,7 @@
       border: 1px solid var(--border-strong);
       border-radius: 0.95rem;
       width: 95%;
-      max-width: 1100px; /* 모달창 가로 폭을 더 넓게 확장 */
+      max-width: 1100px;
       max-height: 95vh;
       display: flex;
       flex-direction: column;
@@ -1668,16 +1668,16 @@
       background: #ffffff;
       border: 1px solid var(--border-strong);
       border-radius: 0.65rem;
-      display: block; /* flex 해제하여 세로 크기 보존 */
-      overflow: auto; /* 세로/가로 스크롤바가 자연스럽게 생기도록 설정 */
+      display: block;
+      overflow: auto;
       position: relative;
       padding: 1rem;
     }
     
     .ladder-img-viewport img {
-      width: 100%;       /* 모달 가로 폭에 시원하게 채우기 */
-      height: auto;      /* 비율 유지하여 글씨가 찌그러지지 않음 */
-      max-width: none;   /* 크기 제한 해제 */
+      width: 100%;
+      height: auto;
+      max-width: none;
       display: block;
     }
     
@@ -1707,7 +1707,7 @@
     }
 
     /* =====================================================
-       입사지원서(이력서·직무역량·자기소개서) 모달 뷰어 & 3페이지 PDF 인쇄 완벽 최적화
+       입사지원서 모달 뷰어 & 3페이지 PDF 인쇄 최적화
        ===================================================== */
     #resume-modal {
       display: none;
@@ -2014,7 +2014,7 @@
         <div class="title">EXECUTIVE SUMMARY (핵심 수행 성과 3줄 요약)</div>
         <ul>
           <li><b>[ASRS 자동창고 제어]</b> MELSEC Q03UDVCPU·QD77MS4 기반 8-Bay XY 직선보간 및 M코드(10~70)·오토스위치(X00~X03) 공압 연동 구현 (중복 입고·출고 불일치 경고, 공압 이상 인터록, 강제 에러 주입 검증 완료)</li>
-          <li><b>[IoT 필드 센서 통합]</b> 이기종 PLC(MELSEC Q03UDVCPU·Siemens S7-1200) 연동 5대 물리량(온도·압력[MPa]·유속·유량·전류) 계측, 공통 FB(AD_Conv) 기반 임계 초과/단선 알람(AD<-50) 분리 감지, 물탱크 정량 제어(D48≥D38) 및 5초 주기 MySQL DB 자동 기록 구현</li>
+          <li><b>[IoT 필드 센서 통합]</b> 이기종 PLC(MELSEC Q03UDVCPU·Siemens S7-1200) 연동 5대 물리량(온도·압력[MPa]·유속·유량·전류) 계측, 공통 FB(AD_Conv) 기반 임계 초과/센서고장 분리 감지, 물탱크 정량 제어(D48≥D38) 및 5초 주기 MySQL DB 자동 기록 구현</li>
           <li><b>[현장 기본기 & 자격]</b> 스마트팩토리 실무 교육 860시간 이수 중(2026.11.06 수료 예정), 전기기능사 필기 합격(11.27 실기 예정), 기아차 조립 라인 단기 근무를 통한 현장 5S·안전수칙 체득</li>
         </ul>
       </div>
@@ -2284,11 +2284,11 @@
             <div class="asrs-right-box">
               <div style="text-align:center; font-size:0.76rem; color:#a8a29e;">PATLITE (LR6-302PJB)</div>
               <div class="patlite-tower">
-                <div class="pat-lamp red" id="lamp-y15" title="Y15 적색 (에러 104/105 강제 주입 및 X6 공압 이상)"></div>
-                <div class="pat-lamp amber" id="lamp-y16" title="Y16 황색 (중복입고/출고품목 불일치/X2E 통신 경고)"></div>
+                <div class="pat-lamp red" id="lamp-y15" title="Y15 적색 (에러 104/105/공압이상)"></div>
+                <div class="pat-lamp amber" id="lamp-y16" title="Y16 황색 (중복입고/출고품목 불일치 경고)"></div>
                 <div class="pat-lamp green on" id="lamp-y17" title="Y17 녹색 (M901 OFF 정상 운전)"></div>
               </div>
-              <div id="pat-status-txt" style="text-align:center; font-size:0.8rem; font-weight:700; color:#4ade80;">
+              <div id="pat-status-txt" style="text-align:center; font-size:0.80rem; font-weight:700; color:#4ade80;">
                 Y17(GL) 정상 운전
               </div>
             </div>
@@ -2304,7 +2304,7 @@
     <!-- PROJECT 2: IoT SENSOR INTEGRATION -->
     <section id="iot">
       <h2 class="section-title"><span class="section-num">02</span> 주요 프로젝트 2 : IoT 기반 필드 센서 계측 및 제어 시스템</h2>
-      <p class="section-desc">2026.09.08 ~ 2026.10.06 (130시간, 완료) | 2조 CORE (5인) | 직접 담당: MELSEC Q03UDVCPU·Siemens 센서 환산 래더, HMI 설정값(SV) 정량제어 및 DB 기록 연동</p>
+      <p class="section-desc">2026.09.08 ~ 2026.10.06 (130시간, 완료) | 2조 CORE (5인) | 직접 담당: MELSEC Q03UDVCPU·Siemens S7-1200 센서 환산 래더, HMI 설정값(SV) 정량제어 및 DB 기록 연동</p>
 
       <div class="project-box">
         <div class="project-header">
@@ -2315,7 +2315,7 @@
         <!-- 검증 결과 수치 + IoT 핵심 래더 보기 단일 버튼 -->
         <div class="project-metrics-bar">
           <div class="metrics-items">
-            <span>▪ 계측·알람 검증: <b>4채널 공통 FB(AD_Conv) 임계 초과 vs 단선(AD<-50) 알람 분리 검증</b></span>
+            <span>▪ 계측·알람 검증: <b>MELSEC AD변환 / Siemens HSC 고속카운터 연동 검증</b></span>
             <span>▪ DB 로깅: <b>5초 주기 5대 센서 물리량(온도·압력[MPa]·유속·유량·전류) + 타임스탬프(date) MySQL 연속 저장 완료</b></span>
           </div>
           <button class="btn-open-ladder-modal" onclick="openLadderGallery('iot', 0)">
@@ -2343,8 +2343,8 @@
                 HMI 화면에서 입력한 단일 목표 유량(<code>D38</code>, SV)과 실시간 누적 유량(<code>D48</code>)을 비교하여 목표 도달 시(<code>D48 ≥ D38</code>) 솔레노이드 밸브(<code>Y10</code>)를 자동 차단(<code>RST M2</code>)하고, 데이터 초기화(<code>M1</code>)로 다음 회차 운전을 준비하는 로직 구현
               </li>
               <li>
-                <div class="role-badge-row"><span class="badge-mine">본인 주도 담당</span><b>5대 물리량(온도·압력[MPa]·유속·유량·전류) 모니터링 및 이상 알람 구성</b></div>
-                5대 물리량(온도[℃]·압력[MPa]·유속[LPM]·유량[L]·전류[A])을 공학 단위로 환산(<code>AD_Conv FB</code>)해 실시간 모니터링하고, 공정 임계값 초과 알람(<code>M10~M16</code>)과 센서 배선 단선 알람(<code>AD < K-50</code>, <code>M11~M17</code>)을 분리 구현 (전력 <code>P = 224.5V × I × 0.95</code> 연산은 단상 전압과 역률을 고정 상수로 가정한 추정치 적용)
+                <div class="role-badge-row"><span class="badge-mine">본인 주도 담당</span><b>이기종 PLC(MELSEC·Siemens) 연동 및 5대 물리량 모니터링</b></div>
+                MELSEC Q03UDVCPU(Q64AD)로 온도·압력·전류 아날로그 계측을 수행하고, Siemens S7-1200 고속 카운터(CTRL_HSC)로 터빈 유량계의 유속·유량 펄스 신호를 정밀 계측하여 HMI 및 상위 DB 연동 구현
               </li>
               <li>
                 <div class="role-badge-row"><span class="badge-team">팀 공동 수행</span><b>5대 물리량 + 기록 시각(date) MySQL DB 자동 저장 및 검증</b></div>
@@ -2355,16 +2355,16 @@
         </div>
 
         <div class="ts-section-label">
-          <div>■ 핵심 엔지니어링 트러블슈팅 (이상 알람 분리 · 공통 GND 및 배율 통일 · 정량 도달 미검출 방지)</div>
+          <div>■ 핵심 엔지니어링 트러블슈팅 (이지종 PLC 연동 · 공통 GND 및 배율 통일 · 정량 도달 미검출 방지)</div>
           <span>각 카드의 버튼을 누르면 위 동영상 플레이어로 자동 이동하여 재생됩니다.</span>
         </div>
 
         <div class="ts-grid">
           <div class="ts-card">
             <div>
-              <h4>트러블슈팅 1 : 공정 이상(임계값 초과)과 센서 단선 알람(AD < -50) 분리 감지</h4>
-              <p><b>문제:</b> 4~20mA/1~5V 센서 신호 수집 중 실제 공정 과열·과압(MPa) 상태와 배선 단선으로 인한 신호 불량을 화면에서 즉각 구분하여 대응할 필요성 존재</p>
-              <p><b>해결:</b> Q64AD 채널별 전류·전압 쇼트바 매칭 및 CT 2회 관통 감도 보정(20A→10A)을 수행하고, 공통 FB(<code>AD_Conv</code>)에서 설정값 초과 알람(<code>PV ≥ SV</code>, <code>M10·12·14·16</code>)과 센서 단선 알람(<code>AD < K-50</code>, <code>M11·13·15·17</code>)을 분리하여 즉시 원인을 파악할 수 있도록 구현</p>
+              <h4>트러블슈팅 1 : Siemens S7-1200 고속 카운터(CTRL_HSC) 연동 및 펄스 유량 계측</h4>
+              <p><b>문제:</b> 터빈 유량계에서 발생하는 고속 펄스 신호(<code>%I0.3</code>)를 일반 디지털 입력으로 수집할 경우 PLC 스캔 주기 한계로 인해 유량 누적 오차가 발생할 우려 존재</p>
+              <p><b>해결:</b> Siemens S7-1200의 고속 카운터 블록(<code>CTRL_HSC</code>, <code>%DB2</code>)을 활용해 펄스 입력을 누적(<code>%DB1.DBW0</code>)하고, CONV 및 CALCULATE 블록을 통해 실수(REAL) 변환 및 배율(<code>0.1</code>)을 적용하여 정확한 실시간 유량(<code>%DB1.DBD12</code>) 및 PV 값 확보</p>
             </div>
             <div class="ts-inline-btns">
               <button class="ts-mini-btn" onclick="changeIotVideo('iot_total.mp4', true)">▶ 전체 센서 통합 시연 보기</button>
@@ -2375,7 +2375,7 @@
             <div>
               <h4>트러블슈팅 2 : 이기종 PLC 공통 GND 결선 및 상위 화면·DB용 단위 배율 통일</h4>
               <p><b>문제:</b> ① 지멘스 PLC와 릴레이 측의 서로 다른 SMPS 전원 사용으로 유량 펄스 신호가 간헐적으로 흔들리는 현상, ② HMI·SCADA·Node-RED 연동 시 소수점 배율 중복 적용으로 표시값이 어긋나는 현상 발생</p>
-              <p><b>해결:</b> ① 두 SMPS의 <code>-(0V/GND)</code> 단자를 공통으로 묶어 신호 기준 전위를 안정화하고, ② MELSEC Q03UDVCPU 정수 레지스터(온도 <code>D20÷100</code> ℃, 압력 <code>D22÷1000</code> MPa, 유속 <code>D24÷100</code> LPM, 전류 <code>D26÷1000</code> A)와 지멘스 유량 태그(<code>DB1.DBW2÷100</code> L)의 환산 배율을 통일하여 표시·저장 오차를 해소</p>
+              <p><b>해결:</b> ① 두 SMPS의 <code>-(0V/GND)</code> 단자를 공통으로 묶어 신호 기준 전위를 안정화하고, ② MELSEC Q03UDVCPU 및 지멘스 유량 태그(<code>%DB1.DBW2</code>)의 환산 배율을 통일하여 표시·저장 오차를 해소함</p>
             </div>
             <div class="ts-inline-btns">
               <button class="ts-mini-btn" onclick="changeIotVideo('iot_scada.mp4', true)">▶ X-SCADA & DB 저장 영상 보기</button>
@@ -2386,7 +2386,7 @@
             <div>
               <h4>트러블슈팅 3 : 목표치 스캔 초과 미검출 방지(D48 ≥ D38) 및 설정값 범위 제한(DLIMIT)</h4>
               <p><b>문제:</b> 물탱크 목표 유량(<code>D38</code>) 도달을 단순 일치(<code>=</code>)로만 비교하면 PLC 스캔 주기 사이 목표값을 넘어선 순간(<code>50.020L</code> 등) 신호를 놓쳐 밸브가 차단되지 않는 연속 과주입이 발생할 수 있음</p>
-              <p><b>해결:</b> <code>DLIMIT K1 K100000 D38 D38</code>로 HMI 설정값 입력 범위를 0.001~100.000L로 제한하고, 이상 비교(<code>D48 ≥ D38</code>) 및 만수위 인터록(<code>M7</code>)을 적용해 목표 도달 미검출로 인한 연속 주입을 방지함 (밸브 응답 지연에 따른 미세 편차는 실측으로 확인)</p>
+              <p><b>해결:</b> <code>DLIMIT K1 K100000 D38 D38</code>로 HMI 설정값 입력 범위를 0.001~100.000L로 제한하고, 이상 비교(<code>D48 ≥ D38</code>) 및 만수위 인터록(<code>M7</code>)을 적용해 목표 도달 미검출로 인한 연속 주입을 방지함</p>
             </div>
             <div class="ts-inline-btns">
               <button class="ts-mini-btn" onclick="changeIotVideo('iot_tank.mp4', true)">▶ HMI 물탱크 정량제어 영상 보기</button>
@@ -2395,31 +2395,31 @@
         </div>
 
         <details class="interview-qa-details">
-          <summary>[실무 운영 디테일] 공정 이상 vs 센서 고장 판별, 전력 추정식 가정 및 DB 저장 검증 보기</summary>
+          <summary>[실무 운영 디테일] 이기종 PLC 통신, 지멘스 고속 카운터 및 DB 저장 검증 보기</summary>
           <div class="qa-content-grid">
             <div class="qa-item">
-              <strong>Q1. HMI 모니터링 중 '센서 단선 고장'과 '실제 공정 이상'을 어떻게 구분하는가?</strong>
-              <code>AD_Conv</code> 블록에서 4~20mA 정상 범위 내 물리량이 설정값(SV)을 넘으면 <b>임계값 초과 알람(M10·M12·M14·M16)</b>이 점등되고, 배선 단선 등으로 전류가 끊겨 원시 AD값이 음수(<code>현재값_AI < K-50</code>)로 떨어지면 <b>센서 고장 알람(M11·M13·M15·M17)</b>이 점등됩니다.
+              <strong>Q1. MELSEC과 Siemens 이기종 PLC를 함께 사용한 이유는?</strong>
+              본 시스템은 아날로그 데이터 수집(온도·압력·전류)에 최적화된 MELSEC Q03UDVCPU(Q64AD)와, 고속 펄스 카운팅(유량계)에 유리한 Siemens S7-1200(HSC)의 강점을 각각 활용하여 이기종 간더모듈 연동 및 통합 제어 역량을 검증하고자 구성했습니다.
             </div>
             <div class="qa-item">
-              <strong>Q2. 전력(W) 및 적산전력량(Wh) 계산식의 전제 조건은?</strong>
-              전류 센서(CT 2회 관통)로 계측한 교류 전류 <code>I</code>에 기반하여, 단상 전압(<code>224.5V</code>)과 역률(<code>0.95</code>)은 실습 환경의 고정 상수로 가정해 <code>P = 224.5 × I × 0.95</code>로 추산했으며, <code>SM412(1초 클록 하강에지)</code>마다 <code>P ÷ 3600</code>을 누적해 적산전력량(<code>D70</code>)을 산출했습니다.
+              <strong>Q2. 지멘스 TIA Portal에서 고속 카운터(CTRL_HSC) 구동 방식은?</strong>
+              하드웨어 입력 <code>%I0.3</code>을 고속 카운터 채널로 할당하고, 제어 데이터 블록(<code>CTRL_HSC</code>)을 호출해 펄스 카운팅을 활성화했습니다. 이를 통해 노이즈에 강한 정밀 유량 계측을 수행하고 결과값을 DB에 매핑했습니다.
             </div>
             <div class="qa-item">
               <strong>Q3. MySQL DB 테이블(iot_sensor)의 저장 구조와 정합성 확인 방법은?</strong>
-              <code>iot_sensor</code> 테이블에는 5대 센서 물리량(온도·압력[MPa]·유속·유량·전류)과 기록 번호(<code>no</code>)·시각 타임스탬프(<code>date</code>)가 5초 주기로 기록됩니다. PLC 온라인 값 ➔ SCADA 표시값 ➔ Node-RED Debug ➔ MySQL 신규 행을 단계별로 대조해 데이터 누락을 점검했습니다.
+              <code>iot_sensor</code> 테이블에는 5대 센서 물리량(온도·압력[MPa]·유속·유량·전류)과 기록 시각(<code>date</code>)이 5초 주기로 기록됩니다. PLC 온라인 값 ➔ SCADA 표시값 ➔ Node-RED ➔ MySQL 신규 행을 단계별로 대조해 데이터 정합성을 점검했습니다.
             </div>
           </div>
         </details>
 
-        <!-- 인터랙티브 애니메이션 2 (물탱크 유량 체크 전용 시뮬레이터) -->
+        <!-- 인터랙티브 애니메이션 2 -->
         <div class="sim-panel">
           <div class="sim-header">
-            <h4>[인터랙티브 아키텍처 & 물탱크 유량 시뮬레이터] 유속·유량 계측 및 설정값(D48 ≥ D38) 정량 제어</h4>
+            <h4>[인터랙티브 아키텍처 & 시뮬레이터] 5대 물리량 모니터링 및 설정값(D48 ≥ D38) 정량 제어</h4>
             <div class="sim-controls">
               <button class="sim-btn" onclick="startTankSim()">정량 주입 시작 (M2 ON → Y10 ON)</button>
-              <button class="sim-btn err" onclick="triggerSensorFault()">유속 센서 단선 알람 확인 (D2 < -50 → M15 ON)</button>
-              <button class="sim-btn rst" onclick="resetTankSim()">알람 리셋 · 누적유량 초기화 (M1 ON)</button>
+              <button class="sim-btn err" onclick="triggerSensorFault()">유속 센서 이상 확인 (M15 ON)</button>
+              <button class="sim-btn rst" onclick="resetTankSim()">알람 리셋 · 누적량 초기화 (M1 ON)</button>
             </div>
           </div>
 
@@ -2437,11 +2437,11 @@
             <div class="arch-node">
               <h5>2. PLC 시퀀스·인터록 <span class="pulse-dot"></span></h5>
               <p>
-                • <b>MELSEC Q03UDVCPU (.246:1025)</b><br>
-                  Q64AD CH1~4 → AD_Conv FB<br>
+                • <b>MELSEC Q03UDVCPU</b><br>
+                  Q64AD CH1~4 아날로그 계측<br>
                   목표 유량 비교(D48≥D38) → Y10<br>
-                • <b>Siemens S7-1200 (.95:102)</b><br>
-                  I0.3 HSC2 카운트 → DB1.DBW2
+                • <b>Siemens S7-1200</b><br>
+                  %I0.3 HSC2 고속카운터 유량 계측
               </p>
             </div>
             <div class="arch-node">
@@ -2466,15 +2466,15 @@
           <div class="iot-sim-stage">
             <div class="sensor-readout-grid">
               <div class="readout-item">
-                <span>실시간 유속 PV (FM-215 / D24 ÷ 100)</span>
+                <span>실시간 유속 PV (Siemens HSC)</span>
                 <strong id="iot-val-lpm">30.00 LPM</strong>
               </div>
               <div class="readout-item">
-                <span>목표 설정 유량 SV (HMI 입력 / D38)</span>
+                <span>목표 설정 유량 SV (HMI 입력)</span>
                 <strong id="iot-val-sv">50.000 L</strong>
               </div>
               <div class="readout-item">
-                <span>실시간 누적 유량 PV (HSC / D48)</span>
+                <span>실시간 누적 유량 PV (터빈 펄스)</span>
                 <strong id="iot-val-pv">0.000 L</strong>
               </div>
               <div class="readout-item">
@@ -2497,12 +2497,12 @@
             </div>
 
             <div style="font-size:0.83rem; color:#e7e5e4; background:var(--sim-panel); padding:0.9rem; border-radius:0.6rem; border:1px solid var(--sim-border);">
-              <div style="font-weight:700; color:#fbbf24; margin-bottom:0.4rem;">물탱크 유량 제어 상태 & 인터록</div>
+              <div style="font-weight:700; color:#fbbf24; margin-bottom:0.4rem;">공정 운전 상태 & 데이터 기록</div>
               <div id="iot-sim-status">
                 • <b>운전 상태(M2):</b> 대기중 (저수위 M6 ON)<br>
-                • <b>설정 유량(SV):</b> <code>D38 = 50.000L (DLIMIT 제한)</code><br>
-                • <b>차단 조건:</b> <code>D48 ≥ D38</code> 이상 비교로 미검출 방지 (RST M2)<br>
-                • <b>유량계 상태:</b> 유속(CH3)·유량(HSC) 정상 (M14·M15 OFF)
+                • <b>설정값(SV):</b> <code>D38 = 50.000L (DLIMIT 제한)</code><br>
+                • <b>정지 조건:</b> <code>D48 ≥ D38</code> 이상 비교로 미검출 방지 (RST M2)<br>
+                • <b>알람 모니터링:</b> 전 채널 정상 (통신 및 HSC 계측 원활)
               </div>
             </div>
           </div>
@@ -2584,21 +2584,21 @@
               </tr>
               <tr>
                 <td><b>IoT 아날로그</b></td>
-                <td><code>D0~D3 ➔ D20·22·24·26</code></td>
-                <td>MELSEC <code>Q03UDVCPU</code> + <code>Q64AD</code></td>
-                <td>CH1 온도(<code>D20÷100</code> ℃), CH2 압력(<code>D22÷1000</code> <b>MPa</b>), CH3 유속(<code>D24÷100</code> LPM), CH4 전류(<code>D26÷1000</code> A)</td>
+                <td><code>%IW64 ➔ MD10</code></td>
+                <td>Siemens <code>S7-1200</code> + 아날로그 입력</td>
+                <td>온도 센서 척도 변환 (NORM_X ➔ SCALE_X, 0.0 ~ 100.0 ℃)</td>
               </tr>
               <tr>
-                <td><b>IoT 설정/전력</b></td>
-                <td><code>D38 / D48 / D62 / D70</code></td>
-                <td>LS HMI (<code>.226</code>) · 전자밸브(<code>Y10</code>)</td>
-                <td><code>D38</code>(목표유량 SV), <code>D48</code>(누적유량 PV, <code>D48≥D38</code> 시 차단), <code>D62</code>(추정 전력 W), <code>D70</code>(적산전력량 Wh)</td>
+                <td><b>IoT 고속카운터</b></td>
+                <td><code>%I0.3 ➔ DB1.DBD12</code></td>
+                <td>Siemens <code>S7-1200</code> HSC2 (CTRL_HSC)</td>
+                <td>터빈 유량계 고속 펄스 계측 및 CONV/CALCULATE 연산을 통한 실시간 유량(LPM) 산출</td>
               </tr>
               <tr>
-                <td><b>IoT 유량/DB</b></td>
-                <td><code>I0.3 (HSC2) ➔ DB1.DBW2</code></td>
-                <td>Siemens <code>S7-1200</code> (.95) · MySQL</td>
-                <td>터빈 펄스 유량(<code>÷100</code> L) ➔ 5초 주기 <code>iot_sensor</code> 테이블(온도·압력[MPa]·유속·유량·전류 + 기록시각 <code>date</code>) 자동 저장</td>
+                <td><b>IoT 펄스/DB</b></td>
+                <td><code>%DB1.DBW2 ➔ MySQL</code></td>
+                <td>Siemens <code>S7-1200</code> · MySQL</td>
+                <td>유량 누적 PV(<code>%DB1.DBW2</code>) ➔ 5초 주기 <code>iot_sensor</code> 테이블(온도·압력[MPa]·유속·유량·전류 + 시각 <code>date</code>) 자동 저장</td>
               </tr>
             </tbody>
           </table>
@@ -2856,24 +2856,23 @@
                 <span style="font-size:0.78rem; color:#64748b;">2026.09.08 ~ 10.06 (130h)</span>
               </td>
               <td>
-                MELSEC Q03UDVCPU(Q64AD), Siemens S7-1200(HSC), X-SCADA, Node-RED, MySQL
+                MELSEC Q03UDVCPU, Siemens S7-1200 (CTRL_HSC), X-SCADA, MySQL
               </td>
               <td>
-                • 5대 물리량(온도·압력[MPa]·유속·유량·전류) 공학 단위 환산(AD_Conv FB)<br>
-                • 공정 임계값 초과 알람(M10~16)과 배선 단선 알람(AD<-50, M11~17) 분리 구현<br>
+                • MELSEC Q03UDVCPU 아날로그 센서(온도·압력·전류) 계측 및 S7-1200 고속카운터(HSC2) 펄스 유량 계측 연동<br>
                 • 물탱크 목표 유량(D48≥D38) 자동 차단(Y10) 및 5초 주기 MySQL DB 자동 로깅
               </td>
             </tr>
           </tbody>
         </table>
 
-       <!-- 5. 직무 중심 자기소개서 -->
+        <!-- 5. 자기소개서 -->
         <h4 class="resume-section-h4">5. 직무 중심 자기소개서</h4>
 
         <div class="essay-box">
           <h5>1) 직무 적합성 및 전환 계기 : "생산 라인에서 체득한 표준 준수의 가치와 진로 재설정"</h5>
           <p>
-            과거 기아자동차 조립 라인에서 단기 생산인턴으로 근무하며, 정해진 시간 안에 멈춤 없이 돌아가는 자동화 공정의 현장을 직접 경험했습니다. 당시 조립 보조 업무를 수행하며 부품이나 공구가 제자리에 없으면 즉각적인 라인 지연으로 이어지는 것을 보았고, 5S 정위치 관리와 표준작업절차(SOP) 준수가 현장 안전과 생산성의 출발점임을 몸으로 익혔습니다.
+            과거 기아자동차 조립 라인에서 단기 생산인턴(아르바이트)으로 근무하며, 정해진 시간 안에 멈춤 없이 돌아가는 자동화 공정의 현장을 직접 경험했습니다. 당시 조립 보조 업무를 수행하며 부품이나 공구가 제자리에 없으면 즉각적인 라인 지연으로 이어지는 것을 보았고, 5S 정위치 관리와 표준작업절차(SOP) 준수가 현장 안전과 생산성의 출발점임을 몸으로 익혔습니다.
           </p>
           <p>
             대학 졸업 후 공무원 시험을 준비하며 끈기와 인내를 배웠으나, 도면을 보고 직접 선을 연결하며 결과를 만들어내는 기술직에 매력을 느껴 진로를 전면 재설정했습니다. 비전공자로 시작했지만, 860시간의 스마트팩토리 실무 과정을 이수하며 전기기능사 필기 합격 및 주말 실기 배선 작업에 매진하여 현장 적응에 필요한 제어 기본기를 탄탄히 다졌습니다.
@@ -2881,12 +2880,12 @@
         </div>
 
         <div class="essay-box">
-          <h5>2) 핵심 역량 및 문제 해결 경험 : "신호와 원인을 명확히 분리하는 인터록 설계와 예외 검증"</h5>
+          <h5>2) 핵심 역량 및 문제 해결 경험 : "이기종 PLC(MELSEC·Siemens) 연동과 신뢰성 있는 제어 설계"</h5>
           <p>
-            제어 프로그램을 짤 때 '작업자가 설비의 이상 상태를 즉각 인지하고 안전하게 복구할 수 있는가'에 집중했습니다. 서보 자동창고(ASRS) 프로젝트에서는 서보의 M코드 신호와 공압 실린더의 센서 완료 접점을 연계하여 기구적 충돌을 막는 엄격한 핸드셰이크를 구현했습니다. 또한 공압 이상 감지 시 즉시 축을 정지시키는 보호 인터록을 구성하고, 조건별로 3색 시그널타워가 정확히 경보하는지 디버깅하는 과정을 거쳤습니다.
+            제어 프로그램을 짤 때 항상 '작업자가 설비의 이상 상태를 즉각 인지하고 안전하게 복구할 수 있는가'에 집중했습니다. 서보 자동창고(ASRS) 프로젝트에서는 M코드 버퍼와 실린더 오토스위치를 연계하여 기구적 충돌을 막는 엄격한 핸드셰이크를 구현하고, 공압 이상 감지 시 축 정지 인터록과 3색 시그널타워 경보 로직을 검증했습니다.
           </p>
           <p>
-            IoT 센서 통합 프로젝트에서는 5대 물리량(온도, 압력, 유속, 유량, 전류) 계측 중 실제 공정 이상과 센서 배선 단선을 명확히 구분하기 위해 래더 내 알람 분기 회로를 설계했습니다. 아울러 이기종 장비 간 전원 차이로 신호가 흔들리던 문제를 공통 GND(0V) 결선으로 해결하며, 하드웨어 배선과 소프트웨어 로직을 아우르는 문제 해결 능력을 길렀습니다.
+            특히 IoT 센서 통합 프로젝트에서는 아날로그 계측에 유리한 MELSEC Q03UDVCPU와 고속 펄스 카운팅에 특화된 Siemens S7-1200(CTRL_HSC)을 함께 활용하는 이기종 융합 시스템을 구축했습니다. 지멘스 TIA Portal 환경에서 고속 카운터 블록으로 터빈 유량계의 펄스를 정밀 집계하고 실수 변환 및 배율 연산을 거쳐 HMI와 MySQL DB에 실시간 연동하며 시스템 확장성과 데이터 신뢰성을 높였습니다.
           </p>
         </div>
 
@@ -2909,6 +2908,9 @@
             여러 차례의 유럽 여행과 외국인 친구들과의 꾸준한 교류로 쌓은 유연한 소통 능력을 바탕으로, 유관 부서 및 현장 작업자들과 원활하게 협업하며 국내외 시운전 현장 어디서든 안전하고 안정적인 설비 운영을 지원하겠습니다.
           </p>
         </div>
+      </div>
+    </div>
+  </div>
 
   <!-- 일반 이미지 확대 모달 -->
   <div id="img-modal" onclick="closeModal()">
@@ -2920,7 +2922,7 @@
   <div id="toast">복사되었습니다.</div>
 
   <!-- =====================================================
-       통합 인터랙티브 스크립트
+       통합 인터랙티브 스크립트 (지멘스 래더 반영 완결판)
        ===================================================== -->
   <script>
     // 1. 상단 스크롤 진행바
@@ -3050,55 +3052,55 @@
       }
     }
 
-    // 5. 핵심 래더 갤러리 모달 (ASRS 3p / IoT 3p)
+    // 5. 핵심 래더 갤러리 모달 (지멘스 래더 반영)
     const ladderGalleryData = {
       asrs: {
         title: 'ASRS 자동창고 핵심 제어 래더 다이어그램 (GX Works2)',
         pages: [
           {
-            pill: '1p. 서보 위치결정 보간 기동',
+            pill: '1p. M코드 기동 및 공압 연동',
             src: 'asrs_ladder1.png',
-            title: '[Step 1] QD77MS4 XY 2축 직선보간 위치결정 기동(ZP.PSTRT1)',
-            desc: '운전 조건(서보 ON, 원점복귀 완료, BUSY OFF)을 확인하고, HMI에서 선택한 베이 번호에 해당하는 위치결정 데이터(D40 등)를 바탕으로 ZP.PSTRT1 전용 명령어를 실행하여 크레인을 목표 XY 좌표로 구동시킵니다.'
+            title: '[Step 1] 축1 M코드 판독(U4\\G808 → D1000) 및 공압 센서 완료 후 M코드 OFF 요구(U4\\G1504)',
+            desc: '서보 위치결정 스텝에서 축1 M코드 ON(X44) 신호가 발생하면 버퍼메모리(U4\\G808)의 M코드 번호(10·20·30·40·60/70)를 D1000으로 읽어와 좌우/전후 실린더(Y10·Y11)를 구동합니다. 이후 오토스위치(CS1~CS4, X0~X3) 완료 접점이 감지되면 M코드 OFF 요구(MOV K1 U4\\G1504)를 전송해 다음 서보 동작으로 안전하게 넘어갑니다.'
           },
           {
-            pill: '2p. M코드 및 공압 연동',
+            pill: '2p. 중복입고·출고검증 경고',
             src: 'asrs_ladder2.png',
-            title: '[Step 2] 축1 M코드 판독(U4\\G808) 및 공압 센서 인터록 핸드셰이크',
-            desc: '보간 스텝 중 M코드 ON(X44) 발생 시 M코드 번호(10~70)를 읽어 좌우/전후 실린더(Y10·Y11)를 구동합니다. 동작 후 오토스위치 완료 접점(X0~X3)이 감지되어야만 M코드 OFF 요구(MOV K1 U4\\G1504)를 전송해 다음 서보 동작으로 안전하게 넘어갑니다.'
+            title: '[Step 2] 입고 시 중복 적재 경고 및 출고 완료 후 바코드 불일치 경고등(Y16) 점등',
+            desc: '입고 시에는 이미 입고된 동일 물품을 다시 입고시키려 할 때 경고등을 띄워 중복 적재를 방지합니다. 출고 시에는 요청한 베이(예: 3번)의 물품을 인출해 온 뒤 바코드를 스캔하며, 만약 다른 물품(예: 4번)이 출고되어 스캔 결과값(D732)과 요청 번호(D140)가 다르면 황색 경고등(Y16)을 점등시켜 작업자 확인 및 리셋을 유도합니다.'
           },
           {
-            pill: '3p. 바코드 검증 및 예외 알람',
+            pill: '3p. 공압 인터록 & 강제 에러 주입',
             src: 'asrs_ladder3.png',
-            title: '[Step 3] 바코드 품목 검증 및 강제 에러 주입 기반 시그널타워 제어',
-            desc: '입고 시 중복 적재, 출고 시 스캔값(D732)과 목표번호(D140) 불일치 시 황색 경고등(Y16)을 점등합니다. 또한 HMI 강제 에러 주입(D20·D22) 및 공압 이상(X6) 감지 시 적색 점멸(Y15)과 축 정지(Y44)를 수행하고, 현장 점검 후 수동 리셋(M402/M800)으로 복구합니다.'
+            title: '[Step 3] 공압 이상 감지(X6→M111·Y44 정지) 및 강제 에러 주입(D20·D22) 시그널타워 분기',
+            desc: '운전 중 공압 이상(X6) 감지 시 M111을 SET하여 축1 정지(Y44)로 서보를 보호하고, 복구(M112) 시 일시정지 해제(U4\\G1500=K1)를 수행합니다. 또한 D20·D22 강제 에러 주입을 통해 104·105 에러 및 공압 이상 시 적색 점멸(Y15), 타 축 에러·통신 에러(X2E)·바코드 불일치 시 황색 점등(Y16), 정상(M901 OFF) 시 녹색 점등(Y17)을 검증했습니다.'
           }
         ]
       },
       iot: {
-        
-        title: 'IoT 필드 센서 계측 및 정량제어 핵심 래더 (GX Works2 / TIA Portal 원본)',
+        title: 'IoT 필드 센서 계측 및 정량제어 핵심 래더 (MELSEC & Siemens TIA Portal)',
         pages: [
           {
-            pill: '1p. [MELSEC] AD 공통 FB',
+            pill: '1p. [MELSEC] AD 변환 공통 FB',
             src: 'iot_ladder1.png',
-            title: '[Step 1] MELSEC Q03UDVCPU : AD 변환 공통 FB 실수 스케일링 및 센서고장 판별',
-            desc: '아날로그 원시값(현재값_AI)을 실수(FLT)로 변환해 백분율(E/ E4000)과 스케일 값을 곱한 뒤 정수(HMI_정수_PV)로 출력합니다. 하단에서는 설정값 이상(>= HMI_설정값_SV) 시 임계값_초과를, 원시값이 K-50 미만(< K-50)일 때 센서고장 비트를 출력합니다.'
+            title: '[Step 1] MELSEC Q03UDVCPU : AD 변환 공통 FB 실수 스케일링(FLT·E/·INT) 및 임계값·고장 판별',
+            desc: '아날로그 원시값(현재값_AI)을 실수(FLT)로 변환해 스케일 연산을 거쳐 정수로 출력합니다. 설정값 이상(>= HMI_설정값_SV) 시 임계값_초과를, 원시값이 K-50 미만(< K-50)일 때 센서고장 비트를 출력합니다.'
           },
           {
-            pill: '2p. [MELSEC] 정량제어 차단',
+            pill: '2p. [MELSEC] 물탱크 정량제어',
             src: 'iot_ladder2.png',
-            title: '[Step 2] MELSEC Q03UDVCPU : 설정유량 제한(DLIMIT) 및 목표 유량 도달 밸브 차단',
-            desc: '초기 설정유량(D38) 입력 범위를 DLIMIT(K1~K100000)으로 제한하여 오입력을 막고, 누적유량(D48)이 설정유량(D38) 이상(D>=)이거나 만수위(M7) 도달 시 즉시 밸브 버튼(RST M2)을 차단하여 연속 과주입을 방지합니다.'
+            title: '[Step 2] MELSEC Q03UDVCPU : 설정유량 제한(DLIMIT) 및 누적유량 도달(D>= D48 D38) 밸브 차단',
+            desc: '초기 설정유량(D38) 입력 범위를 DLIMIT(K1~K100000)으로 제한하고, 누적유량(D48)이 설정유량(D38) 이상(D>=)이거나 만수위(M7) 도달 시 즉시 밸브 버튼(RST M2)을 차단하여 연속 과주입을 방지합니다.'
           },
           {
-            pill: '3p. [Siemens] HSC 유량 계측',
+            pill: '3p. [Siemens] HSC 고속카운터 유량',
             src: 'iot_ladder3.png',
-            title: '[Step 3] Siemens S7-1200 : 고속 카운터(CTRL_HSC) 펄스 집계 및 HMI 데이터 변환',
-            desc: '터빈 유량계의 펄스 신호(%I0.3)를 고속 카운터 블록(CTRL_HSC)으로 수신합니다. 누적된 펄스 정수 데이터(DINT)를 실수(REAL)로 변환하고, 계산 블록(CALCULATE)에서 배율을 곱해 HMI 및 상위 DB 저장용 유량 데이터(%DB1.DBD12)로 가공하여 통신합니다.'
+            title: '[Step 3] Siemens S7-1200 TIA Portal : 고속 카운터(CTRL_HSC) 펄스 집계 및 HMI 데이터 변환',
+            desc: '터빈 유량계의 고속 펄스 신호(%I0.3)를 고속 카운터 블록(CTRL_HSC, %DB2)으로 수신합니다. 펄스 정수(DINT)를 실수(REAL)로 변환하고, 계산 블록(CALCULATE)에서 배율(0.1)을 적용해 HMI 및 상위 DB 저장용 유량 데이터(%DB1.DBD12)로 가공합니다.'
           }
         ]
       }
+    };
 
     let currentLadderKey = 'asrs';
     let currentLadderIdx = 0;
@@ -3443,14 +3445,14 @@
 
       valveTxt.textContent = 'OFF (인터록 차단)';
       valveTxt.style.color = '#ef4444';
-      lpmEl.textContent = 'ERR (AD -120 / 단선)';
+      lpmEl.textContent = 'ERR (고속카운터 통신)';
       lpmEl.style.color = '#ef4444';
-      levelEl.textContent = '유속 센서 이상 (M15 ON)';
+      levelEl.textContent = '유량계 센서 이상 감지';
       levelEl.style.color = '#ef4444';
 
       statusEl.innerHTML =
-        `• <b style="color:#f87171;">[유속 센서 단선 알람 M15 ON]</b> CH3 원시 AD값 <code>D2 < K-50</code> 감지!<br>` +
-        `• <b>원인 분리:</b> 유속 임계 초과(M14 OFF)가 아닌 <b>배선 단선 고장</b> 판별<br>` +
+        `• <b style="color:#f87171;">[지멘스 HSC 계측 에러]</b> 고속카운터(CTRL_HSC) 펄스 입력 중단 감지!<br>` +
+        `• <b>원인 분리:</b> 터빈 유량계 신호선 단선 또는 전원 이상 판별<br>` +
         `• <b>안전 조치:</b> 정량 주입 전자밸브(Y10) 즉시 차단 및 HMI 경보 표시`;
     }
 
@@ -3465,7 +3467,7 @@
 
       const valveTxt = document.getElementById('valve-y10-txt');
       valveTxt.textContent = 'OFF';
-      valveTxt.style.color = '#ef4444';
+      valveTxt.style.color = '_#ef4444';
 
       const lpmEl = document.getElementById('iot-val-lpm');
       lpmEl.textContent = '30.00 LPM';
@@ -3476,10 +3478,10 @@
       levelEl.style.color = '#4ade80';
 
       document.getElementById('iot-sim-status').innerHTML =
-        `• <b>운전 상태(M2):</b> 누적유량 초기화(<code>M1 ON</code>) 및 알람 리셋 완료<br>` +
-        `• <b>설정 유량(SV):</b> <code>D38 = 50.000L (DLIMIT 제한)</code><br>` +
+        `• <b>운전 상태(M2):</b> 누적량 초기화 및 알람 리셋 완료<br>` +
+        `• <b>설정 유량(SV):</b> <code>D38 = 50.000L</code><br>` +
         `• <b>차단 조건:</b> <code>D48 ≥ D38</code> 이상 비교로 미검출 방지 (RST M2)<br>` +
-        `• <b>유량계 상태:</b> 유속(CH3)·유량(HSC) 정상 복구 완료`;
+        `• <b>유량계 상태:</b> 지멘스 HSC 펄스 계측 정상 복구 완료`;
     }
   </script>
 </body>
