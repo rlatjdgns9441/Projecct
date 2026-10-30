@@ -2740,7 +2740,7 @@
               <th>성 명</th>
               <td class="nowrap-cell"><b>김 성 훈</b></td>
               <th>생년월일</th>
-              <td class="nowrap-cell" id="resume-birth">1993년생 (만 33세)</td>
+              <td class="nowrap-cell" id="resume-birth">1994년생 (만 32세)</td>
               <th>연 락 처</th>
               <td class="nowrap-cell">010-9228-9441</td>
             </tr>
@@ -2872,7 +2872,7 @@
         <div class="essay-box">
           <h5>1) 직무 적합성 및 전환 계기 : "생산 라인에서 체득한 표준 준수의 가치와 진로 재설정"</h5>
           <p>
-            과거 기아자동차 조립 라인에서 단기 생산인턴(아르바이트)으로 근무하며, 정해진 시간 안에 멈춤 없이 돌아가는 자동화 공정의 현장을 직접 경험했습니다. 당시 조립 보조 업무를 수행하며 부품이나 공구가 제자리에 없으면 즉각적인 라인 지연으로 이어지는 것을 보았고, 5S 정위치 관리와 표준작업절차(SOP) 준수가 현장 안전과 생산성의 출발점임을 몸으로 익혔습니다.
+            과거 기아자동차 조립 라인에서 단기 생산인턴으로 근무하며, 정해진 시간 안에 멈춤 없이 돌아가는 자동화 공정의 현장을 직접 경험했습니다. 당시 조립 보조 업무를 수행하며 부품이나 공구가 제자리에 없으면 즉각적인 라인 지연으로 이어지는 것을 보았고, 5S 정위치 관리와 표준작업절차(SOP) 준수가 현장 안전과 생산성의 출발점임을 몸으로 익혔습니다.
           </p>
           <p>
             대학 졸업 후 공무원 시험을 준비하며 끈기와 인내를 배웠으나, 도면을 보고 직접 선을 연결하며 결과를 만들어내는 기술직에 매력을 느껴 진로를 전면 재설정했습니다. 비전공자로 시작했지만, 860시간의 스마트팩토리 실무 과정을 이수하며 전기기능사 필기 합격 및 주말 실기 배선 작업에 매진하여 현장 적응에 필요한 제어 기본기를 탄탄히 다졌습니다.
@@ -3191,12 +3191,12 @@
       const btnEl = document.getElementById('privacy-btn');
 
       if (resumePrivacyShown) {
-        if (birthEl) birthEl.textContent = '1993년생 (만 33세 / 상세 생년월일 표시됨)';
-        if (addrEl) addrEl.textContent = '경기도 거주 (입사지원서 제출용 상세 주소 표시 모드)';
+        if (birthEl) birthEl.textContent = '1994년 10월생 (만 32세)'; // 상세 표시 모드
+        if (addrEl) addrEl.textContent = '경기도 시흥시 (상세 주소 표시됨)'; // 필요시 실제 상세주소로 수정 가능
         if (btnEl) btnEl.textContent = '웹 열람용 개인정보 보호 모드로 전환';
         showToast('인쇄·제출용 상세 표시 모드로 전환되었습니다.');
       } else {
-        if (birthEl) birthEl.textContent = '1993년생 (만 33세)';
+        if (birthEl) birthEl.textContent = '1994년생 (만 32세)'; // 기본 보호 모드
         if (addrEl) addrEl.textContent = '경기도 거주 (상세 주소는 상단 표시 버튼 클릭 시 열람 가능)';
         if (btnEl) btnEl.textContent = '제출·인쇄용 상세 주소/생년월일 모두 표시하기';
         showToast('웹 열람용 보호 모드로 전환되었습니다.');
